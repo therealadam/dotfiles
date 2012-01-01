@@ -123,6 +123,9 @@ let g:vimclojure#ParenRainbow=1
 "" TODO
 " * Finish porting my old config
 "
+" Ack
+" Command-T or similar
+" VimClojure
 " vim-surround - https://github.com/tpope/vim-surround
 " vim-repeat - https://github.com/tpope/vim-repeat
 " vim-fugitive - https://github.com/tpope/vim-fugitive

@@ -1,0 +1,8 @@
+ssh_options[:keys] = %w(/Users/adam/.ssh/id_rsa)
+ssh_options[:paranoid] = false
+# ssh_options[:forward_agent] = true
+# ssh_options[:verbose] = :debug
+
+# Fix some sudo oddness. See this thread:
+#   http://groups.google.com/group/capistrano/browse_thread/thread/e79e1e85b084e39a?pli=1
+# default_run_options[:pty] = true
