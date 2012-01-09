@@ -137,10 +137,6 @@ let g:vimclojure#ParenRainbow=1
 " align - ??
 " copy-as-rtf - ???
 " gist - ??
-" rails - ??
-" vim-rspec - ??
-" vim-rake - ??
-" ruby
 " coffeescript
 " git
 " markdown
