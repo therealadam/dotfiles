@@ -120,6 +120,45 @@ nnoremap <leader>w <C-w>v<C-w>l
 "" Clojure
 let g:vimclojure#ParenRainbow=1
 
+"" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
+
+map <leader>t :call RunTestFile()<cr>
+
+function! RunTests(filename)
+  " Write the file and run tests for the given filename
+  :w
+  :silent !echo;echo;echo;echo;echo
+  if filereadable("script/test")
+    exec ":!script/test " . a:filename
+  else if filereadable("Gemfile")
+    exec ":!bundle exec rspec --fail-fast " . a:filename
+  else
+    exec ":!rspec --fail-fast " . a:filename
+  end
+endfunction
+
+function! SetTestFile()
+  " Set the spec file that tests will be run for.
+  let t:grb_test_file=@%
+endfunction
+
+function! RunTestFile(...)
+  if a:0
+    let command_suffix = a:1
+  else
+    let command_suffix = ""
+  endif
+
+  " Run the tests for the previously-marked file.
+  let in_spec_file = match(expand("%"), '_spec.rb$') != -1
+  if in_spec_file
+    call SetTestFile()
+  elseif !exists("t:grb_test_file")
+    return
+  end
+  call RunTests(t:grb_test_file .  command_suffix)
+endfunction
+
 "" TODO
 " * Finish porting my old config
 "
