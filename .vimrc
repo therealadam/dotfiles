@@ -81,11 +81,14 @@ color Tomorrow
 call pathogen#infect()
 call pathogen#helptags()
 
-"" Command-T
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
+"" File finding gizmo (whichever I'm using today)
+cnoremap %% :CtrlP<C-R>=expand('%:h').'/'<cr>
 
-map <leader>f :CommandTFlush<cr>\|:CommandT<cr>
-map <leader>F :CommandTFlush<cr>\|:CommandT %%<cr>
+map <leader>f :CtrlP<cr>
+map <leader>rf :CtrlPMRU<cr>
+map <leader>b :CtrlPBuffer<cr>
+
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*.swp,*.un*
 
 "" Window navigation
 nnoremap <c-j> <c-w>j
@@ -168,8 +171,6 @@ endfunction
 "" TODO
 " * Finish porting my old config
 "
-" Ack
-" Command-T or similar
 " VimClojure
 " vim-surround - https://github.com/tpope/vim-surround
 " vim-repeat - https://github.com/tpope/vim-repeat

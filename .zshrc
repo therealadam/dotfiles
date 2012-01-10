@@ -14,8 +14,6 @@ source $ZSH/aliases.zsh
 source $ZSH/options.zsh
 source $ZSH/functions.zsh
 source $ZSH/exports.zsh
-source $ZSH/ree.zsh
-
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
