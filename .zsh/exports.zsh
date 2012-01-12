@@ -7,7 +7,7 @@ export PAGER=less
 export LC_CTYPE=en_US.UTF-8
 
 # the greatest environment variable of all time
-export EDITOR="vi"
+export EDITOR="/usr/bin/vim"
 
 # I put stuff in odd-ish places
 export PATH=/usr/local/bin:$PATH # My custom stuff
