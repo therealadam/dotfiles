@@ -172,7 +172,6 @@ endfunction
 " * Finish porting my old config
 "
 " VimClojure
-" vim-surround - https://github.com/tpope/vim-surround
 " vim-repeat - https://github.com/tpope/vim-repeat
 " vim-fugitive - https://github.com/tpope/vim-fugitive
 " snipmate - https://github.com/msanders/snipmate.vim
