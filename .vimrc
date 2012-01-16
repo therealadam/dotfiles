@@ -90,12 +90,6 @@ map <leader>b :CtrlPBuffer<cr>
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*.swp,*.un*
 
-"" Window navigation
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
 "" Quickly switch to the last file
 nnoremap <leader><leader> <c-^>
 
@@ -118,7 +112,7 @@ nnoremap <leader>v V`]
 inoremap jj <ESC>
 
 "" Quick split
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>ww <C-w>v<C-w>l
 
 "" Clojure
 let g:vimclojure#ParenRainbow=1
@@ -179,6 +173,7 @@ endfunction
 " sparkup - https://github.com/rstacruz/sparkup
 " vim-textobj-rubyblock - https://github.com/nelstrom/vim-textobj-rubyblock
 " tComment - https://github.com/tomtom/tcomment_vim
+" powerline ? -https://github.com/Lokaltog/vim-powerline
 " align - ??
 " copy-as-rtf - ???
 " gist - ??
