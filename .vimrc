@@ -73,9 +73,9 @@ iabbrev teh the
 
 "" Looks
 
-set background=light
+set background=dark
 set t_Co=256
-color Tomorrow
+color Tomorrow-Night-Bright
 
 "" Pathogen
 call pathogen#infect()

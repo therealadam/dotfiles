@@ -1,0 +1,7 @@
+alias rs='script/server'
+alias rg='ruby script/generate'
+alias rd='ruby script/destroy'
+alias rr='ruby script/runner'
+alias rdbm='rake db:migrate'
+alias rc='ruby script/console'
+alias rlog='tail -f log/development.log'

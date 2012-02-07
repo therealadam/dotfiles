@@ -60,3 +60,11 @@ git_prompt_status() {
   fi
   echo $STATUS
 }
+
+function gcb() {
+  git branch | grep '^\*' | cut -c3-
+}
+
+function gpn() {
+  git push -u origin `gcb`
+}
