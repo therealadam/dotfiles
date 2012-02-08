@@ -167,25 +167,13 @@ endfunction
 " * Finish porting my old config
 "
 " VimClojure
-" vim-repeat - https://github.com/tpope/vim-repeat
-" vim-fugitive - https://github.com/tpope/vim-fugitive
 " snipmate - https://github.com/msanders/snipmate.vim
-" yankring - http://www.vim.org/scripts/script.php?script_id=1234
-" sparkup - https://github.com/rstacruz/sparkup
-" vim-textobj-rubyblock - https://github.com/nelstrom/vim-textobj-rubyblock
-" tComment - https://github.com/tomtom/tcomment_vim
-" powerline ? -https://github.com/Lokaltog/vim-powerline
-" align - ??
-" copy-as-rtf - ???
-" gist - ??
 " coffeescript
-" git
 " markdown
 " html
 " cucumber
 " javascript
 " scala
-" go
 
 "" TO PILLAGE
 " http://vimcasts.org/episodes/archive

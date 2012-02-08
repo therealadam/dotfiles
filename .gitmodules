@@ -32,3 +32,27 @@
 [submodule ".vim/bundle/go.vim"]
 	path = .vim/bundle/go.vim
 	url = https://github.com/jnwhiteh/vim-golang
+[submodule ".vim/bundle/vim-fugitive"]
+	path = .vim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundle/vim-unimpaired"]
+	path = .vim/bundle/vim-unimpaired
+	url = https://github.com/tpope/vim-unimpaired
+[submodule ".vim/bundle/vim-repeat"]
+	path = .vim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule ".vim/bundle/vim-textobj-rubyblock"]
+	path = .vim/bundle/vim-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule ".vim/bundle/vim-align"]
+	path = .vim/bundle/vim-align
+	url = https://github.com/tsaleh/vim-align.git
+[submodule ".vim/bundle/copy-as-rtf"]
+	path = .vim/bundle/copy-as-rtf
+	url = https://github.com/aniero/vim-copy-as-rtf.git
+[submodule ".vim/bundle/gist"]
+	path = .vim/bundle/gist
+	url = https://github.com/mattn/gist-vim.git
+[submodule ".vim/bundle/powerline"]
+	path = .vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git
