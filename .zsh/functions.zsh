@@ -6,3 +6,8 @@ function mcd() {
 function zsh_stats() {
   history | awk '{print $2}' | sort | uniq -c | sort -rn | head
 }
+
+function notify() {
+  growlnotify -s -m $1
+  say $1
+}
