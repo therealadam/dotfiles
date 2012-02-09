@@ -17,7 +17,7 @@ set showmatch
 set gdefault
 nnoremap / /\v
 vnoremap / /\v
-nnoremap <leader><space><space> :noh<cr>
+nnoremap <leader>no :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -48,8 +48,19 @@ set autoindent " Match the next line's indent to the current line
 set showmode
 set showcmd
 set hidden
+
 set wildmenu
 set wildmode=list:longest
+
+" what files to ignore when doing filename completion, etc.
+set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
+" Disable archive files
+set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
+" Ignore bundler and sass cache
+set wildignore+=vendor/gems/*,vendor/cache/*,.bundle/*,.sass-cache/*
+" Disable temp and backup files
+set wildignore+=*.swp,*~,._*
+
 set visualbell
 set ttyfast
 set ruler
@@ -81,17 +92,11 @@ color Tomorrow-Night-Bright
 call pathogen#infect()
 call pathogen#helptags()
 
-"" File finding gizmo (whichever I'm using today)
-cnoremap %% :CtrlP<C-R>=expand('%:h').'/'<cr>
-
-map <leader>f :CtrlP<cr>
-map <leader>rf :CtrlPMRU<cr>
-map <leader>b :CtrlPBuffer<cr>
-
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so,*.swp,*.un*
-
 "" Quickly switch to the last file
 nnoremap <leader><leader> <c-^>
+
+"" Use the OS X clipboard
+set clipboard=unnamed
 
 "" Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -118,9 +123,71 @@ nnoremap <leader>ww <C-w>v<C-w>l
 "" Clojure
 let g:vimclojure#ParenRainbow=1
 
-"" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
 
-map <leader>t :call RunTestFile()<cr>
+""" surround
+" Use v or # to get a variable interpolation (inside of a string)}
+" ysiw#   Wrap the token under the cursor in #{}
+" v...s#  Wrap the selection in #{}
+let g:surround_113 = "#{\r}" " v
+let g:surround_35  = "#{\r}" " #
+
+" Select text in an ERb file with visual mode and then press s- or s=
+" Or yss- to do entire line.
+let g:surround_45 = "<% \r %>"  " -
+let g:surround_61 = "<%= \r %>" " =
+
+""" tagbar
+map <silent> <Leader>tb :TagbarToggle<CR>
+
+""" ctags, ctrlp refresh
+
+function! Refresh()
+  echo "refreshing tags and files..."
+
+  silent !if [ -d .git ]; then git ls-files -c -o --exclude-standard | ctags -L -; else ctags -R; fi
+
+  if exists(":ClearCtrlPCache") == 2
+    ClearCtrlPCache
+  endif
+endfunction
+
+map <silent> <Leader>r :call Refresh()<CR>
+
+"" File finding gizmo (whichever I'm using today)
+map <leader>f :CtrlP<cr>
+map <leader>b :CtrlPBuffer<cr>
+
+"" File navigation, standing on GRB's shoulders
+
+" Open files, limited to the directory of the current file, with <leader>gf
+" This requires the %% mapping.
+map <leader>gf :CtrlP %%<cr>
+
+map <leader>gv :CtrlP app/views<cr>
+map <leader>gc :CtrlP app/controllers<cr>
+map <leader>gm :CtrlP app/models<cr>
+map <leader>gh :CtrlP app/helpers<cr>
+map <leader>gl :CtrlP lib<cr>
+map <leader>gp :CtrlP public<cr>
+map <leader>gs :CtrlP public/stylesheets<cr>
+
+map <leader>gr :topleft :split config/routes.rb<cr>
+map <leader>gg :topleft 100 :split Gemfile<cr>
+
+cnoremap %% <C-R>=expand('%:h').'/'<cr>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+"" Make windows well-sized. Borrowed from GRB. Not sure if liking.
+set winwidth=84
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=5
+set winminheight=5
+set winheight=999
+
+"" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
 
 function! RunTests(filename)
     " Write the file and run tests for the given filename
@@ -162,6 +229,8 @@ function! RunTestFile(...)
     end
     call RunTests(t:grb_test_file . command_suffix)
 endfunction
+
+map <leader>t :call RunTestFile()<cr>
 
 "" TODO
 " * Finish porting my old config
