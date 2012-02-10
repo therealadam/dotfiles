@@ -17,7 +17,7 @@ set showmatch
 set gdefault
 nnoremap / /\v
 vnoremap / /\v
-nnoremap <leader>no :noh<cr>
+nnoremap <leader><Space><Space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -66,6 +66,9 @@ set ttyfast
 set ruler
 set laststatus=2
 set undofile
+
+"" Load any customizations particular to this old host
+source ~/.local.vim
 
 "" Key binding
 let mapleader=","
@@ -183,8 +186,8 @@ set winwidth=84
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=5
-set winminheight=5
+set winheight=8
+set winminheight=8
 set winheight=999
 
 "" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
