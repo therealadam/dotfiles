@@ -8,3 +8,4 @@ tags
 .idea
 *_flymake.*
 *.un~
+.env
