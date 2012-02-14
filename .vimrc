@@ -182,12 +182,12 @@ map <leader>e :edit %%
 map <leader>v :view %%
 
 "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-set winwidth=84
+set winwidth=80
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=8
-set winminheight=8
+set winheight=10
+set winminheight=10
 set winheight=999
 
 "" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
