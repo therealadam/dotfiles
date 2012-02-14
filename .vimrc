@@ -89,7 +89,8 @@ iabbrev teh the
 
 set background=dark
 set t_Co=256
-color Tomorrow-Night-Bright
+# colorscheme Tomorrow-Night-Bright
+colorscheme badwolf
 
 "" Pathogen
 call pathogen#infect()
