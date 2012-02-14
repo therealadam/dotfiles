@@ -89,7 +89,7 @@ iabbrev teh the
 
 set background=dark
 set t_Co=256
-# colorscheme Tomorrow-Night-Bright
+" colorscheme Tomorrow-Night-Bright
 colorscheme badwolf
 
 "" Pathogen
