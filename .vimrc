@@ -100,7 +100,7 @@ call pathogen#helptags()
 nnoremap <leader><leader> <c-^>
 
 "" Use the OS X clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 "" Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
