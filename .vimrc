@@ -238,6 +238,8 @@ map <leader>t :call RunTestFile()<cr>
 
 "" TODO
 " * Finish porting my old config
+" * Align
+" * Customize statusline
 "
 " VimClojure
 " snipmate - https://github.com/msanders/snipmate.vim
