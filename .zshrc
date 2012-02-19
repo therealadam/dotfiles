@@ -16,6 +16,7 @@ source $ZSH/options.zsh
 source $ZSH/functions.zsh
 source $ZSH/exports.zsh
 source $ZSH/rails.zsh
+source $ZSH/completion.zsh
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
