@@ -157,6 +157,10 @@ endfunction
 
 map <silent> <Leader>r :call Refresh()<CR>
 
+"" Don't let yankring poop in my home directory
+let g:yankring_history_dir = '$VIM'
+let g:yankring_history_file = 'yankring.txt'
+
 "" File finding gizmo (whichever I'm using today)
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
