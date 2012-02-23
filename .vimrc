@@ -43,7 +43,7 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Set some stuff
-set scrolloff=3 " Keep three lines of context around the cursor at all times
+set scrolloff=1 " Keep 1 line of context around the cursor at all times
 set autoindent " Match the next line's indent to the current line
 set showmode
 set showcmd
@@ -158,7 +158,7 @@ endfunction
 map <silent> <Leader>r :call Refresh()<CR>
 
 "" Don't let yankring poop in my home directory
-let g:yankring_history_dir = '$VIM'
+let g:yankring_history_dir = '$HOME/.vim/'
 let g:yankring_history_file = 'yankring.txt'
 
 "" File finding gizmo (whichever I'm using today)

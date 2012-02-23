@@ -68,3 +68,5 @@ function gcb() {
 function gpn() {
   git push -u origin `gcb`
 }
+
+alias gbtodo='g d --name-only master|xargs grep -E -A 2 "HAX|TODO"'
