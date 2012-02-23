@@ -165,6 +165,9 @@ let g:yankring_history_file = 'yankring.txt'
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 
+"" My own little test runner!
+map <leader>tf :call Focus()<cr>
+
 "" File navigation, standing on GRB's shoulders
 
 " Open files, limited to the directory of the current file, with <leader>gf
