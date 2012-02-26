@@ -17,7 +17,7 @@ set showmatch
 set gdefault
 nnoremap / /\v
 vnoremap / /\v
-nnoremap <leader><Space><Space> :noh<cr>
+nnoremap <CR><CR> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
@@ -252,7 +252,7 @@ map <leader>t :call RunTestFile()<cr>
 " snipmate - https://github.com/msanders/snipmate.vim
 " coffeescript
 " markdown
-" html
+" html (ragtag)
 " cucumber
 " javascript
 " scala
@@ -262,3 +262,4 @@ map <leader>t :call RunTestFile()<cr>
 " https://github.com/mislav/vimfiles/blob/master/vimrc
 " http://yanpritzker.com/2011/10/26/colorful-vim-ruby-tests-and-debugging/
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
+" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc#L640
