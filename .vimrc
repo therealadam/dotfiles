@@ -189,6 +189,9 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
+" Powerline
+let g:Powerline_symbols = 'fancy'
+
 "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
 set winwidth=80
 " We have to have a winheight bigger than we want to set winminheight. But if
