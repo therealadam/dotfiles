@@ -17,6 +17,10 @@ source $ZSH/functions.zsh
 source $ZSH/exports.zsh
 source $ZSH/rails.zsh
 source $ZSH/completion.zsh
+source $ZSH/keys.zsh
+
+# Load completion functions
+fpath=($ZSH/completion)
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc

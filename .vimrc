@@ -68,7 +68,7 @@ set laststatus=2
 set undofile
 
 "" Load any customizations particular to this old host
-source ~/.local.vim
+source ~HOME/.local.vim
 
 "" Key binding
 let mapleader=","
