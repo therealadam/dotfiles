@@ -9,6 +9,7 @@ alias ...='cd ../..'
 alias md='mkdir -p'
 alias rd=rmdir
 alias d='dirs -v'
+
 # vi
 alias vi="~/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="~/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -39,3 +40,4 @@ alias start_cassandra="~/Develop/cassandra/bin/cassandra -f"
 
 # Stuff
 alias xmlpretty="xmllint --format -f"
+alias t=todo.sh
