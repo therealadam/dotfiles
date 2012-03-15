@@ -19,7 +19,7 @@ source $ZSH/rails.zsh
 source $ZSH/keys.zsh
 
 # Load completion functions
-fpath=($ZSH/completion/)
+fpath=($ZSH/completion $fpath)
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
