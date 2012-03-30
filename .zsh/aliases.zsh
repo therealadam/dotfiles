@@ -40,4 +40,3 @@ alias start_cassandra="~/Develop/cassandra/bin/cassandra -f"
 
 # Stuff
 alias xmlpretty="xmllint --format -f"
-alias t=todo.sh
