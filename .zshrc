@@ -33,4 +33,5 @@ if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
 fi
 
-eval "$(rbenv init -)"
+# SO HAX
+which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"
