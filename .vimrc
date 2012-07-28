@@ -240,6 +240,9 @@ if has('gui_running')
 
 end
 
+"" vim-slime
+let g:slime_target = "tmux"
+
 "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
 set winwidth=80
 " We have to have a winheight bigger than we want to set winminheight. But if
