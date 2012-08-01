@@ -2,6 +2,7 @@ set nocompatible " Just say no to plain vi
 syntax enable
 set encoding=utf-8
 filetype plugin indent on " load file type plugins and indentation
+set shell=/bin/sh
 
 "" Whitespace
 set tabstop=2 shiftwidth=2
@@ -68,7 +69,7 @@ set laststatus=2
 set undofile
 
 "" Load any customizations particular to this old host
-source ~HOME/.local.vim
+" source ~HOME/.local.vim
 
 "" Key binding
 let mapleader=","
@@ -155,7 +156,7 @@ function! Refresh()
   endif
 endfunction
 
-map <silent> <Leader>r :call Refresh()<CR>
+map <silent> <Leader>rtags :call Refresh()<CR>
 
 "" Don't let yankring poop in my home directory
 let g:yankring_history_dir = '$HOME/.vim/'
@@ -166,7 +167,7 @@ map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 
 "" My own little test runner!
-map <leader>tf :call Focus()<cr>
+" map <leader>tf :call Focus()<cr>
 
 "" File navigation, standing on GRB's shoulders
 
@@ -252,50 +253,11 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
-"" Run RSpec tests. Extract into a plugin thingy. Totally ganked from GRB.
-
-function! RunTests(filename)
-    " Write the file and run tests for the given filename
-    :w
-    :silent !echo;echo;echo;echo;echo;echo;echo;echo;echo;echo
-    if match(a:filename, '\.feature$') != -1
-        exec ":!bundle exec cucumber " . a:filename
-    elseif match(a:filename, '_test\.rb$') != -1
-        exec ":!ruby -Ilib:test " . a:filename
-    else
-        if filereadable("script/test")
-            exec ":!script/test " . a:filename
-        elseif filereadable("Gemfile")
-            exec ":!bundle exec rspec --color " . a:filename
-        else
-            exec ":!rspec --color " . a:filename
-        end
-    end
-endfunction
-
-function! SetTestFile()
-    " Set the spec file that tests will be run for.
-    let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-    if a:0
-        let command_suffix = a:1
-    else
-        let command_suffix = ""
-    endif
-
-    " Run the tests for the previously-marked file.
-    let in_test_file = match(expand("%"), '\(.feature\|_test.rb\|_spec.rb\)$') != -1
-    if in_test_file
-        call SetTestFile()
-    elseif !exists("t:grb_test_file")
-        return
-    end
-    call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-map <leader>t :call RunTestFile()<cr>
+"" vroom
+let g:vroom_use_colors=1
+let g:vroom_map_keys=0
+map <leader>t :VroomRunTestFile<cr>
+map <leader>tf :VroomRunNearestTest<cr>
 
 "" TODO
 " * Finish porting my old config
@@ -303,13 +265,9 @@ map <leader>t :call RunTestFile()<cr>
 " * Customize statusline
 "
 " VimClojure
-" snipmate - https://github.com/msanders/snipmate.vim
 " coffeescript
-" markdown
 " html (ragtag)
-" cucumber
 " javascript
-" scala
 
 "" TO PILLAGE
 " http://vimcasts.org/episodes/archive
@@ -317,3 +275,4 @@ map <leader>t :call RunTestFile()<cr>
 " http://yanpritzker.com/2011/10/26/colorful-vim-ruby-tests-and-debugging/
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc#L640
+
