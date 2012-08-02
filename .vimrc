@@ -259,6 +259,12 @@ let g:vroom_map_keys=0
 map <leader>t :VroomRunTestFile<cr>
 map <leader>tf :VroomRunNearestTest<cr>
 
+"" vimux
+map <leader>vp :VimuxPromptCommand<cr>
+map <leader>vl :VimuxRunLastCommand<cr>
+map <leader>vi :VimuxInspectRunner<cr>
+map <leader>vq :VimuxCloseRunner<cr>
+
 "" TODO
 " * Finish porting my old config
 " * Align

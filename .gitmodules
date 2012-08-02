@@ -101,3 +101,6 @@
 [submodule ".vim/bundle/vim-vroom"]
 	path = .vim/bundle/vim-vroom
 	url = https://github.com/skalnik/vim-vroom.git
+[submodule ".vim/bundle/vimux"]
+	path = .vim/bundle/vimux
+	url = https://github.com/benmills/vimux.git
