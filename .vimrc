@@ -73,7 +73,7 @@ set undofile
 
 "" Key binding
 let mapleader=","
-let maplocalleader="\\"
+let maplocalleader=","
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -108,7 +108,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Ack is so great
 nnoremap <leader>a :Ack
-nnoremap <leader>aw :Ack <C-r><C-w>
+" nnoremap <leader>aw :Ack <C-r><C-w>
 
 "" Fold HTML tags
 nnoremap <leader>ft Vatzf
@@ -127,6 +127,10 @@ nnoremap <leader>ww <C-w>v<C-w>l
 
 "" Clojure
 let g:vimclojure#ParenRainbow=1
+let g:vimclojure#HighlightBuiltins=1
+let g:vimclojure#WantNailgun=1
+let g:vimclojure#SplitPos="bottom"
+let g:vimclojure#SplitSize=10
 
 
 """ surround

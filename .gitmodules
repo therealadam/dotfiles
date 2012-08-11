@@ -104,3 +104,6 @@
 [submodule ".vim/bundle/vimux"]
 	path = .vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
+[submodule "/Users/adamkeys/.vim/bundle/paredit"]
+	path = /Users/adamkeys/.vim/bundle/paredit
+	url = git://github.com/vim-scripts/paredit.vim.git
