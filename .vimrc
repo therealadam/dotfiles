@@ -4,6 +4,9 @@ set encoding=utf-8
 filetype plugin indent on " load file type plugins and indentation
 set shell=/bin/sh
 
+"" Live dangerously, don't use a swapfile
+set noswapfile
+
 "" Whitespace
 set tabstop=2 shiftwidth=2
 set expandtab
