@@ -93,7 +93,6 @@ iabbrev teh the
 
 set background=dark
 set t_Co=256
-" colorscheme Tomorrow-Night-Bright
 colorscheme badwolf
 
 "" Pathogen
@@ -202,7 +201,8 @@ let g:Powerline_symbols = 'fancy'
 
 " Make gvim nice
 if has('gui_running')
-  set guifont=Mensch\ for\ Powerline:h14
+  set guifont=Meslo\ LG\ S\ DZ:h14
+  colorscheme Tomorrow
 
   " Kill UI cruft
   set go-=T
@@ -210,7 +210,6 @@ if has('gui_running')
   set go-=l
   set go-=r
   set go-=R
-
 
   " Different cursors for different modes.
   set guicursor=n-c:block-Cursor-blinkon0
@@ -246,6 +245,8 @@ if has('gui_running')
     inoremap <D-BS>     <esc>my0c`y
   end
 
+  autocmd GUIEnter * :unmenu DrChip.
+  autocmd GUIEnter * :unmenu Plugin.
 end
 
 "" vim-slime
