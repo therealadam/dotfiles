@@ -110,7 +110,7 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Ack is so great
 nnoremap <leader>a :Ack
-" nnoremap <leader>aw :Ack <C-r><C-w>
+nnoremap <leader>aw :Ack <C-r><C-w>
 
 "" Fold HTML tags
 nnoremap <leader>ft Vatzf
