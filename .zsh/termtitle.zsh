@@ -28,6 +28,6 @@ function termsupport_preexec {
 }
 
 autoload -U add-zsh-hook
-add-zsh-hook precmd  termsupport_precmd
-add-zsh-hook preexec termsupport_preexec
+# add-zsh-hook precmd  termsupport_precmd
+# add-zsh-hook preexec termsupport_preexec
 

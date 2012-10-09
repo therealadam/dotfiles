@@ -8,3 +8,5 @@
 --nonib
 --notmstuff
 --noxcode
+--ignore-dir=coverage
+--ignore-dir=spec/reports

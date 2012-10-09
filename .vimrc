@@ -151,18 +151,18 @@ let g:surround_61 = "<%= \r %>" " =
 map <silent> <Leader>tb :TagbarToggle<CR>
 
 """ ctags, ctrlp refresh
-
 function! Refresh()
   echo "refreshing tags and files..."
 
-  silent !if [ -d .git ]; then git ls-files -c -o --exclude-standard | ctags -L -; else ctags -R; fi
+  !if [ -d .git ]; then git ls-files -c -o --exclude-standard | ctags -L -; else ctags -R; fi
 
   if exists(":ClearCtrlPCache") == 2
     ClearCtrlPCache
   endif
+  echo "all the things, refreshed!"
 endfunction
 
-map <silent> <Leader>rtags :call Refresh()<CR>
+map <silent> <Leader>rt :call Refresh()<CR>
 
 "" Don't let yankring poop in my home directory
 let g:yankring_history_dir = '$HOME/.vim/'
@@ -273,12 +273,14 @@ map <leader>vl :VimuxRunLastCommand<cr>
 map <leader>vi :VimuxInspectRunner<cr>
 map <leader>vq :VimuxCloseRunner<cr>
 
+"" Finger happiness
+command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
+map <leader>G :Git 
+
 "" TODO
 " * Finish porting my old config
-" * Align
 " * Customize statusline
 "
-" VimClojure
 " coffeescript
 " html (ragtag)
 " javascript
