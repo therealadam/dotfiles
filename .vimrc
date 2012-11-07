@@ -64,6 +64,8 @@ set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
 set wildignore+=vendor/gems/*,vendor/cache/*,.bundle/*,.sass-cache/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
+" Disable poop
+set wildignore+=*/spec/reports/*,coverage/*
 
 set visualbell
 set ttyfast
@@ -276,6 +278,9 @@ map <leader>vq :VimuxCloseRunner<cr>
 "" Finger happiness
 command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
 map <leader>G :Git 
+
+"" Sometimes, I like to see line numbers
+map <leader>l :set number!<cr>
 
 "" TODO
 " * Finish porting my old config

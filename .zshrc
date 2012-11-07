@@ -35,3 +35,5 @@ fi
 
 # SO HAX
 which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
