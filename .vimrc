@@ -111,8 +111,8 @@ nnoremap <leader><leader> <c-^>
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Ack is so great
-nnoremap <leader>a :Ack
-nnoremap <leader>aw :Ack <C-r><C-w>
+nnoremap <leader>A :Ack
+nnoremap <leader>Aw :Ack <C-r><C-w>
 
 "" Fold HTML tags
 nnoremap <leader>ft Vatzf
@@ -164,7 +164,7 @@ function! Refresh()
   echo "all the things, refreshed!"
 endfunction
 
-map <silent> <Leader>rt :call Refresh()<CR>
+map <silent> <Leader>ct :call Refresh()<CR>
 
 "" Don't let yankring poop in my home directory
 let g:yankring_history_dir = '$HOME/.vim/'
