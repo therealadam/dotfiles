@@ -282,6 +282,16 @@ map <leader>G :Git
 "" Sometimes, I like to see line numbers
 map <leader>l :set number!<cr>
 
+"" Folding
+
+set foldlevelstart=0
+
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Refocus folds
+nnoremap ,z zMzvzz
+
 "" TODO
 " * Finish porting my old config
 " * Customize statusline
