@@ -11,3 +11,7 @@ function notify() {
   growlnotify -s -m $1
   say $1
 }
+
+function pt() {
+  papertrail -f -d 5 $_ | colortail -g papertrail
+}
