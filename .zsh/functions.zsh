@@ -15,3 +15,8 @@ function notify() {
 function pt() {
   papertrail -f -d 5 $_ | colortail -g papertrail
 }
+
+function tg() {
+  tail -f $1 | grep $2
+}
+

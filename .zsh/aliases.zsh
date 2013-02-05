@@ -19,11 +19,13 @@ alias e="vim"
 
 # Git
 alias g='git'
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias glg='git log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s""]]]"'
 
 # Network debugging
 alias traffic='sudo tcpdump -XS -i'
 alias httpflow='sudo tcpflow -c port 80'
-alias rc='restclient'
+alias tcplisteners="lsof -i -P | grep LISTEN"
 
 # Gems
 alias gemi='gem install'
@@ -40,3 +42,9 @@ alias start_cassandra="~/Develop/cassandra/bin/cassandra -f"
 
 # Stuff
 alias xmlpretty="xmllint --format -f"
+alias freq='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
+
+# tmux
+alias tn="tmux new -s $0"
+alias ta="tmux attach"
+
