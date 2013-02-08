@@ -104,9 +104,9 @@
 [submodule ".vim/bundle/vimux"]
 	path = .vim/bundle/vimux
 	url = https://github.com/benmills/vimux.git
-[submodule "/Users/adamkeys/.vim/bundle/paredit"]
-	path = /Users/adamkeys/.vim/bundle/paredit
+[submodule ".vim/bundle/paredit"]
+	path = .vim/bundle/paredit
 	url = git://github.com/vim-scripts/paredit.vim.git
-[submodule "/Users/adam/.vim/bundle/vim-ruby-xmpfilter"]
-	path = /Users/adam/.vim/bundle/vim-ruby-xmpfilter
+[submodule ".vim/bundle/vim-ruby-xmpfilter"]
+	path = .vim/bundle/vim-ruby-xmpfilter
 	url = git://github.com/t9md/vim-ruby-xmpfilter.git
