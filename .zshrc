@@ -24,10 +24,6 @@ fpath=($ZSH/completion $fpath)
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
 
-# Let RVM do its thing
-unsetopt auto_name_dirs # Fix unwanted rvm var expansion
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
 # Autojump is wholly great
 if [ -f `brew --prefix`/etc/autojump ]; then
   . `brew --prefix`/etc/autojump
@@ -36,4 +32,3 @@ fi
 # SO HAX
 which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

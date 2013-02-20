@@ -9,3 +9,4 @@ tags
 *_flymake.*
 *.un~
 .env
+.bundle
