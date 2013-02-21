@@ -32,3 +32,5 @@ fi
 # SO HAX
 which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
