@@ -292,6 +292,29 @@ vnoremap <Space> za
 " Refocus folds
 nnoremap ,z zMzvzz
 
+" neocomplcache
+let g:neocomplcache_enable_cursor_hold_i = 1
+let g:neocomplcache_enable_at_startup = 1
+
+" imap <C-k> <Plug>(neocomplcache_snippets_expand)
+" smap <C-k> <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g> neocomplcache#undo_completion()
+inoremap <expr><C-l> neocomplcache#complete_common_string()
+
+" inoremap <expr><CR> neocomplcache#smart_close_popup()
+inoremap <expr><TAB> pumvisible() ? "\<C-n>": "\<TAB>"
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y> neocomplcache#close_popup()
+inoremap <expr><C-e> neocomplcache#cancel_popup()
+
+autocmd FileType css setlocal omnifunc=cssComplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+
+" switch.vim
+
+nnoremap - :Switch<cr>
+
 "" TODO
 " * Finish porting my old config
 " * Customize statusline

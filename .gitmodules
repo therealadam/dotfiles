@@ -113,3 +113,12 @@
 [submodule ".vim/bundle/vim-easymotion"]
 	path = .vim/bundle/vim-easymotion
 	url = git://github.com/Lokaltog/vim-easymotion.git
+[submodule ".vim/bundle/neocomplcache"]
+	path = .vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
+[submodule "/Users/adamkeys/.vim/bundle/switch.vim"]
+	path = /Users/adamkeys/.vim/bundle/switch.vim
+	url = git://github.com/AndrewRadev/switch.vim.git
+[submodule ".vim/bundle/splitjoin.vim"]
+	path = .vim/bundle/splitjoin.vim
+	url = git://github.com/AndrewRadev/splitjoin.vim.git
