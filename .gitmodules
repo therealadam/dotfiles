@@ -117,7 +117,7 @@
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
 [submodule "/Users/adamkeys/.vim/bundle/switch.vim"]
-	path = /Users/adamkeys/.vim/bundle/switch.vim
+	path = .vim/bundle/switch.vim
 	url = git://github.com/AndrewRadev/switch.vim.git
 [submodule ".vim/bundle/splitjoin.vim"]
 	path = .vim/bundle/splitjoin.vim
