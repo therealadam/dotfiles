@@ -38,8 +38,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 "" Margin line numbers
-set nonumber
-set numberwidth=5
+set number
+set numberwidth=6
 
 "" Disable F1
 inoremap <F1> <ESC>

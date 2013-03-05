@@ -122,3 +122,6 @@
 [submodule ".vim/bundle/splitjoin.vim"]
 	path = .vim/bundle/splitjoin.vim
 	url = git://github.com/AndrewRadev/splitjoin.vim.git
+[submodule ".vim/bundle/git-gutter-vim"]
+	path = .vim/bundle/git-gutter-vim
+	url = git://github.com/akiomik/git-gutter-vim.git
