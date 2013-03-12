@@ -20,3 +20,16 @@ function tg() {
   tail -f $1 | grep $2
 }
 
+function grok() {
+  search_path=$1
+  pattern=$2
+  tmp=`mktemp /tmp/grok.XXX`
+
+  for i in `find $search_path -name "$2" -print`; do
+    echo "##### $i #####\n" >> $tmp
+    cat $i >> $tmp
+  done
+
+  vi -c 'set ft=ruby' $tmp
+}
+
