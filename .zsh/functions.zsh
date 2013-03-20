@@ -33,3 +33,8 @@ function grok() {
   vi -c 'set ft=ruby' $tmp
 }
 
+function writer() {
+  file=$1
+
+  open -a "iA Writer" $1
+}
