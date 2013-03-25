@@ -38,3 +38,9 @@ function writer() {
 
   open -a "iA Writer" $1
 }
+
+function marked() {
+  file=$1
+
+  open -a "Marked.app" $1
+}
