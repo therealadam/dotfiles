@@ -132,9 +132,9 @@ nnoremap <leader>ww <C-w>v<C-w>l
 "" Clojure
 let g:vimclojure#ParenRainbow=1
 let g:vimclojure#HighlightBuiltins=1
-let g:vimclojure#WantNailgun=1
-let g:vimclojure#SplitPos="bottom"
-let g:vimclojure#SplitSize=10
+" let g:vimclojure#WantNailgun=1
+" let g:vimclojure#SplitPos="bottom"
+" let g:vimclojure#SplitSize=10
 
 
 """ surround
