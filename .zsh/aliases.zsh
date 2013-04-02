@@ -34,11 +34,7 @@ alias gems='gem search'
 
 # Servers
 alias start_mysql="mysql.server start"
-alias start_pgsql="pg_ctl -D /Users/adam/Develop/homebrew/var/postgres -l /Users/adam/Develop/homebrew/var/postgres/server.log start"
-alias start_memcached="memcached"
 alias start_redis="redis-server ~/Develop/homebrew/etc/redis.conf"
-alias start_mongo="mongod run --config /Users/adam/Develop/homebrew/Cellar/mongodb/1.6.1-x86_64/mongod.conf"
-alias start_cassandra="~/Develop/cassandra/bin/cassandra -f"
 
 # Stuff
 alias xmlpretty="xmllint --format -f"
@@ -48,3 +44,5 @@ alias freq='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 3
 alias tn="tmux new -s $0"
 alias ta="tmux attach"
 
+# Ruby
+alias be="bundle exec"
