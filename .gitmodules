@@ -116,7 +116,7 @@
 [submodule ".vim/bundle/neocomplcache"]
 	path = .vim/bundle/neocomplcache
 	url = git://github.com/Shougo/neocomplcache.git
-[submodule "/Users/adamkeys/.vim/bundle/switch.vim"]
+[submodule ".vim/bundle/switch.vim"]
 	path = .vim/bundle/switch.vim
 	url = git://github.com/AndrewRadev/switch.vim.git
 [submodule ".vim/bundle/splitjoin.vim"]
@@ -131,3 +131,6 @@
 [submodule ".vim/bundle/vim-classpath"]
 	path = .vim/bundle/vim-classpath
 	url = git://github.com/tpope/vim-classpath.git
+[submodule ".vim/bundle/vim-dispatch"]
+	path = .vim/bundle/vim-dispatch
+	url = git://github.com/tpope/vim-dispatch.git
