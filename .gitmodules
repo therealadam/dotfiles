@@ -140,3 +140,6 @@
 [submodule ".vim/bundle/vim-rbenv"]
 	path = .vim/bundle/vim-rbenv
 	url = git://github.com/tpope/vim-rbenv.git
+[submodule ".vim/bundle/vim-tbone"]
+	path = .vim/bundle/vim-tbone
+	url = git://github.com/tpope/vim-tbone.git
