@@ -4,8 +4,6 @@ Pry.config.editor = "vim"
 # Prompt with ruby version
 Pry.prompt = [proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
-%w{map_by_method hirb}.each { |gem| require gem }
-
 # Toys methods
 # Stealed from https://gist.github.com/807492
 class Array
@@ -21,4 +19,4 @@ class Hash
 end
 
 # loading rails configuration if it is running as a rails console
-load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) && Rails
+# load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) && Rails

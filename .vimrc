@@ -266,9 +266,9 @@ set winheight=999
 "" vroom
 let g:vroom_use_colors=1
 let g:vroom_map_keys=0
-" let g:vroom_use_vimux=1
-let g:vroom_use_dispatch=1
-let g:vroom_use_binstubs=1
+let g:vroom_use_vimux=1
+let g:vroom_use_dispatch=0
+" let g:vroom_use_binstubs=1
 map <leader>t :VroomRunTestFile<cr>
 map <leader>tf :VroomRunNearestTest<cr>
 
