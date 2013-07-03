@@ -277,6 +277,8 @@ map <leader>vp :VimuxPromptCommand<cr>
 map <leader>vl :VimuxRunLastCommand<cr>
 map <leader>vi :VimuxInspectRunner<cr>
 map <leader>vq :VimuxCloseRunner<cr>
+map <leader>vk :VimuxScrollUpInspect<cr>
+map <leader>vj :VimuxScrollDownInspect<cr>
 
 "" Finger happiness
 command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
