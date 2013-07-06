@@ -146,3 +146,6 @@
 [submodule ".vim/bundle/vim-ruby-refactoring"]
 	path = .vim/bundle/vim-ruby-refactoring
 	url = https://github.com/rking/vim-ruby-refactoring
+[submodule "/Users/adam/.vim/bundle/vim-tmux-navigator"]
+	path = /Users/adam/.vim/bundle/vim-tmux-navigator
+	url = git@github.com:christoomey/vim-tmux-navigator.git

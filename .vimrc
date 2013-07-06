@@ -320,6 +320,15 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 
 nnoremap - :Switch<cr>
 
+" better tmux/vim movement
+let g:tmux_navigator_no_mappings = 1
+
+nmap <silent> <ctrl-h> :TmuxNavigateLeft<cr>
+nmap <silent> <ctrl-j> :TmuxNavigateDown<cr>
+nmap <silent> <ctrl-k> :TmuxNavigateUp<cr>
+nmap <silent> <ctrl-l> :TmuxNavigateRight<cr>
+nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
+
 "" TODO
 " * Finish porting my old config
 " * Customize statusline
