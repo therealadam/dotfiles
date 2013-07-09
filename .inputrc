@@ -7,7 +7,6 @@ Control-f: forward-char
 Control-k: kill-line
 Control-n: next-history
 Control-p: previous-history
-
-set keymap emacs-ctlx
+ 
 v: vi-editing-mode
 Control-v: "\C-xv\e"
