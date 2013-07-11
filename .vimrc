@@ -329,12 +329,7 @@ nmap <silent> <ctrl-k> :TmuxNavigateUp<cr>
 nmap <silent> <ctrl-l> :TmuxNavigateRight<cr>
 nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
 
-"" TODO
-" * Finish porting my old config
-" * Customize statusline
-"
 " coffeescript
-" html (ragtag)
 " javascript
 
 "" TO PILLAGE
