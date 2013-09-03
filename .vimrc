@@ -102,7 +102,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "" Quickly switch to the last file
-nnoremap <leader><leader> <c-^>
+nnoremap <leader><space> <c-^>
 
 "" Use the OS X clipboard
 " set clipboard=unnamed
