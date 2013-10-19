@@ -158,3 +158,9 @@
 [submodule ".vim/bundle/taskpaper.vim"]
 	path = .vim/bundle/taskpaper.vim
 	url = git@github.com:davidoc/taskpaper.vim.git
+[submodule "/Users/adam/.vim/bundle/funcoo.vim"]
+	path = /Users/adam/.vim/bundle/funcoo.vim
+	url = https://github.com/rizzatti/funcoo.vim.git
+[submodule "/Users/adam/.vim/bundle/dash.vim"]
+	path = /Users/adam/.vim/bundle/dash.vim
+	url = https://github.com/rizzatti/dash.vim.git

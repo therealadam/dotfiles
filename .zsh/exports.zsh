@@ -18,7 +18,7 @@ export PATH=~/bin:$PATH
 
 export MANPATH=$MANPATH:/usr/local/man:/usr/local/mysql/man:/Users/adam/Develop/homebrew/share/man
 
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
+# export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6/Home
 
 export CDPATH=.:~/Develop/:~/Desktop/:/Volumes/Gowalla:/Volumes/NextUpdate
 
