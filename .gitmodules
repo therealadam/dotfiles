@@ -152,9 +152,6 @@
 [submodule ".vim/bundle/vim-ragtag"]
 	path = .vim/bundle/vim-ragtag
 	url = git@github.com:tpope/vim-ragtag.git
-[submodule ".vim/bundle/numbers"]
-	path = .vim/bundle/numbers
-	url = https://github.com/myusuf3/numbers.vim.git
 [submodule ".vim/bundle/taskpaper.vim"]
 	path = .vim/bundle/taskpaper.vim
 	url = git@github.com:davidoc/taskpaper.vim.git
@@ -164,3 +161,6 @@
 [submodule "/Users/adam/.vim/bundle/dash.vim"]
 	path = /Users/adam/.vim/bundle/dash.vim
 	url = https://github.com/rizzatti/dash.vim.git
+[submodule "/Users/adamkeys/.vim/bundle/vimoutliner"]
+	path = /Users/adamkeys/.vim/bundle/vimoutliner
+	url = git@github.com:vimoutliner/vimoutliner.git

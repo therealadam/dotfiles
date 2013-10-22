@@ -285,7 +285,7 @@ command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
 map <leader>G :Git 
 
 "" Often, I like to see line numbers
-map <leader>l :NumbersOnOff<cr>
+map <leader>l :set number
 
 "" Folding
 
