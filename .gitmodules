@@ -164,3 +164,6 @@
 [submodule "/Users/adamkeys/.vim/bundle/vimoutliner"]
 	path = /Users/adamkeys/.vim/bundle/vimoutliner
 	url = git@github.com:vimoutliner/vimoutliner.git
+[submodule ".vim/bundle/hardmode"]
+	path = .vim/bundle/hardmode
+	url = git@github.com:wikitopian/hardmode.git

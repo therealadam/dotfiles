@@ -39,7 +39,7 @@ set listchars=tab:▸\ ,eol:¬
 
 "" Margin line numbers
 set number
-set numberwidth=6
+set numberwidth=5
 
 "" Disable F1
 inoremap <F1> <ESC>
@@ -128,6 +128,15 @@ inoremap jj <ESC>
 
 "" Quick split
 nnoremap <leader>ww <C-w>v<C-w>l
+
+" dont move cursor after pasting
+noremap p p`[
+noremap P P`[
+
+" reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
 
 "" Clojure
 let g:vimclojure#ParenRainbow=1
@@ -254,14 +263,14 @@ end
 "" vim-slime
 let g:slime_target = "tmux"
 
-"" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-set winwidth=80
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=10
-set winminheight=10
-set winheight=999
+" "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
+" set winwidth=80
+" " We have to have a winheight bigger than we want to set winminheight. But if
+" " we set winheight to be huge before winminheight, the winminheight set will
+" " fail.
+" set winheight=10
+" set winminheight=10
+" set winheight=999
 
 "" vroom
 let g:vroom_use_colors=1
