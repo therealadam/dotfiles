@@ -167,3 +167,9 @@
 [submodule ".vim/bundle/hardmode"]
 	path = .vim/bundle/hardmode
 	url = git@github.com:wikitopian/hardmode.git
+[submodule ".vim/bundle/vim-indent-object"]
+	path = .vim/bundle/vim-indent-object
+	url = git@github.com:michaeljsmith/vim-indent-object.git
+[submodule "/Users/adamkeys/.vim/bundle/nerdtree"]
+	path = /Users/adamkeys/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
