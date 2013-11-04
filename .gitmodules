@@ -173,3 +173,6 @@
 [submodule "/Users/adamkeys/.vim/bundle/nerdtree"]
 	path = /Users/adamkeys/.vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "/Users/adamkeys/.vim/bundle/vim-markdown-folding"]
+	path = /Users/adamkeys/.vim/bundle/vim-markdown-folding
+	url = git@github.com:nelstrom/vim-markdown-folding.git

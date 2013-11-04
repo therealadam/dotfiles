@@ -294,7 +294,7 @@ command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
 map <leader>G :Git 
 
 "" Often, I like to see line numbers
-map <leader>l :set number
+map <leader>l :set number!<cr>
 
 "" Folding
 
@@ -337,6 +337,12 @@ nmap <silent> <ctrl-j> :TmuxNavigateDown<cr>
 nmap <silent> <ctrl-k> :TmuxNavigateUp<cr>
 nmap <silent> <ctrl-l> :TmuxNavigateRight<cr>
 nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
+
+" NERDTree
+
+map <leader>nc :NERDTreeCWD<cr>
+map <leader>nt :NERDTreeToggle<cr>
+map <leader>nf :NERDTreeFind<cr>
 
 " coffeescript
 " javascript
