@@ -38,8 +38,8 @@ set list
 set listchars=tab:▸\ ,eol:¬
 
 "" Margin line numbers
-set number
-set numberwidth=5
+" set number
+set numberwidth=4
 
 "" Disable F1
 inoremap <F1> <ESC>
@@ -264,13 +264,13 @@ end
 let g:slime_target = "tmux"
 
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-" set winwidth=80
-" " We have to have a winheight bigger than we want to set winminheight. But if
-" " we set winheight to be huge before winminheight, the winminheight set will
-" " fail.
-" set winheight=10
-" set winminheight=10
-" set winheight=999
+set winwidth=80
+" We have to have a winheight bigger than we want to set winminheight. But if
+" we set winheight to be huge before winminheight, the winminheight set will
+" fail.
+set winheight=10
+set winminheight=10
+set winheight=999
 
 "" vroom
 let g:vroom_use_colors=1
@@ -299,6 +299,7 @@ map <leader>l :set number!<cr>
 "" Folding
 
 set foldlevelstart=0
+set foldcolumn=1
 
 nnoremap <Space> za
 vnoremap <Space> za
@@ -343,6 +344,11 @@ nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
 map <leader>nc :NERDTreeCWD<cr>
 map <leader>nt :NERDTreeToggle<cr>
 map <leader>nf :NERDTreeFind<cr>
+
+" Include user's local vim config
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif
 
 " coffeescript
 " javascript
