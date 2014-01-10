@@ -340,6 +340,9 @@ nmap <silent> <ctrl-k> :TmuxNavigateUp<cr>
 nmap <silent> <ctrl-l> :TmuxNavigateRight<cr>
 nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
 
+nmap <silent> <leader>ty :Tyank
+nmap <silent> <leader>tp :Tput
+
 " NERDTree
 
 map <leader>nc :NERDTreeCWD<cr>

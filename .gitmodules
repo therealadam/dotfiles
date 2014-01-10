@@ -176,3 +176,6 @@
 [submodule "/Users/adamkeys/.vim/bundle/vim-markdown-folding"]
 	path = /Users/adamkeys/.vim/bundle/vim-markdown-folding
 	url = git@github.com:nelstrom/vim-markdown-folding.git
+[submodule ".vim/bundle/thrift"]
+	path = .vim/bundle/thrift
+	url = https://github.com/sprsquish/thrift.vim
