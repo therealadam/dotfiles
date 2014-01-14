@@ -47,3 +47,5 @@ alias tl="tmux ls"
 
 # Ruby
 alias be="bundle exec"
+alias rspec="nocorrect rspec"
+alias spring="nocorrect spring"

@@ -19,7 +19,7 @@ source $ZSH/rails.zsh
 source $ZSH/keys.zsh
 
 # Load completion functions
-fpath=($ZSH/completion $fpath)
+fpath=($ZSH/completion $fpath /Users/adam/Develop/homebrew/share/zsh/site-functions)
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
@@ -34,3 +34,6 @@ which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# Load direnv
+eval "$(direnv hook zsh)"

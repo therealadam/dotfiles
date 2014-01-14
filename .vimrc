@@ -13,7 +13,7 @@ set expandtab
 set backspace=indent,eol,start
 
 "" Searching
-set hlsearch
+"set hlsearch
 set incsearch
 set ignorecase
 set smartcase
@@ -277,6 +277,7 @@ let g:vroom_use_colors=1
 let g:vroom_map_keys=0
 let g:vroom_use_vimux=1
 let g:vroom_use_dispatch=0
+let g:vroom_use_spring=1
 " let g:vroom_use_binstubs=1
 map <leader>t :VroomRunTestFile<cr>
 map <leader>tf :VroomRunNearestTest<cr>
@@ -326,6 +327,11 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 autocmd FileType css setlocal omnifunc=cssComplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+
+autocmd FileType go setlocal foldmethod=syntax
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd FileType go compiler go
+autocmd FileType go setlocal makeprg="go build"
 
 " switch.vim
 

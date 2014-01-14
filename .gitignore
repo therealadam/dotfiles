@@ -9,5 +9,6 @@ tags
 *_flymake.*
 *.un~
 .env
-.bundle
+.bundle*
 bin/
+config/projections.json
