@@ -254,6 +254,8 @@ if has('gui_running')
 
     imap <M-BS>         <C-w>
     inoremap <D-BS>     <esc>my0c`y
+
+    set foldcolumn=1
   end
 
   autocmd GUIEnter * :unmenu DrChip.
