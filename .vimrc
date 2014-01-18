@@ -303,7 +303,7 @@ map <leader>l :set number!<cr>
 
 set foldmethod=indent
 set foldlevelstart=0
-set foldcolumn=5
+set foldcolumn=3
 
 nnoremap <Space> za
 vnoremap <Space> za
