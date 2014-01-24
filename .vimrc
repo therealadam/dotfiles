@@ -212,8 +212,9 @@ let g:Powerline_symbols = 'fancy'
 
 " Make gvim nice
 if has('gui_running')
-  set guifont=Menlo:h16
-  colorscheme Tomorrow
+  set guifont=Cousine:h16
+  colorscheme pencil
+  set background=light
 
   " Kill UI cruft
   set go-=T

@@ -8,6 +8,7 @@ tags
 .idea
 *_flymake.*
 *.un~
+*.pyc
 .env
 .bundle*
 bin/
