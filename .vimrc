@@ -52,6 +52,8 @@ set autoindent " Match the next line's indent to the current line
 set showmode
 set showcmd
 set hidden
+set cursorline
+set autoread
 
 set wildmenu
 set wildmode=list:longest
@@ -335,6 +337,7 @@ autocmd FileType go setlocal foldmethod=syntax
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go compiler go
 autocmd FileType go setlocal makeprg="go build"
+autocmd FileType go set noexpandtab
 
 " switch.vim
 
@@ -367,9 +370,6 @@ endif
 " javascript
 
 "" TO PILLAGE
-" http://vimcasts.org/episodes/archive
-" https://github.com/mislav/vimfiles/blob/master/vimrc
 " http://yanpritzker.com/2011/10/26/colorful-vim-ruby-tests-and-debugging/
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
-" https://github.com/garybernhardt/dotfiles/blob/master/.vimrc#L640
 
