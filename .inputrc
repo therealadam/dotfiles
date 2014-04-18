@@ -8,5 +8,5 @@ Control-k: kill-line
 Control-n: next-history
 Control-p: previous-history
  
-v: vi-editing-mode
+# v: vi-editing-mode
 Control-v: "\C-xv\e"
