@@ -179,3 +179,6 @@
 [submodule ".vim/bundle/vim-colors-pencil"]
 	path = .vim/bundle/vim-colors-pencil
 	url = git@github.com:reedes/vim-colors-pencil.git
+[submodule "/Users/adam/.vim/bundle/vim-pathogen"]
+	path = /Users/adam/.vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git

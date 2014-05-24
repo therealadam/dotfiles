@@ -100,6 +100,7 @@ set t_Co=256
 colorscheme badwolf
 
 "" Pathogen
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
