@@ -147,7 +147,6 @@ let g:vimclojure#HighlightBuiltins=1
 " let g:vimclojure#SplitPos="bottom"
 " let g:vimclojure#SplitSize=10
 
-
 """ surround
 " Use v or # to get a variable interpolation (inside of a string)}
 " ysiw#   Wrap the token under the cursor in #{}
