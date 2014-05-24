@@ -185,6 +185,9 @@ let g:yankring_history_file = 'yankring.txt'
 map <leader>f :CtrlP<cr>
 map <leader>b :CtrlPBuffer<cr>
 
+let g:ctrlp_extensions = ['funky']
+nnoremap <Leader>fu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
 "" My own little test runner!
 " map <leader>tf :call Focus()<cr>
 

@@ -182,3 +182,9 @@
 [submodule "/Users/adam/.vim/bundle/vim-pathogen"]
 	path = /Users/adam/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule ".vim/bundle/ctrlp-funky"]
+	path = .vim/bundle/ctrlp-funky
+	url = https://github.com/tacahiroy/ctrlp-funky.git
+[submodule ".vim/bundle/vim-scriptease"]
+	path = .vim/bundle/vim-scriptease
+	url = https://github.com/tpope/vim-scriptease.git
