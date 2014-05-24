@@ -7,7 +7,7 @@ source $ZSH/theme.zsh
 source $ZSH/completion.zsh
 source $ZSH/correction.zsh
 source $ZSH/history.zsh
-source $ZSH/vi.zsh
+# source $ZSH/vi.zsh
 source $ZSH/termtitle.zsh
 
 # Bits of my own, lazy invention
