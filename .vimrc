@@ -104,6 +104,12 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+"" EasyMotion
+let g:EasyMotion_do_shade=0
+
+"" snipmate
+let g:snippets_dir="~/.vim/bundle/vim-snippets/snippets"
+
 "" Quickly switch to the last file
 nnoremap <leader><space> <c-^>
 
@@ -284,7 +290,7 @@ set winheight=999
 let g:vroom_use_colors=1
 let g:vroom_map_keys=0
 let g:vroom_use_vimux=1
-let g:vroom_use_dispatch=0
+let g:vroom_use_dispatch=1
 let g:vroom_use_spring=1
 " let g:vroom_use_binstubs=1
 map <leader>t :VroomRunTestFile<cr>

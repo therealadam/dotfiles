@@ -188,3 +188,12 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
+[submodule "/Users/adam/.vim/bundle/vim-snippets"]
+	path = /Users/adam/.vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule ".vim/bundle/vim-projectionist"]
+	path = .vim/bundle/vim-projectionist
+	url = https://github.com/tpope/vim-projectionist.git
+[submodule ".vim/bundle/vim-leiningen"]
+	path = .vim/bundle/vim-leiningen
+	url = https://github.com/tpope/vim-leiningen.git
