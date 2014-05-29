@@ -14,6 +14,7 @@ export PATH=/usr/local/bin:$PATH # My custom stuff
 export PATH=~/Develop/dotfiles/bin:$PATH # My scripts
 export PATH=~/Develop/homebrew/bin:~/Develop/homebrew/sbin:$PATH # Homebrew
 export PATH=~/bin:$PATH
+export PATH=/usr/local/share/npm/bin:$PATH
 
 export MANPATH=$MANPATH:/usr/local/man:/Users/adam/Develop/homebrew/share/man
 

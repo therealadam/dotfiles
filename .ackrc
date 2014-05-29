@@ -1,4 +1,4 @@
---type-add=ruby=.haml,Gemfile,Rakefile,Capfile
+--type-add=ruby=.erb,.erb.html,.haml,Gemfile,Rakefile,Capfile
 --type-add=objc=.pch
 --type-set=xcode=.pbxproj,.pbxuser,.perspectivev3
 --type-set=ragel=.rl
