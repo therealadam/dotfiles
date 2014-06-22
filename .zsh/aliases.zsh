@@ -42,7 +42,7 @@ alias xmlpretty="xmllint --format -f"
 alias freq='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
 
 # tmux
-alias tn="tmux new -s $1"
+alias tn="tmux new -s"
 alias ta="tmux attach"
 alias tl="tmux ls"
 
