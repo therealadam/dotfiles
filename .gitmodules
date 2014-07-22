@@ -197,3 +197,24 @@
 [submodule ".vim/bundle/vim-leiningen"]
 	path = .vim/bundle/vim-leiningen
 	url = https://github.com/tpope/vim-leiningen.git
+[submodule ".vim/bundle/vim-elixir"]
+	path = .vim/bundle/vim-elixir
+	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule ".vim/bundle/elixir-snippets"]
+	path = .vim/bundle/elixir-snippets
+	url = https://github.com/carlosgaldino/elixir-snippets.git
+[submodule ".vim/bundle/life-dfm"]
+	path = .vim/bundle/life-dfm
+	url = https://github.com/bilalq/lite-dfm.git
+[submodule ".vim/bundle/vim-airline"]
+	path = .vim/bundle/vim-airline
+	url = https://github.com/bling/vim-airline.git
+[submodule ".vim/bundle/tmuxline.vim"]
+	path = .vim/bundle/tmuxline.vim
+	url = https://github.com/edkolev/tmuxline.vim.git
+[submodule ".vim/bundle/vim-vinegar"]
+	path = .vim/bundle/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar
+[submodule ".vim/bundle/vim-colors-solarized"]
+	path = .vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

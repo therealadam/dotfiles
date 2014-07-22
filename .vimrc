@@ -93,16 +93,18 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 iabbrev cass cassandra
 iabbrev teh the
 
-"" Looks
-
-set background=dark
-set t_Co=256
-colorscheme badwolf
 
 "" Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
+
+"" Looks
+
+set background=dark
+set t_Co=256
+" colorscheme badwolf
+colorscheme solarized
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -218,8 +220,45 @@ cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
 map <leader>v :view %%
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
+" Powerline/Airline
+" let g:Powerline_symbols = 'fancy'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+let g:airline_powerline_fonts=0
+let g:airline#extensions#tmuxline#enabled = 1
+let g:airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline.conf"
+
+" let g:tmuxline_preset = 'solarized'
+let g:tmuxline_powerline_separators = 0
+
+" custom preset with left-justified window list
+let g:tmuxline_preset = {
+      \'a'       : '#S',
+      \'b'       : '',
+      \'c'       : '',
+      \'win'     : '#I #W',
+      \'cwin'    : '#I #W',
+      \'x'       : '',
+      \'y'       : '',
+      \'z'       : '',
+      \'options' : {'status-justify' : 'left'}}
 
 " Make gvim nice
 if has('gui_running')
@@ -313,9 +352,9 @@ map <leader>l :set number!<cr>
 
 "" Folding
 
-set foldmethod=indent
-set foldlevelstart=0
-set foldcolumn=3
+" set foldmethod=indent
+" set foldlevelstart=0
+" set foldcolumn=3
 
 nnoremap <Space> za
 vnoremap <Space> za
@@ -350,7 +389,7 @@ autocmd FileType go set noexpandtab
 
 " switch.vim
 
-nnoremap - :Switch<cr>
+" nnoremap - :Switch<cr>
 
 " better tmux/vim movement
 let g:tmux_navigator_no_mappings = 1
