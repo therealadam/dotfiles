@@ -144,7 +144,7 @@
 	path = .vim/bundle/vim-ruby-refactoring
 	url = https://github.com/rking/vim-ruby-refactoring
 [submodule "/.vim/bundle/vim-tmux-navigator"]
-	path = /.vim/bundle/vim-tmux-navigator
+	path = .vim/bundle/vim-tmux-navigator
 	url = git@github.com:christoomey/vim-tmux-navigator.git
 [submodule ".vim/bundle/vim-ragtag"]
 	path = .vim/bundle/vim-ragtag
@@ -179,8 +179,8 @@
 [submodule ".vim/bundle/vim-colors-pencil"]
 	path = .vim/bundle/vim-colors-pencil
 	url = git@github.com:reedes/vim-colors-pencil.git
-[submodule "/Users/adam/.vim/bundle/vim-pathogen"]
-	path = /Users/adam/.vim/bundle/vim-pathogen
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
 [submodule ".vim/bundle/ctrlp-funky"]
 	path = .vim/bundle/ctrlp-funky
@@ -188,8 +188,8 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule "/Users/adam/.vim/bundle/vim-snippets"]
-	path = /Users/adam/.vim/bundle/vim-snippets
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/vim-projectionist"]
 	path = .vim/bundle/vim-projectionist
