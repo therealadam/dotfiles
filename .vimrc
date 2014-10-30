@@ -262,8 +262,10 @@ let g:tmuxline_preset = {
 
 " Make gvim nice
 if has('gui_running')
-  set guifont=Cousine:h16
-  colorscheme pencil
+  " set guifont=Cousine:h16
+  " colorscheme pencil
+  set guifont=Menlo:h14
+  colorscheme solarized
   set background=light
 
   " Kill UI cruft
@@ -329,7 +331,7 @@ set winheight=999
 let g:vroom_use_colors=1
 let g:vroom_map_keys=0
 let g:vroom_use_vimux=1
-let g:vroom_use_dispatch=1
+" let g:vroom_use_dispatch=1
 let g:vroom_use_spring=1
 " let g:vroom_use_binstubs=1
 map <leader>t :VroomRunTestFile<cr>
@@ -349,6 +351,12 @@ map <leader>G :Git
 
 "" Often, I like to see line numbers
 map <leader>l :set number!<cr>
+
+"" Fix gitgutter color in solarized-dark
+highlight clear SignColumn
+" highlight SignColumn ctermbg=0
+" let g:gitgutter_signs = 0
+" let g:gitgutter_highlight_lines = 1
 
 "" Folding
 
@@ -380,6 +388,8 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 
 autocmd FileType css setlocal omnifunc=cssComplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+
+autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 
 autocmd FileType go setlocal foldmethod=syntax
 autocmd FileType go autocmd BufWritePre <buffer> Fmt

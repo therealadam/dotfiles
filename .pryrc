@@ -2,7 +2,7 @@
 Pry.config.editor = "vim"
 
 # Prompt with ruby version
-Pry.prompt = [proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
+# Pry.prompt = [proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
 
 # Toys methods
 # Stealed from https://gist.github.com/807492
