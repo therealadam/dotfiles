@@ -221,3 +221,6 @@
 [submodule "/Users/adam/.vim/bundle/vim-bracketed-paste"]
 	path = /Users/adam/.vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
+[submodule "/Users/adamkeys/.vim/bundle/base16-vim"]
+	path = /Users/adamkeys/.vim/bundle/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git

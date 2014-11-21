@@ -152,9 +152,6 @@ vnoremap = =gv
 "" Clojure
 let g:vimclojure#ParenRainbow=1
 let g:vimclojure#HighlightBuiltins=1
-" let g:vimclojure#WantNailgun=1
-" let g:vimclojure#SplitPos="bottom"
-" let g:vimclojure#SplitSize=10
 
 """ surround
 " Use v or # to get a variable interpolation (inside of a string)}
@@ -390,6 +387,9 @@ autocmd FileType css setlocal omnifunc=cssComplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
+autocmd FileType clojure set lispwords+=deftest
+autocmd FileType clojure set lispwords+=testing
+autocmd FileType clojure set lispwords+=defroutes
 
 autocmd FileType go setlocal foldmethod=syntax
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
