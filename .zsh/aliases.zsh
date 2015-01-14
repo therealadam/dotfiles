@@ -11,8 +11,8 @@ alias rd=rmdir
 alias d='dirs -v'
 
 # vi
-alias vi="~/Applications/MacVim.app/Contents/MacOS/Vim"
-alias vim="~/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 # Editing
 alias e="vim"
