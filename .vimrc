@@ -261,9 +261,10 @@ let g:tmuxline_preset = {
 if has('gui_running')
   " set guifont=Cousine:h16
   " colorscheme pencil
-  set guifont=Menlo:h14
-  colorscheme solarized
-  set background=light
+  set guifont=Inconsolata:h18
+  colorscheme base16-tomorrow
+  " colorscheme solarized
+  " set background=light
 
   " Kill UI cruft
   set go-=T
@@ -310,6 +311,7 @@ if has('gui_running')
 
   autocmd GUIEnter * :unmenu DrChip.
   autocmd GUIEnter * :unmenu Plugin.
+  autocmd GUIEnter * :unmenu Syntax.
 end
 
 "" vim-slime
