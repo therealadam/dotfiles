@@ -218,9 +218,9 @@
 [submodule ".vim/bundle/vim-colors-solarized"]
 	path = .vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "/Users/adam/.vim/bundle/vim-bracketed-paste"]
-	path = /Users/adam/.vim/bundle/vim-bracketed-paste
+[submodule ".vim/bundle/vim-bracketed-paste"]
+	path = .vim/bundle/vim-bracketed-paste
 	url = https://github.com/ConradIrwin/vim-bracketed-paste.git
-[submodule "/Users/adamkeys/.vim/bundle/base16-vim"]
-	path = /Users/adamkeys/.vim/bundle/base16-vim
+[submodule ".vim/bundle/base16-vim"]
+	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
