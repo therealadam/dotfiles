@@ -67,7 +67,7 @@ set wildignore+=vendor/gems/*,vendor/cache/*,.bundle,.sass-cache/*
 " Disable temp and backup files
 set wildignore+=*.swp,*~,._*
 " Disable poop
-set wildignore+=*/spec/reports/*,coverage/*
+set wildignore+=*/spec/reports/*,coverage/*,log
 
 set visualbell
 set ttyfast
@@ -104,7 +104,8 @@ call pathogen#helptags()
 set background=dark
 set t_Co=256
 " colorscheme badwolf
-colorscheme solarized
+" colorscheme solarized
+colorscheme Tomorrow-Night
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -425,6 +426,12 @@ map <leader>nf :NERDTreeFind<cr>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
+
+" syntastic
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
 
 " coffeescript
 " javascript

@@ -224,3 +224,18 @@
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
+[submodule ".vim/bundle/vim-jsx"]
+	path = .vim/bundle/vim-jsx
+	url = https://github.com/mxw/vim-jsx.git
+[submodule ".vim/bundle/elm-vim"]
+	path = .vim/bundle/elm-vim
+	url = https://github.com/lambdatoast/elm.vim.git
+[submodule ".vim/bundle/vim-cljfmt"]
+	path = .vim/bundle/vim-cljfmt
+	url = https://github.com/venantius/vim-cljfmt.git
+[submodule ".vim/bundle/syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule ".vim/bundle/vim-eastwood"]
+	path = .vim/bundle/vim-eastwood
+	url = https://github.com/venantius/vim-eastwood.git
