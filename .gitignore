@@ -1,15 +1,26 @@
+# Vim
 *.swp
 *.swo
+*~
+
+# ctags
 tags
 .tmtags
+
+# OS X
 .DS_Store
+
+# Build output
 *.hi
 *.o
+*.pyc
+
+# IDEs
 .idea
 *_flymake.*
-*.un~
-*.pyc
+config/projections.json
+
+# Environment
 .env
 .bundle*
 bin/
-config/projections.json

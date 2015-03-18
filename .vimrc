@@ -103,9 +103,9 @@ call pathogen#helptags()
 
 set background=dark
 set t_Co=256
-" colorscheme badwolf
+colorscheme badwolf
 " colorscheme solarized
-colorscheme Tomorrow-Night
+" colorscheme Tomorrow-Night
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -240,23 +240,23 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 let g:airline_powerline_fonts=0
-let g:airline#extensions#tmuxline#enabled = 1
-let g:airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline.conf"
+" let g:airline#extensions#tmuxline#enabled = 1
+" let g:airline#extensions#tmuxline#snapshot_file = "~/.tmux-statusline.conf"
 
 " let g:tmuxline_preset = 'solarized'
-let g:tmuxline_powerline_separators = 0
+" let g:tmuxline_powerline_separators = 0
 
 " custom preset with left-justified window list
-let g:tmuxline_preset = {
-      \'a'       : '#S',
-      \'b'       : '',
-      \'c'       : '',
-      \'win'     : '#I #W',
-      \'cwin'    : '#I #W',
-      \'x'       : '',
-      \'y'       : '',
-      \'z'       : '',
-      \'options' : {'status-justify' : 'left'}}
+" let g:tmuxline_preset = {
+"       \'a'       : '#S',
+"       \'b'       : '',
+"       \'c'       : '',
+"       \'win'     : '#I #W',
+"       \'cwin'    : '#I #W',
+"       \'x'       : '',
+"       \'y'       : '',
+"       \'z'       : '',
+"       \'options' : {'status-justify' : 'left'}}
 
 " Make gvim nice
 if has('gui_running')
