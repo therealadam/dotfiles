@@ -7,7 +7,7 @@ source $ZSH/theme.zsh
 source $ZSH/completion.zsh
 source $ZSH/correction.zsh
 source $ZSH/history.zsh
-# source $ZSH/vi.zsh
+source $ZSH/vi.zsh
 source $ZSH/termtitle.zsh
 
 # Bits of my own, lazy invention
@@ -25,8 +25,8 @@ fpath=($ZSH/completion $fpath /Users/adam/Develop/homebrew/share/zsh/site-functi
 [[ -f ~/.localrc ]] && .  ~/.localrc
 
 # Autojump is wholly great
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
+if [ -f `brew --prefix`/etc/autojump.sh ]; then
+  . `brew --prefix`/etc/autojump.sh
 fi
 
 # SO HAX
