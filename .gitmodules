@@ -47,9 +47,6 @@
 [submodule ".vim/bundle/vim-align"]
 	path = .vim/bundle/vim-align
 	url = https://github.com/tsaleh/vim-align.git
-[submodule ".vim/bundle/copy-as-rtf"]
-	path = .vim/bundle/copy-as-rtf
-	url = https://github.com/zerowidth/vim-copy-as-rtf.git
 [submodule ".vim/bundle/gist"]
 	path = .vim/bundle/gist
 	url = https://github.com/mattn/gist-vim.git
