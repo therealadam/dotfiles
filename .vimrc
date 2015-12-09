@@ -393,6 +393,7 @@ autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 autocmd FileType clojure set lispwords+=deftest
 autocmd FileType clojure set lispwords+=testing
 autocmd FileType clojure set lispwords+=defroutes
+autocmd FileType clojure set lispwords+=defcomponent
 
 autocmd FileType go setlocal foldmethod=syntax
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
