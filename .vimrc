@@ -262,7 +262,7 @@ let g:airline_powerline_fonts=0
 if has('gui_running')
   " set guifont=Cousine:h16
   " colorscheme pencil
-  set guifont=Inconsolata:h18
+  set guifont=Menlo:h12
   colorscheme base16-tomorrow
   " colorscheme solarized
   " set background=light
@@ -330,8 +330,8 @@ set winheight=999
 "" vroom
 let g:vroom_use_colors=1
 let g:vroom_map_keys=0
-let g:vroom_use_vimux=1
-" let g:vroom_use_dispatch=1
+" let g:vroom_use_vimux=1
+let g:vroom_use_dispatch=1
 let g:vroom_use_spring=1
 " let g:vroom_use_binstubs=1
 map <leader>t :VroomRunTestFile<cr>
