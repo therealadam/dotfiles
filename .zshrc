@@ -19,15 +19,13 @@ source $ZSH/rails.zsh
 source $ZSH/keys.zsh
 
 # Load completion functions
-fpath=($ZSH/completion $fpath /Users/adam/Develop/homebrew/share/zsh/site-functions)
+fpath=($ZSH/completion $fpath `brew --prefix`/share/zsh/site-functions)
 
 # Use .localrc for system-specific settings
 [[ -f ~/.localrc ]] && .  ~/.localrc
 
 # Autojump is wholly great
-if [ -f `brew --prefix`/etc/autojump.sh ]; then
-  . `brew --prefix`/etc/autojump.sh
-fi
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # SO HAX
 which rbenv > /dev/null 2>& 1&& eval "$(rbenv init -)"

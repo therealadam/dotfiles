@@ -33,10 +33,6 @@ alias gemi='gem install'
 alias gemun='gem uninstall'
 alias gems='gem search'
 
-# Servers
-alias start_mysql="mysql.server start"
-alias start_redis="redis-server ~/Develop/homebrew/etc/redis.conf"
-
 # Stuff
 alias xmlpretty="xmllint --format -f"
 alias freq='cut -f1 -d" " ~/.zsh_history | sort | uniq -c | sort -nr | head -n 30'
