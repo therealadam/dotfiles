@@ -262,10 +262,12 @@ let g:airline_powerline_fonts=0
 if has('gui_running')
   " set guifont=Cousine:h16
   " colorscheme pencil
-  set guifont=Menlo:h12
-  colorscheme base16-tomorrow
-  " colorscheme solarized
-  " set background=light
+  " set guifont=Menlo:h12
+  " colorscheme base16-tomorrow
+  set background=light
+  colorscheme base16-solarized
+  set guifont=Droid\ Sans\ Mono:h14
+
 
   " Kill UI cruft
   set go-=T
@@ -433,11 +435,13 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=0
+let g:syntastic_mode_map = {
+  \ "mode": "passive",
+  \ "active_filetypes": [],
+  \ "passive_filetypes": [] }
 
-" coffeescript
-" javascript
 
 "" TO PILLAGE
-" http://yanpritzker.com/2011/10/26/colorful-vim-ruby-tests-and-debugging/
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
+" https://github.com/janko-m/vim-test
 
