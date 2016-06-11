@@ -18,5 +18,9 @@ class Hash
   end
 end
 
+if defined?(Rails) && defined?(Rails::ConsoleMethods)
+  include Rails::ConsoleMethods
+end
+
 # loading rails configuration if it is running as a rails console
 # load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) && Rails

@@ -20,6 +20,7 @@ tags
 .idea
 *_flymake.*
 config/projections.json
+.projections.json
 .byebug_history
 
 # Environment

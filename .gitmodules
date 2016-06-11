@@ -236,3 +236,6 @@
 [submodule ".vim/bundle/vim-eastwood"]
 	path = .vim/bundle/vim-eastwood
 	url = https://github.com/venantius/vim-eastwood.git
+[submodule "/Users/adam/.vim/bundle/rooter.vim"]
+	path = /Users/adam/.vim/bundle/rooter.vim
+	url = https://github.com/airblade/vim-rooter.git

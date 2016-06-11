@@ -72,7 +72,7 @@ set wildignore+=*/spec/reports/*,coverage/*,log
 set visualbell
 set ttyfast
 set ruler
-set laststatus=2
+set laststatus=1
 set undofile
 
 "" Load any customizations particular to this old host
