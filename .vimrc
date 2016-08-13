@@ -1,3 +1,23 @@
+" 0. Load plugins
+" ===============
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+
+call plug#end()
+
+" 1. New home for GUI stuff
+nnoremap <D-1> :tabn 1<cr>
+nnoremap <D-2> :tabn 2<cr>
+nnoremap <D-3> :tabn 3<cr>
+nnoremap <D-4> :tabn 4<cr>
+nnoremap <D-5> :tabn 5<cr>
+
+" ⍵ Legacy stuff
+" =================
+
 set nocompatible " Just say no to plain vi
 syntax enable
 set encoding=utf-8
@@ -266,7 +286,10 @@ if has('gui_running')
   " colorscheme base16-tomorrow
   set background=light
   colorscheme base16-solarized
-  set guifont=Droid\ Sans\ Mono:h14
+  " set guifont=Droid\ Sans\ Mono:h12
+  set macligatures
+  set guifont=Fira\ Code\ Retina:h12
+  set columns=85
 
 
   " Kill UI cruft
@@ -332,7 +355,7 @@ set winheight=999
 "" vroom
 let g:vroom_use_colors=1
 let g:vroom_map_keys=0
-" let g:vroom_use_vimux=1
+let g:vroom_use_vimux=0
 let g:vroom_use_dispatch=1
 let g:vroom_use_spring=1
 " let g:vroom_use_binstubs=1
@@ -346,6 +369,9 @@ map <leader>vi :VimuxInspectRunner<cr>
 map <leader>vq :VimuxCloseRunner<cr>
 map <leader>vk :VimuxScrollUpInspect<cr>
 map <leader>vj :VimuxScrollDownInspect<cr>
+
+"" Dispatch
+map <leader>d :Dispatch<cr>
 
 "" Finger happiness
 command! -buffer -bang -nargs=? G :execute <SNR>39_Git(<bang>0,<q-args>)
