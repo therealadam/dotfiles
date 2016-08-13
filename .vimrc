@@ -3,6 +3,7 @@
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 
@@ -19,10 +20,6 @@ nnoremap <D-5> :tabn 5<cr>
 " =================
 
 set nocompatible " Just say no to plain vi
-syntax enable
-set encoding=utf-8
-filetype plugin indent on " load file type plugins and indentation
-set shell=/bin/sh
 
 "" Live dangerously, don't use a swapfile
 set noswapfile
@@ -30,11 +27,8 @@ set noswapfile
 "" Whitespace
 set tabstop=2 shiftwidth=2
 set expandtab
-set backspace=indent,eol,start
 
 "" Searching
-"set hlsearch
-set incsearch
 set ignorecase
 set smartcase
 set showmatch
@@ -46,19 +40,13 @@ nnoremap <tab> %
 vnoremap <tab> %
 
 "" Handle long lines
-set wrap " maybe switch to sidescroll instead of wrap
-set textwidth=79
-set formatoptions=qrn1
+" set wrap
 set colorcolumn=80
 nnoremap j gj
 nnoremap k gk
 
-"" Invisibles
-set list
-set listchars=tab:▸\ ,eol:¬
-
 "" Margin line numbers
-" set number
+set number
 set numberwidth=4
 
 "" Disable F1
@@ -67,15 +55,11 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Set some stuff
-set scrolloff=1 " Keep 1 line of context around the cursor at all times
-set autoindent " Match the next line's indent to the current line
 set showmode
 set showcmd
 set hidden
 set cursorline
-set autoread
 
-set wildmenu
 set wildmode=list:longest
 
 " what files to ignore when doing filename completion, etc.
@@ -91,8 +75,6 @@ set wildignore+=*/spec/reports/*,coverage/*,log
 
 set visualbell
 set ttyfast
-set ruler
-set laststatus=1
 set undofile
 
 "" Load any customizations particular to this old host
@@ -284,12 +266,12 @@ if has('gui_running')
   " colorscheme pencil
   " set guifont=Menlo:h12
   " colorscheme base16-tomorrow
+  " set guifont=Droid\ Sans\ Mono:h12
   set background=light
   colorscheme base16-solarized
-  " set guifont=Droid\ Sans\ Mono:h12
   set macligatures
   set guifont=Fira\ Code\ Retina:h12
-  set columns=85
+  set columns=90
 
 
   " Kill UI cruft
