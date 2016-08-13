@@ -50,9 +50,6 @@
 [submodule ".vim/bundle/gist"]
 	path = .vim/bundle/gist
 	url = https://github.com/mattn/gist-vim.git
-[submodule ".vim/bundle/powerline"]
-	path = .vim/bundle/powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule ".vim/bundle/vim-textobj-user"]
 	path = .vim/bundle/vim-textobj-user
 	url = https://github.com/kana/vim-textobj-user.git
@@ -203,12 +200,6 @@
 [submodule ".vim/bundle/life-dfm"]
 	path = .vim/bundle/life-dfm
 	url = https://github.com/bilalq/lite-dfm.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline.git
-[submodule ".vim/bundle/tmuxline.vim"]
-	path = .vim/bundle/tmuxline.vim
-	url = https://github.com/edkolev/tmuxline.vim.git
 [submodule ".vim/bundle/vim-vinegar"]
 	path = .vim/bundle/vim-vinegar
 	url = https://github.com/tpope/vim-vinegar
