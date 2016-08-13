@@ -1,9 +1,6 @@
 # vim
 Pry.config.editor = "vim"
 
-# Prompt with ruby version
-# Pry.prompt = [proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, *| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
-
 # Toys methods
 # Stealed from https://gist.github.com/807492
 class Array
@@ -18,9 +15,10 @@ class Hash
   end
 end
 
-if defined?(Rails) && defined?(Rails::ConsoleMethods)
+begin
   include Rails::ConsoleMethods
+  puts "Loaded Rails helpers"
+rescue
+  puts "Plain old Ruby!"
 end
 
-# loading rails configuration if it is running as a rails console
-# load File.dirname(__FILE__) + '/.railsrc' if defined?(Rails) && Rails

@@ -35,3 +35,5 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 # Load direnv
 eval "$(direnv hook zsh)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
