@@ -32,9 +32,6 @@
 [submodule ".vim/bundle/go.vim"]
 	path = .vim/bundle/go.vim
 	url = https://github.com/jnwhiteh/vim-golang
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-unimpaired"]
 	path = .vim/bundle/vim-unimpaired
 	url = https://github.com/tpope/vim-unimpaired
@@ -68,12 +65,6 @@
 [submodule ".vim/bundle/zoomwin"]
 	path = .vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
-[submodule ".vim/bundle/coffeescript"]
-	path = .vim/bundle/coffeescript
-	url = https://github.com/vim-scripts/vim-coffee-script.git
-[submodule ".vim/bundle/snipmate"]
-	path = .vim/bundle/snipmate
-	url = https://github.com/msanders/snipmate.vim.git
 [submodule ".vim/bundle/clojure"]
 	path = .vim/bundle/clojure
 	url = https://github.com/vim-scripts/VimClojure.git
@@ -83,12 +74,6 @@
 [submodule ".vim/bundle/vim-slime"]
 	path = .vim/bundle/vim-slime
 	url = git://github.com/jpalardy/vim-slime.git
-[submodule ".vim/bundle/html5"]
-	path = .vim/bundle/html5
-	url = https://github.com/othree/html5.vim
-[submodule ".vim/bundle/zencoding-vim"]
-	path = .vim/bundle/zencoding-vim
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule ".vim/bundle/vim-vroom"]
 	path = .vim/bundle/vim-vroom
 	url = https://github.com/skalnik/vim-vroom.git
@@ -140,9 +125,6 @@
 [submodule "/.vim/bundle/vim-tmux-navigator"]
 	path = .vim/bundle/vim-tmux-navigator
 	url = git@github.com:christoomey/vim-tmux-navigator.git
-[submodule ".vim/bundle/vim-ragtag"]
-	path = .vim/bundle/vim-ragtag
-	url = git@github.com:tpope/vim-ragtag.git
 [submodule ".vim/bundle/taskpaper.vim"]
 	path = .vim/bundle/taskpaper.vim
 	url = git@github.com:davidoc/taskpaper.vim.git
@@ -182,9 +164,6 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule ".vim/bundle/vim-snippets"]
-	path = .vim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule ".vim/bundle/vim-projectionist"]
 	path = .vim/bundle/vim-projectionist
 	url = https://github.com/tpope/vim-projectionist.git
@@ -212,18 +191,9 @@
 [submodule ".vim/bundle/base16-vim"]
 	path = .vim/bundle/base16-vim
 	url = https://github.com/chriskempson/base16-vim.git
-[submodule ".vim/bundle/vim-jsx"]
-	path = .vim/bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule ".vim/bundle/elm-vim"]
-	path = .vim/bundle/elm-vim
-	url = https://github.com/lambdatoast/elm.vim.git
 [submodule ".vim/bundle/vim-cljfmt"]
 	path = .vim/bundle/vim-cljfmt
 	url = https://github.com/venantius/vim-cljfmt.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/vim-eastwood"]
 	path = .vim/bundle/vim-eastwood
 	url = https://github.com/venantius/vim-eastwood.git

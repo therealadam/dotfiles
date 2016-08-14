@@ -112,9 +112,6 @@ colorscheme badwolf
 "" EasyMotion
 let g:EasyMotion_do_shade=0
 
-"" snipmate
-let g:snippets_dir="~/.vim/bundle/vim-snippets/snippets"
-
 "" Quickly switch to the last file
 nnoremap <leader><space> <c-^>
 
@@ -127,9 +124,6 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 "" Ack is so great
 nnoremap <leader>A :Ack
 nnoremap <leader>Aw :Ack <C-r><C-w>
-
-"" Fold HTML tags
-nnoremap <leader>ft Vatzf
 
 "" Hard re-wrap paragraphs
 nnoremap <leader>q gqip
@@ -344,8 +338,6 @@ nnoremap ,z zMzvzz
 let g:neocomplcache_enable_cursor_hold_i = 1
 let g:neocomplcache_enable_at_startup = 1
 
-" imap <C-k> <Plug>(neocomplcache_snippets_expand)
-" smap <C-k> <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 
@@ -355,9 +347,6 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><C-e> neocomplcache#cancel_popup()
-
-autocmd FileType css setlocal omnifunc=cssComplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
 autocmd FileType clojure set lispwords+=deftest
@@ -397,17 +386,6 @@ map <leader>nf :NERDTreeFind<cr>
 if filereadable(expand("~/.vimrc.local"))
   source ~/.vimrc.local
 endif
-
-" syntastic
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-let g:syntastic_mode_map = {
-  \ "mode": "passive",
-  \ "active_filetypes": [],
-  \ "passive_filetypes": [] }
-
 
 "" TO PILLAGE
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
