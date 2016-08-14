@@ -10,8 +10,20 @@ Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 
+" Tools
+Plug 'chrisbra/csv.vim'
+
 " Web
 Plug 'tpope/vim-ragtag'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'kchmck/vim-coffee-script'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'tpope/vim-liquid'
+Plug 'ap/vim-css-color'
+Plug 'elzr/vim-json'
+Plug 'isruslan/vim-es6' " let's try this?
+Plug 'othree/javascript-libraries-syntax.vim' " ^ same
 
 call plug#end()
 
@@ -232,8 +244,8 @@ if has('gui_running')
   set background=light
   colorscheme base16-solarized
   set macligatures
-  set guifont=Fira\ Code\ Retina:h12
-  set columns=90
+  set guifont=Fira\ Code\ Retina:h14
+  set columns=115
 
 
   " Kill UI cruft
