@@ -3,18 +3,26 @@
 
 call plug#begin('~/.vim/plugged')
 
+" Basics
 Plug 'tpope/vim-sensible'
+
+" Git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+
+" Web
+Plug 'tpope/vim-ragtag'
 
 call plug#end()
 
 " 1. New home for GUI stuff
-nnoremap <D-1> :tabn 1<cr>
-nnoremap <D-2> :tabn 2<cr>
-nnoremap <D-3> :tabn 3<cr>
-nnoremap <D-4> :tabn 4<cr>
-nnoremap <D-5> :tabn 5<cr>
+if has("gui_macvim")
+  nnoremap <D-1> :tabn 1<cr>
+  nnoremap <D-2> :tabn 2<cr>
+  nnoremap <D-3> :tabn 3<cr>
+  nnoremap <D-4> :tabn 4<cr>
+  nnoremap <D-5> :tabn 5<cr>
+end
 
 " ⍵ Legacy stuff
 " =================
@@ -105,9 +113,9 @@ call pathogen#helptags()
 
 set background=dark
 set t_Co=256
-colorscheme badwolf
-" colorscheme solarized
+" colorscheme badwolf
 " colorscheme Tomorrow-Night
+colorscheme solarized
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
