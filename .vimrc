@@ -5,6 +5,8 @@ call plug#begin('~/.vim/plugged')
 
 " Basics
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -24,6 +26,13 @@ Plug 'ap/vim-css-color'
 Plug 'elzr/vim-json'
 Plug 'isruslan/vim-es6' " let's try this?
 Plug 'othree/javascript-libraries-syntax.vim' " ^ same
+
+" Ruby
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rbenv'
+Plug 'vim-ruby/vim-ruby'
 
 call plug#end()
 
