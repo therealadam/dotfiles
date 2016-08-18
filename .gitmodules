@@ -1,16 +1,3 @@
-[submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
-	url = git://github.com/tpope/vim-rails.git
-[submodule ".vim/bundle/vim-rake"]
-	path = .vim/bundle/vim-rake
-	url = git://github.com/tpope/vim-rake.git
-[submodule ".vim/bundle/vim-ruby"]
-	path = .vim/bundle/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-  ignore = dirty
-[submodule "bundle/vim-rake"]
-	path = bundle/vim-rake
-	url = https://github.com/tpope/vim-rake.git
 [submodule ".vim/bundle/t_comment.vim"]
 	path = .vim/bundle/t_comment.vim
 	url = https://github.com/tomtom/tcomment_vim.git
@@ -107,15 +94,6 @@
 [submodule ".vim/bundle/vim-classpath"]
 	path = .vim/bundle/vim-classpath
 	url = git://github.com/tpope/vim-classpath.git
-[submodule ".vim/bundle/vim-dispatch"]
-	path = .vim/bundle/vim-dispatch
-	url = git://github.com/tpope/vim-dispatch.git
-[submodule ".vim/bundle/vim-bundler"]
-	path = .vim/bundle/vim-bundler
-	url = git://github.com/tpope/vim-bundler.git
-[submodule ".vim/bundle/vim-rbenv"]
-	path = .vim/bundle/vim-rbenv
-	url = git://github.com/tpope/vim-rbenv.git
 [submodule ".vim/bundle/vim-tbone"]
 	path = .vim/bundle/vim-tbone
 	url = git://github.com/tpope/vim-tbone.git
@@ -164,9 +142,6 @@
 [submodule ".vim/bundle/vim-scriptease"]
 	path = .vim/bundle/vim-scriptease
 	url = https://github.com/tpope/vim-scriptease.git
-[submodule ".vim/bundle/vim-projectionist"]
-	path = .vim/bundle/vim-projectionist
-	url = https://github.com/tpope/vim-projectionist.git
 [submodule ".vim/bundle/vim-leiningen"]
 	path = .vim/bundle/vim-leiningen
 	url = https://github.com/tpope/vim-leiningen.git
