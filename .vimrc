@@ -14,20 +14,25 @@ Plug 'junegunn/gv.vim'
 
 " Tools
 Plug 'chrisbra/csv.vim'
+" vim-test
+
+" Syntaxes
+Plug 'sheerun/vim-polyglot'
+" Plug 'vim-ruby/vim-ruby'
+" Plug 'pangloss/vim-javascript'
+" Plug 'kchmck/vim-coffee-script'
+" Plug 'cakebaker/scss-syntax.vim'
+" Plug 'tpope/vim-liquid'
+" Plug 'elzr/vim-json'
+" Plug 'isruslan/vim-es6' " let's try this?
 
 " Web
 Plug 'tpope/vim-ragtag'
-Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'kchmck/vim-coffee-script'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'tpope/vim-liquid'
 Plug 'ap/vim-css-color'
-Plug 'elzr/vim-json'
-Plug 'isruslan/vim-es6' " let's try this?
 Plug 'othree/javascript-libraries-syntax.vim' " ^ same
 
-" Ruby
+" Rails
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
