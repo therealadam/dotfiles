@@ -37,7 +37,14 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
-Plug 'vim-ruby/vim-ruby'
+
+"
+" vim-ruby-refactoring
+" vim-textobj-rubyblock
+" vim-textobj-user
+" vim-unimpaired
+" vim-vroom
+" vim-vinegar
 
 call plug#end()
 
@@ -259,7 +266,7 @@ if has('gui_running')
   colorscheme base16-solarized
   set macligatures
   set guifont=Fira\ Code\ Retina:h14
-  set columns=115
+  set columns=120
 
 
   " Kill UI cruft
