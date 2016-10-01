@@ -65,6 +65,9 @@ set nocompatible " Just say no to plain vi
 "" Live dangerously, don't use a swapfile
 set noswapfile
 
+"" I like pointing devices
+set mouse=a
+
 "" Whitespace
 set tabstop=2 shiftwidth=2
 set expandtab
@@ -144,7 +147,7 @@ call pathogen#helptags()
 
 "" Looks
 
-set background=dark
+set background=light
 set t_Co=256
 " colorscheme badwolf
 " colorscheme Tomorrow-Night
@@ -262,7 +265,7 @@ if has('gui_running')
   " set guifont=Menlo:h12
   " colorscheme base16-tomorrow
   " set guifont=Droid\ Sans\ Mono:h12
-  set background=light
+  set background=dark
   colorscheme base16-solarized
   set macligatures
   set guifont=Fira\ Code\ Retina:h14
