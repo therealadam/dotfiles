@@ -88,9 +88,6 @@
 [submodule "/.vim/bundle/vim-tmux-navigator"]
 	path = .vim/bundle/vim-tmux-navigator
 	url = git@github.com:christoomey/vim-tmux-navigator.git
-[submodule ".vim/bundle/taskpaper.vim"]
-	path = .vim/bundle/taskpaper.vim
-	url = git@github.com:davidoc/taskpaper.vim.git
 [submodule "/.vim/bundle/funcoo.vim"]
 	path = .vim/bundle/funcoo.vim
 	url = https://github.com/rizzatti/funcoo.vim.git
