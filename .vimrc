@@ -38,6 +38,13 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 
+" Colorschemes
+Plug 'altercation/vim-colors-solarized'
+Plug 'reedes/vim-colors-pencil'
+Plug 'chriskempson/base16-vim'
+Plug 'sjl/badwolf'
+" Plug "flazz/vim-colorschemes"
+
 "
 " vim-ruby-refactoring
 " vim-textobj-rubyblock
@@ -147,11 +154,11 @@ call pathogen#helptags()
 
 "" Looks
 
-set background=light
-set t_Co=256
+" set background=dark
+" set t_Co=256
 " colorscheme badwolf
 " colorscheme Tomorrow-Night
-colorscheme solarized
+colorscheme Tomorrow
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -266,7 +273,7 @@ if has('gui_running')
   " colorscheme base16-tomorrow
   " set guifont=Droid\ Sans\ Mono:h12
   set background=dark
-  colorscheme base16-solarized
+  colorscheme base16-solarized-dark
   set macligatures
   set guifont=Fira\ Code\ Retina:h14
   set columns=120
