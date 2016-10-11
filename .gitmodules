@@ -43,15 +43,6 @@
 [submodule ".vim/bundle/zoomwin"]
 	path = .vim/bundle/zoomwin
 	url = https://github.com/vim-scripts/ZoomWin.git
-[submodule ".vim/bundle/vim-slime"]
-	path = .vim/bundle/vim-slime
-	url = git://github.com/jpalardy/vim-slime.git
-[submodule ".vim/bundle/vim-vroom"]
-	path = .vim/bundle/vim-vroom
-	url = https://github.com/skalnik/vim-vroom.git
-[submodule ".vim/bundle/vimux"]
-	path = .vim/bundle/vimux
-	url = https://github.com/benmills/vimux.git
 [submodule ".vim/bundle/paredit"]
 	path = .vim/bundle/paredit
 	url = git://github.com/vim-scripts/paredit.vim.git
@@ -79,15 +70,9 @@
 [submodule ".vim/bundle/vim-classpath"]
 	path = .vim/bundle/vim-classpath
 	url = git://github.com/tpope/vim-classpath.git
-[submodule ".vim/bundle/vim-tbone"]
-	path = .vim/bundle/vim-tbone
-	url = git://github.com/tpope/vim-tbone.git
 [submodule ".vim/bundle/vim-ruby-refactoring"]
 	path = .vim/bundle/vim-ruby-refactoring
 	url = https://github.com/rking/vim-ruby-refactoring
-[submodule "/.vim/bundle/vim-tmux-navigator"]
-	path = .vim/bundle/vim-tmux-navigator
-	url = git@github.com:christoomey/vim-tmux-navigator.git
 [submodule "/.vim/bundle/funcoo.vim"]
 	path = .vim/bundle/funcoo.vim
 	url = https://github.com/rizzatti/funcoo.vim.git

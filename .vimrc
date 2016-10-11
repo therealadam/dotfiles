@@ -45,7 +45,12 @@ Plug 'chriskempson/base16-vim'
 Plug 'sjl/badwolf'
 " Plug "flazz/vim-colorschemes"
 
-"
+" Testing code
+" TODO use vim-testing collection or reinstall the following
+" ruby_focused_unit_test vim-slice vim-tbone vim-tmux-navigator vim-vroom
+" vimux vroom
+
+" TODO
 " vim-ruby-refactoring
 " vim-textobj-rubyblock
 " vim-textobj-user
