@@ -14,7 +14,7 @@ Plug 'junegunn/gv.vim'
 
 " Tools
 Plug 'chrisbra/csv.vim'
-" vim-test
+Plug 'janko-m/vim-test'
 
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
@@ -44,11 +44,6 @@ Plug 'reedes/vim-colors-pencil'
 Plug 'chriskempson/base16-vim'
 Plug 'sjl/badwolf'
 " Plug "flazz/vim-colorschemes"
-
-" Testing code
-" TODO use vim-testing collection or reinstall the following
-" ruby_focused_unit_test vim-slice vim-tbone vim-tmux-navigator vim-vroom
-" vimux vroom
 
 " TODO
 " vim-ruby-refactoring
@@ -144,13 +139,6 @@ nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "" Abbreviations
-" iabbrev @@ adam@therealadam.com 
-" iabbrev @tra @therealadam
-" iabbrev @http http://therealadam.com
-" iabbrev @gh http://github.com/therealadam
-iabbrev cass cassandra
-iabbrev teh the
-
 
 "" Pathogen
 runtime bundle/vim-pathogen/autoload/pathogen.vim
@@ -158,12 +146,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "" Looks
-
-" set background=dark
-" set t_Co=256
-" colorscheme badwolf
-" colorscheme Tomorrow-Night
-colorscheme Tomorrow
+colorscheme base16-solarized-light
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -172,7 +155,7 @@ let g:EasyMotion_do_shade=0
 nnoremap <leader><space> <c-^>
 
 "" Use the OS X clipboard
-" set clipboard=unnamed
+set clipboard=unnamed
 
 "" Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -189,9 +172,6 @@ nnoremap <leader>v V`]
 
 "" Bounce out of insert mode
 inoremap jj <ESC>
-
-"" Quick split
-nnoremap <leader>ww <C-w>v<C-w>l
 
 " dont move cursor after pasting
 noremap p p`[
@@ -246,9 +226,6 @@ map <leader>b :CtrlPBuffer<cr>
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>fu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
-"" My own little test runner!
-" map <leader>tf :call Focus()<cr>
-
 "" File navigation, standing on GRB's shoulders
 
 " Open files, limited to the directory of the current file, with <leader>gf
@@ -272,11 +249,6 @@ map <leader>v :view %%
 
 " Make gvim nice
 if has('gui_running')
-  " set guifont=Cousine:h16
-  " colorscheme pencil
-  " set guifont=Menlo:h12
-  " colorscheme base16-tomorrow
-  " set guifont=Droid\ Sans\ Mono:h12
   set background=dark
   colorscheme base16-solarized-dark
   set macligatures
@@ -332,9 +304,6 @@ if has('gui_running')
   autocmd GUIEnter * :unmenu Syntax.
 end
 
-"" vim-slime
-let g:slime_target = "tmux"
-
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
 set winwidth=80
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -343,24 +312,6 @@ set winwidth=80
 set winheight=10
 set winminheight=10
 set winheight=999
-
-"" vroom
-let g:vroom_use_colors=1
-let g:vroom_map_keys=0
-let g:vroom_use_vimux=0
-let g:vroom_use_dispatch=1
-let g:vroom_use_spring=1
-" let g:vroom_use_binstubs=1
-map <leader>t :VroomRunTestFile<cr>
-map <leader>tf :VroomRunNearestTest<cr>
-
-"" vimux
-map <leader>vp :VimuxPromptCommand<cr>
-map <leader>vl :VimuxRunLastCommand<cr>
-map <leader>vi :VimuxInspectRunner<cr>
-map <leader>vq :VimuxCloseRunner<cr>
-map <leader>vk :VimuxScrollUpInspect<cr>
-map <leader>vj :VimuxScrollDownInspect<cr>
 
 "" Dispatch
 map <leader>d :Dispatch<cr>
@@ -372,23 +323,27 @@ map <leader>G :Git
 "" Often, I like to see line numbers
 map <leader>l :set number!<cr>
 
-"" Fix gitgutter color in solarized-dark
-highlight clear SignColumn
-" highlight SignColumn ctermbg=0
-" let g:gitgutter_signs = 0
-" let g:gitgutter_highlight_lines = 1
-
 "" Folding
 
-" set foldmethod=indent
-" set foldlevelstart=0
-" set foldcolumn=3
+set foldmethod=indent
+set foldlevelstart=0
+set foldcolumn=1
 
 nnoremap <Space> za
 vnoremap <Space> za
 
 " Refocus folds
 nnoremap ,z zMzvzz
+
+" Testing
+
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ts :TestSuite<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+let test#strategy = "dispatch"
 
 " neocomplcache
 let g:neocomplcache_enable_cursor_hold_i = 1
@@ -416,27 +371,7 @@ autocmd FileType go compiler go
 autocmd FileType go setlocal makeprg="go build"
 autocmd FileType go set noexpandtab
 
-" switch.vim
-
-" nnoremap - :Switch<cr>
-
-" better tmux/vim movement
-let g:tmux_navigator_no_mappings = 1
-
-nmap <silent> <ctrl-h> :TmuxNavigateLeft<cr>
-nmap <silent> <ctrl-j> :TmuxNavigateDown<cr>
-nmap <silent> <ctrl-k> :TmuxNavigateUp<cr>
-nmap <silent> <ctrl-l> :TmuxNavigateRight<cr>
-nmap <silent> <ctrl-\> :TmuxNavigatePrevious<cr>
-
-nmap <silent> <leader>ty :Tyank
-nmap <silent> <leader>tp :Tput
-
-" NERDTree
-
-map <leader>nc :NERDTreeCWD<cr>
-map <leader>nt :NERDTreeToggle<cr>
-map <leader>nf :NERDTreeFind<cr>
+nnoremap - :Switch<cr>
 
 " Include user's local vim config
 if filereadable(expand("~/.vimrc.local"))
