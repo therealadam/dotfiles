@@ -52,6 +52,19 @@ Plug 'sjl/badwolf'
 " vim-unimpaired
 " vim-vroom
 " vim-vinegar
+" ack.vim/ctrlp/ctrlp-funky
+" vim-surround?
+" vim-unimpaired, vim-repeat, vim-fireplace, vim-classpath
+" vim-align
+" matchit
+" paredit
+" vim-easymotion
+" vim-switch
+" vim-gitgutter
+" hardmode
+" vim-markdown-folding
+" vim-rooter
+" t_comment
 
 call plug#end()
 
