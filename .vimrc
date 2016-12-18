@@ -7,26 +7,29 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'airblade/vim-rooter'
+Plug 'easymotion/vim-easymotion'
+Plug 'mileszs/ack.vim'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 
 " Tools
 Plug 'chrisbra/csv.vim'
-Plug 'janko-m/vim-test'
+Plug 'tpope/vim-commentary'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'rizzatti/dash.vim'
 
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
-" Plug 'vim-ruby/vim-ruby'
-" Plug 'pangloss/vim-javascript'
-" Plug 'kchmck/vim-coffee-script'
-" Plug 'cakebaker/scss-syntax.vim'
-" Plug 'tpope/vim-liquid'
-" Plug 'elzr/vim-json'
-" Plug 'isruslan/vim-es6' " let's try this?
-
-" Web
 Plug 'tpope/vim-ragtag'
 Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color'
@@ -49,22 +52,13 @@ Plug 'sjl/badwolf'
 " vim-ruby-refactoring
 " vim-textobj-rubyblock
 " vim-textobj-user
-" vim-unimpaired
-" vim-vroom
-" vim-vinegar
 " ack.vim/ctrlp/ctrlp-funky
-" vim-surround?
-" vim-unimpaired, vim-repeat, vim-fireplace, vim-classpath
+" vim-fireplace, vim-classpath
 " vim-align
 " matchit
 " paredit
-" vim-easymotion
-" vim-switch
-" vim-gitgutter
 " hardmode
 " vim-markdown-folding
-" vim-rooter
-" t_comment
 
 call plug#end()
 
@@ -110,7 +104,7 @@ nnoremap j gj
 nnoremap k gk
 
 "" Margin line numbers
-set number
+" set number
 set numberwidth=4
 
 "" Disable F1
@@ -153,13 +147,9 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 
 "" Abbreviations
 
-"" Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
-
 "" Looks
-colorscheme base16-solarized-light
+set background=light
+colorscheme solarized
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -168,7 +158,8 @@ let g:EasyMotion_do_shade=0
 nnoremap <leader><space> <c-^>
 
 "" Use the OS X clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
+map <leader>y "*y
 
 "" Strip all trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -177,14 +168,12 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>A :Ack
 nnoremap <leader>Aw :Ack <C-r><C-w>
 
-"" Hard re-wrap paragraphs
-nnoremap <leader>q gqip
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "" Re-select text that was just yanked
 nnoremap <leader>v V`]
-
-"" Bounce out of insert mode
-inoremap jj <ESC>
 
 " dont move cursor after pasting
 noremap p p`[
@@ -194,10 +183,6 @@ noremap P P`[
 vnoremap < <gv
 vnoremap > >gv
 vnoremap = =gv
-
-"" Clojure
-let g:vimclojure#ParenRainbow=1
-let g:vimclojure#HighlightBuiltins=1
 
 """ surround
 " Use v or # to get a variable interpolation (inside of a string)}
@@ -211,36 +196,11 @@ let g:surround_35  = "#{\r}" " #
 let g:surround_45 = "<% \r %>"  " -
 let g:surround_61 = "<%= \r %>" " =
 
-""" tagbar
-map <silent> <Leader>tb :TagbarToggle<CR>
-
-""" ctags, ctrlp refresh
-function! Refresh()
-  echo "refreshing tags and files..."
-
-  !if [ -d .git ]; then git ls-files -c -o --exclude-standard | ctags -L -; else ctags -R; fi
-
-  if exists(":ClearCtrlPCache") == 2
-    ClearCtrlPCache
-  endif
-  echo "all the things, refreshed!"
-endfunction
-
-map <silent> <Leader>ct :call Refresh()<CR>
-
-"" Don't let yankring poop in my home directory
-let g:yankring_history_dir = '$HOME/.vim/'
-let g:yankring_history_file = 'yankring.txt'
-
 "" File finding gizmo (whichever I'm using today)
-map <leader>f :CtrlP<cr>
-map <leader>b :CtrlPBuffer<cr>
-
-let g:ctrlp_extensions = ['funky']
-nnoremap <Leader>fu :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+map <leader>f :Files<cr>
+map <leader>b :Buffers<cr>
 
 "" File navigation, standing on GRB's shoulders
-
 " Open files, limited to the directory of the current file, with <leader>gf
 " This requires the %% mapping.
 map <leader>gf :CtrlP %%<cr>
@@ -318,7 +278,8 @@ if has('gui_running')
 end
 
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-set winwidth=80
+set winwidth=83
+set winminwidth=25
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
@@ -339,7 +300,7 @@ map <leader>l :set number!<cr>
 "" Folding
 
 set foldmethod=indent
-set foldlevelstart=0
+set foldlevelstart=1
 set foldcolumn=1
 
 nnoremap <Space> za
@@ -348,50 +309,15 @@ vnoremap <Space> za
 " Refocus folds
 nnoremap ,z zMzvzz
 
-" Testing
+" Completion
+let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_smart_case=1
 
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>ts :TestSuite<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
-
-let test#strategy = "dispatch"
-
-" neocomplcache
-let g:neocomplcache_enable_cursor_hold_i = 1
-let g:neocomplcache_enable_at_startup = 1
-
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-
-" inoremap <expr><CR> neocomplcache#smart_close_popup()
-inoremap <expr><TAB> pumvisible() ? "\<C-n>": "\<TAB>"
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-inoremap <expr><C-e> neocomplcache#cancel_popup()
-
-autocmd BufNewFile,BufReadPost *.cljx setfiletype clojure
-autocmd FileType clojure set lispwords+=deftest
-autocmd FileType clojure set lispwords+=testing
-autocmd FileType clojure set lispwords+=defroutes
-autocmd FileType clojure set lispwords+=defcomponent
-
-autocmd FileType go setlocal foldmethod=syntax
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-autocmd FileType go compiler go
-autocmd FileType go setlocal makeprg="go build"
-autocmd FileType go set noexpandtab
-
-nnoremap - :Switch<cr>
-
-" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
-endif
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['buffer']
+let g:deoplete#sources.ruby = ['buffer', 'tag', 'member']
+let g:deoplete#sources.javascript = ['buffer', 'tag', 'member']
 
 "" TO PILLAGE
 " http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
-" https://github.com/janko-m/vim-test
 
