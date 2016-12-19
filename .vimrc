@@ -27,6 +27,8 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rizzatti/dash.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
