@@ -34,6 +34,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color'
 Plug 'othree/javascript-libraries-syntax.vim' " ^ same
+Plug 'vim-syntastic/syntastic'
 
 " Rails
 Plug 'tpope/vim-bundler'
@@ -49,11 +50,8 @@ Plug 'sjl/badwolf'
 " Plug "flazz/vim-colorschemes"
 
 " TODO
-" vim-ruby-refactoring
 " vim-textobj-rubyblock
 " vim-textobj-user
-" ack.vim/ctrlp/ctrlp-funky
-" vim-fireplace, vim-classpath
 " vim-align
 " matchit
 " paredit
@@ -104,7 +102,7 @@ nnoremap j gj
 nnoremap k gk
 
 "" Margin line numbers
-" set number
+set number
 set numberwidth=4
 
 "" Disable F1
@@ -134,9 +132,6 @@ set wildignore+=*/spec/reports/*,coverage/*,log
 set visualbell
 set ttyfast
 set undofile
-
-"" Load any customizations particular to this old host
-" source ~HOME/.local.vim
 
 "" Key binding
 let mapleader=","
@@ -280,6 +275,7 @@ end
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
 set winwidth=83
 set winminwidth=25
+
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
@@ -318,6 +314,10 @@ let g:deoplete#sources._ = ['buffer']
 let g:deoplete#sources.ruby = ['buffer', 'tag', 'member']
 let g:deoplete#sources.javascript = ['buffer', 'tag', 'member']
 
-"" TO PILLAGE
-" http://learnvimscriptthehardway.stevelosh.com/chapters/09.html
+" Syntastic
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
