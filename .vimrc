@@ -29,6 +29,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rizzatti/dash.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'janko-m/vim-test'
 
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
@@ -61,15 +62,6 @@ Plug 'sjl/badwolf'
 " vim-markdown-folding
 
 call plug#end()
-
-" 1. New home for GUI stuff
-if has("gui_macvim")
-  nnoremap <D-1> :tabn 1<cr>
-  nnoremap <D-2> :tabn 2<cr>
-  nnoremap <D-3> :tabn 3<cr>
-  nnoremap <D-4> :tabn 4<cr>
-  nnoremap <D-5> :tabn 5<cr>
-end
 
 " ⍵ Legacy stuff
 " =================
@@ -155,7 +147,7 @@ let g:EasyMotion_do_shade=0
 nnoremap <leader><space> <c-^>
 
 "" Use the OS X clipboard
-" set clipboard=unnamed
+set clipboard=unnamed
 map <leader>y "*y
 
 "" Strip all trailing whitespace
@@ -196,22 +188,6 @@ let g:surround_61 = "<%= \r %>" " =
 "" File finding gizmo (whichever I'm using today)
 map <leader>f :Files<cr>
 map <leader>b :Buffers<cr>
-
-"" File navigation, standing on GRB's shoulders
-" Open files, limited to the directory of the current file, with <leader>gf
-" This requires the %% mapping.
-map <leader>gf :CtrlP %%<cr>
-
-map <leader>gv :CtrlP app/views<cr>
-map <leader>gc :CtrlP app/controllers<cr>
-map <leader>gm :CtrlP app/models<cr>
-map <leader>gh :CtrlP app/helpers<cr>
-map <leader>gl :CtrlP lib<cr>
-map <leader>gp :CtrlP public<cr>
-map <leader>gs :CtrlP public/stylesheets<cr>
-
-map <leader>gr :topleft :split config/routes.rb<cr>
-map <leader>gg :topleft 100 :split Gemfile<cr>
 
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
@@ -267,6 +243,13 @@ if has('gui_running')
     inoremap <D-BS>     <esc>my0c`y
 
     set foldcolumn=1
+
+  nnoremap <D-1> :tabn 1<cr>
+  nnoremap <D-2> :tabn 2<cr>
+  nnoremap <D-3> :tabn 3<cr>
+  nnoremap <D-4> :tabn 4<cr>
+  nnoremap <D-5> :tabn 5<cr>
+
   end
 
   autocmd GUIEnter * :unmenu DrChip.
@@ -322,4 +305,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" vim-test
+
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
+let test#strategy = {
+  \ 'nearest': 'dispatch',
+  \ 'file':    'dispatch',
+  \ 'suite':   'basic',
+\}
 
