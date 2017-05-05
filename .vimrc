@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 " Basics
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-dispatch'
+Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
@@ -38,6 +39,7 @@ Plug 'mxw/vim-jsx'
 Plug 'ap/vim-css-color'
 Plug 'othree/javascript-libraries-syntax.vim' " ^ same
 Plug 'vim-syntastic/syntastic'
+Plug 'ElmCast/elm-vim'
 
 " Rails
 Plug 'tpope/vim-bundler'
@@ -258,7 +260,7 @@ if has('gui_running')
 end
 
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-set winwidth=83
+set winwidth=90
 set winminwidth=25
 
 " We have to have a winheight bigger than we want to set winminheight. But if
@@ -319,3 +321,17 @@ let test#strategy = {
   \ 'suite':   'basic',
 \}
 
+" snippets
+
+let g:UltiSnipsSnippetDir = "~/.vim/snippets"
+
+" don't hit escape
+inoremap jj <Esc>
+
+" elm
+
+let g:elm_syntastic_show_warnings=1
+
+" Show whitespace
+set listchars=tab:>-,trail:-
+set list

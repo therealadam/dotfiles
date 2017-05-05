@@ -27,3 +27,7 @@ config/projections.json
 .env
 .bundle*
 bin/
+.vagrant
+
+# Awfulness
+node_modules/
