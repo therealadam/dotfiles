@@ -110,7 +110,7 @@ vnoremap <F1> <ESC>
 set showmode
 set showcmd
 set hidden
-set cursorline
+" set cursorline
 
 set wildmode=list:longest
 
@@ -139,8 +139,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 "" Abbreviations
 
 "" Looks
-set background=light
-colorscheme solarized
+" set background=light
+" colorscheme solarized
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0

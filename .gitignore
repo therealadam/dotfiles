@@ -28,6 +28,7 @@ config/projections.json
 .bundle*
 bin/
 .vagrant
+.pry-local.rb
 
 # Awfulness
 node_modules/

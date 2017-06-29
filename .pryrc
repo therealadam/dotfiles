@@ -1,5 +1,5 @@
 # vim
-Pry.config.editor = "vim"
+Pry.config.editor = "atom"
 
 # Toys methods
 # Stealed from https://gist.github.com/807492
@@ -19,6 +19,10 @@ begin
   include Rails::ConsoleMethods
   puts "Loaded Rails helpers"
 rescue
-  puts "Plain old Ruby!"
 end
 
+local = Pathname.new(".pry-local.rb")
+if local.exist?
+  load local.to_s
+  puts "Loaded #{local}"
+end
