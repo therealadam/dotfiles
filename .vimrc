@@ -22,23 +22,15 @@ Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
 
 " Tools
-Plug 'chrisbra/csv.vim'
 Plug 'tpope/vim-commentary'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'rizzatti/dash.vim'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'janko-m/vim-test'
 
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-ragtag'
 Plug 'mxw/vim-jsx'
-Plug 'ap/vim-css-color'
-Plug 'othree/javascript-libraries-syntax.vim' " ^ same
-Plug 'vim-syntastic/syntastic'
+Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ElmCast/elm-vim'
 
 " Rails
@@ -46,22 +38,6 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
-
-" Colorschemes
-Plug 'altercation/vim-colors-solarized'
-Plug 'reedes/vim-colors-pencil'
-Plug 'chriskempson/base16-vim'
-Plug 'sjl/badwolf'
-" Plug "flazz/vim-colorschemes"
-
-" TODO
-" vim-textobj-rubyblock
-" vim-textobj-user
-" vim-align
-" matchit
-" paredit
-" hardmode
-" vim-markdown-folding
 
 call plug#end()
 
@@ -110,23 +86,17 @@ vnoremap <F1> <ESC>
 set showmode
 set showcmd
 set hidden
-" set cursorline
 
 set wildmode=list:longest
 
 " what files to ignore when doing filename completion, etc.
 set wildignore+=*.o,*.out,*.obj,.git,*.rbc,*.class,.svn,*.gem
-" Disable archive files
 set wildignore+=*.zip,*.tar.gz,*.tar.bz2,*.rar,*.tar.xz
-" Ignore bundler and sass cache
 set wildignore+=vendor/gems/*,vendor/cache/*,.bundle,.sass-cache/*
-" Disable temp and backup files
 set wildignore+=*.swp,*~,._*
-" Disable poop
 set wildignore+=*/spec/reports/*,coverage/*,log
 
 set visualbell
-set ttyfast
 set undofile
 
 "" Key binding
@@ -135,12 +105,6 @@ let maplocalleader=","
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-
-"" Abbreviations
-
-"" Looks
-" set background=light
-" colorscheme solarized
 
 "" EasyMotion
 let g:EasyMotion_do_shade=0
@@ -191,9 +155,7 @@ let g:surround_61 = "<%= \r %>" " =
 map <leader>f :Files<cr>
 map <leader>b :Buffers<cr>
 
-cnoremap %% <C-R>=expand('%:h').'/'<cr>
 map <leader>e :edit %%
-map <leader>v :view %%
 
 " Make gvim nice
 if has('gui_running')
@@ -280,57 +242,11 @@ map <leader>G :Git
 "" Often, I like to see line numbers
 map <leader>l :set number!<cr>
 
-"" Folding
-
-set foldmethod=indent
-set foldlevelstart=1
-set foldcolumn=1
-
 nnoremap <Space> za
 vnoremap <Space> za
 
-" Refocus folds
-nnoremap ,z zMzvzz
-
-" Completion
-let g:deoplete#enable_at_startup=1
-let g:deoplete#enable_smart_case=1
-
-let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['buffer']
-let g:deoplete#sources.ruby = ['buffer', 'tag', 'member']
-let g:deoplete#sources.javascript = ['buffer', 'tag', 'member']
-
-" Syntastic
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-" vim-test
-
-nmap <silent> <leader>tt :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
-
-let test#strategy = {
-  \ 'nearest': 'dispatch',
-  \ 'file':    'dispatch',
-  \ 'suite':   'basic',
-\}
-
-" snippets
-
-let g:UltiSnipsSnippetDir = "~/.vim/snippets"
-
 " don't hit escape
 inoremap jj <Esc>
-
-" elm
-
-let g:elm_syntastic_show_warnings=1
 
 " Show whitespace
 set listchars=tab:>-,trail:-
