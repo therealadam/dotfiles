@@ -17,3 +17,9 @@ function ll
   # https://twitter.com/climagic/status/834084704345284609
   ls -lShra
 end
+
+source /usr/local/opt/asdf/asdf.fish
+
+# if test -f ~/.config/fish/bundler-exec.fish
+#   source ~/.config/fish/bundler-exec.fish
+# end
