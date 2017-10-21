@@ -228,8 +228,8 @@ set winminwidth=35
 " We have to have a winheight bigger than we want to set winminheight. But if
 " we set winheight to be huge before winminheight, the winminheight set will
 " fail.
-set winheight=10
-set winminheight=10
+set winheight=20
+set winminheight=20
 set winheight=999
 
 "" Dispatch
@@ -254,12 +254,20 @@ set list
 
 " Linting
 
-" XXX use a colorful glyph instead of emoji
-let g:ale_sign_error = "❗"
-let g:ale_sign_warning = "❓"
+let g:ale_sign_warning = '▲'
+let g:ale_sign_error = '✗'
+highlight link ALEWarningSign String
+highlight link ALEErrorSign Title
 
 nmap <silent> [l <Plug>(ale_previous_wrap)
 nmap <silent> ]l <Plug>(ale_next_wrap)
 
 let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_save=1
+
+" GitGutter
+
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
