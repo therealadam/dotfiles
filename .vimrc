@@ -39,6 +39,9 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
 
+" Colorschemes
+Plug 'altercation/vim-colors-solarized'
+
 call plug#end()
 
 " ⍵ Legacy stuff
@@ -159,10 +162,9 @@ map <leader>e :edit %%
 
 " Make gvim nice
 if has('gui_running')
-  set background=dark
-  colorscheme base16-solarized-dark
+  colorscheme solarized
   set macligatures
-  set guifont=Fira\ Code\ Retina:h14
+  set guifont=Inconsolata:h14
   set columns=120
 
 
@@ -208,17 +210,14 @@ if has('gui_running')
 
     set foldcolumn=1
 
-  nnoremap <D-1> :tabn 1<cr>
-  nnoremap <D-2> :tabn 2<cr>
-  nnoremap <D-3> :tabn 3<cr>
-  nnoremap <D-4> :tabn 4<cr>
-  nnoremap <D-5> :tabn 5<cr>
+    nnoremap <D-1> :tabn 1<cr>
+    nnoremap <D-2> :tabn 2<cr>
+    nnoremap <D-3> :tabn 3<cr>
+    nnoremap <D-4> :tabn 4<cr>
+    nnoremap <D-5> :tabn 5<cr>
 
+    autocmd GUIEnter * :unmenu Syntax.
   end
-
-  autocmd GUIEnter * :unmenu DrChip.
-  autocmd GUIEnter * :unmenu Plugin.
-  autocmd GUIEnter * :unmenu Syntax.
 end
 
 " "" Make windows well-sized. Borrowed from GRB. Not sure if liking.
