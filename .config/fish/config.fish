@@ -1,5 +1,5 @@
 set -g -x fish_greeting ""
-set -g -x EDITOR 'nvim'
+set -g -x EDITOR 'vim'
 
 # fish_vi_key_bindings
 

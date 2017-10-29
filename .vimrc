@@ -16,11 +16,13 @@ Plug 'airblade/vim-rooter'
 Plug 'easymotion/vim-easymotion'
 Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
+Plug 'tpope/vim-rsi'
 
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/gv.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-rhubarb'
 
 " Tools
 Plug 'tpope/vim-commentary'
@@ -39,6 +41,8 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rbenv'
+Plug 'kana/vim-textobj-user'
+Plug 'rhysd/vim-textobj-ruby'
 
 " Colorschemes and aesthetics
 Plug 'altercation/vim-colors-solarized'
@@ -168,7 +172,7 @@ if has('gui_running')
   colorscheme solarized
   set macligatures
   set guifont=Inconsolata:h14
-  set columns=140
+  set columns=177
 
 
   " Kill UI cruft
@@ -222,17 +226,6 @@ if has('gui_running')
     autocmd GUIEnter * :unmenu Syntax.
   end
 end
-
-"" Make windows well-sized. Borrowed from GRB. Not sure if liking.
-set winwidth=90
-set winminwidth=35
-
-" We have to have a winheight bigger than we want to set winminheight. But if
-" we set winheight to be huge before winminheight, the winminheight set will
-" fail.
-set winheight=20
-set winminheight=20
-set winheight=999
 
 "" Dispatch
 map <leader>d :Dispatch<cr>
