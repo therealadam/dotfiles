@@ -32,8 +32,8 @@ Plug 'junegunn/fzf.vim'
 " Syntaxes
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-ragtag'
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'ElmCast/elm-vim'
 
 " Rails
@@ -56,8 +56,10 @@ call plug#end()
 set nocompatible " Just say no to plain vi
 set autoindent
 
-"" Live dangerously, don't use a swapfile
-set noswapfile
+" nb. trailing // will preserve file path in each root
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
 
 "" I like pointing devices
 set mouse=a
@@ -171,7 +173,8 @@ map <leader>e :edit %%
 if has('gui_running')
   colorscheme solarized
   set macligatures
-  set guifont=Inconsolata:h14
+  " set guifont=Inconsolata:h14
+  set guifont=Menlo:h14
   set columns=177
 
 

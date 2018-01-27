@@ -18,9 +18,9 @@
     ]
     titleBar: "custom"
   editor:
-    fontFamily: "Input Mono"
-    fontSize: 12
+    fontFamily: "Menlo"
     invisibles: {}
+    scrollPastEnd: true
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
@@ -78,7 +78,6 @@
       "<"
     ]
     incrementalSearch: true
-    notifiedCoffeeScriptNoLongerSupportedToExtendVMP: true
     useSmartcaseForSearch: true
   welcome:
     showOnStartup: false
