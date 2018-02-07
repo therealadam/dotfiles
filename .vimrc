@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 " Basics
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-dispatch'
-Plug 'radenling/vim-dispatch-neovim'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-unimpaired'
@@ -34,7 +33,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-ragtag'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
-Plug 'ElmCast/elm-vim'
 
 " Rails
 Plug 'tpope/vim-bundler'
@@ -172,11 +170,6 @@ map <leader>e :edit %%
 " Make gvim nice
 if has('gui_running')
   colorscheme solarized
-  set macligatures
-  " set guifont=Inconsolata:h14
-  set guifont=Menlo:h14
-  set columns=177
-
 
   " Kill UI cruft
   set go-=T
@@ -192,6 +185,10 @@ if has('gui_running')
 
   " Totally stolen from sjl
   if has("gui_macvim")
+    set macligatures
+    " set guifont=Inconsolata:h14
+    set guifont=Menlo:h14
+    set columns=177
     " Full screen means FULL screen
     set fuoptions=maxvert,maxhorz
 
