@@ -6,11 +6,14 @@
   "autocomplete-elixir":
     elixirPath: "/usr/local/bin/elixir"
     erlangHome: "/usr/local/bin"
+  "city-lights-ui": {}
   core:
     disabledPackages: [
       "vim-mode-plus-ex-mode"
       "bracket-matcher"
+      "city-lights-icons"
     ]
+    restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
       "one-light-ui"
@@ -18,7 +21,8 @@
     ]
     titleBar: "custom"
   editor:
-    fontFamily: "Menlo"
+    fontFamily: "Fira Code"
+    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
