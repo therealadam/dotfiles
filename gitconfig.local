@@ -1,0 +1,6 @@
+[alias]
+  l = log --pretty=colored --format=oneline
+
+[user]
+  name = Adam Keys
+  mail = adam@pingboard.com
