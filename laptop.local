@@ -1,17 +1,22 @@
 #!/bin/sh
 
-fancy_echo "Installing extra tooling"
-
-fancy_echo "Installing apps"
+fancy_echo "Installing apps, etc."
 
 brew bundle --file=- <<EOF
 tap "caskroom/fonts"
+
 brew "mas"
+brew "exa"
+brew "fd"
+brew "ripgrep"
 
 cask "1password"
 cask "alfred"
 cask "atom"
+cask "dash"
 cask "font-fira-code"
+cask "google-chrome"
+cask "istat-menus5"
 cask "paw"
 cask "postico"
 cask "slack"
@@ -39,5 +44,4 @@ brew cask cleanup
 # TODO mac tinkering
 # TODO keyboard?
 # keyboard/mouse rate/button mappings
-# licenses
 
