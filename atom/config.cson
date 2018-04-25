@@ -3,6 +3,8 @@
     grepCommandString: "rg -i -n -H --no-heading --column"
   "atom-package-deps":
     ignored: []
+  "atom-typescript":
+    showSemanticView: true
   "autocomplete-elixir":
     elixirPath: "/usr/local/bin/elixir"
     erlangHome: "/usr/local/bin"
@@ -11,18 +13,16 @@
     disabledPackages: [
       "vim-mode-plus-ex-mode"
       "bracket-matcher"
-      "city-lights-icons"
     ]
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
-      "one-light-ui"
-      "solarized-light-syntax"
+      "city-lights-ui"
+      "city-lights-syntax"
     ]
     titleBar: "custom"
   editor:
     fontFamily: "Fira Code"
-    fontSize: 12
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
@@ -50,15 +50,15 @@
     autoIndentJSX: true
   linter:
     lintOnChange: false
+    lintPreviewTabs: false
   "linter-eslint":
     globalNodePath: "/usr/local"
     useGlobalEslint: true
   "linter-rubocop":
-    command: "/Users/adam/.rbenv/shims/rubocop"
+    command: "/Users/adam/.asdf/shims/rubocop"
     disableWhenNoConfigFile: true
   "linter-ui-default":
-    panelHeight: 214
-    showPanel: true
+    alwaysTakeMinimumSpace: true
   "lisp-paredit": {}
   metrics:
     userId: "ce5ced5d985372e1e8ac47a5200dafcb6118f10d"

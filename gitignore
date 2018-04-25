@@ -1,0 +1,45 @@
+# Vim
+*.sw[nop]
+*~
+*.un~
+
+# ctags
+tags
+!tags/
+.tmtags
+
+# OS X
+.DS_Store
+
+# Build output
+*.hi
+*.o
+*.pyc
+
+# IDEs
+.idea
+*_flymake.*
+config/projections.json
+.projections.json
+.byebug_history
+
+# Environment
+.env
+.bundle
+bin/
+.vagrant
+.pry-local.rb
+.byebug_history
+.foreman
+.tool-versions
+
+# Awfulness
+node_modules/
+
+# Misc
+
+db/*.sqlite3
+log/*.log
+rerun.txt
+tmp/**/*
+!tmp/cache/.keep
