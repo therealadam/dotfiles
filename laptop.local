@@ -20,6 +20,7 @@ cask "istat-menus5"
 cask "paw"
 cask "postico"
 cask "slack"
+cask "table-tool"
 
 mas "Things3", id: 904280696
 mas "Bear", id: 1091189122
@@ -40,7 +41,6 @@ brew cleanup
 brew cask cleanup
 
 # TODO color schemes
-# TODO atom packages?
 # TODO mac tinkering
 # TODO keyboard?
 # keyboard/mouse rate/button mappings
