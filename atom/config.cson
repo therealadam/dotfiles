@@ -52,7 +52,7 @@
     lintOnChange: false
     lintPreviewTabs: false
   "linter-eslint":
-    globalNodePath: "/usr/local"
+    globalNodePath: "/Users/adam/.asdf/installs/nodejs/10.3.0/.npm"
     useGlobalEslint: true
   "linter-rubocop":
     command: "/Users/adam/.asdf/shims/rubocop"

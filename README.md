@@ -21,3 +21,17 @@ rcup
 
 https://github.com/jasonrudolph/keyboard
 https://twitter.com/panic/status/558389225612005376
+
+## Imploding an existing setup
+
+```
+# Uninstall Homebrew; download the script and run with --help if you like
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+(extensively manually prune /usr/local)
+
+# Uninstall rbenv
+rm -rf ~/.rbenv
+# Uninstall asdf
+
+rm -rf ~/.asdf
+```
