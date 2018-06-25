@@ -18,7 +18,7 @@
     telemetryConsent: "limited"
     themes: [
       "city-lights-ui"
-      "city-lights-syntax"
+      "solarized-light-syntax"
     ]
     titleBar: "custom"
   editor:
@@ -43,9 +43,9 @@
     useGraphvizCommandLine: true
   "isotope-ui":
     backgroundGradient: true
-    fontWeight: "Light"
     lowContrastTooltip: true
     minimalMode: true
+    tabSizing: "Minimum"
   "language-babel":
     autoIndentJSX: true
   linter:

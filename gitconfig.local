@@ -39,6 +39,7 @@
 
 [push]
   default = tracking
+  quiet = true
 
 [apply]
   whitespace = nowarn
