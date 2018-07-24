@@ -17,7 +17,7 @@
     restorePreviousWindowsOnStart: "no"
     telemetryConsent: "limited"
     themes: [
-      "city-lights-ui"
+      "one-light-ui"
       "solarized-light-syntax"
     ]
     titleBar: "custom"
@@ -62,7 +62,8 @@
   "lisp-paredit": {}
   metrics:
     userId: "ce5ced5d985372e1e8ac47a5200dafcb6118f10d"
-  "one-light-ui": {}
+  "one-light-ui":
+    tabCloseButton: "Left"
   react: {}
   "seti-icons":
     noColor: true
