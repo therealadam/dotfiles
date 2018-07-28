@@ -50,7 +50,5 @@
 [rerere]
   enabled = 1
 
-; XXX hax
-[user]
-  name = Adam Keys
-  email = adam@pingboard.com
+[include]
+  path = ~/.gitconfig.host
