@@ -59,6 +59,7 @@
     disableWhenNoConfigFile: true
   "linter-ui-default":
     alwaysTakeMinimumSpace: true
+    showPanel: true
   "lisp-paredit": {}
   metrics:
     userId: "ce5ced5d985372e1e8ac47a5200dafcb6118f10d"

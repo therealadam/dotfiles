@@ -22,6 +22,7 @@ tags
 config/projections.json
 .projections.json
 .byebug_history
+.tool-versions-e
 
 # Environment
 .env
