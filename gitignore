@@ -26,7 +26,6 @@ config/projections.json
 # Environment
 .env
 .bundle
-bin/
 .vagrant
 .pry-local.rb
 .byebug_history
