@@ -1,7 +1,10 @@
 set surround
+set commentary
+set relativenumber
+set number
 
 map \r :action RunAnything<CR>
-map \v :action Vcs.Operations.Popup<CR>
+map \b :action Vcs.Operations.Popup<CR>
 
 ; open VCS prompt
 ; run rails console
