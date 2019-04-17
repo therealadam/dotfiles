@@ -37,7 +37,7 @@ if [ -r "$HOME/.rcrc" ]; then
 fi
 
 # Thoughtbot's dotfiles include gpg-suite, which I don't need
-brew cask uninstall gpg-suite
+#brew cask uninstall gpg-suite
 
 fancy_echo "Cleanup"
 brew cleanup

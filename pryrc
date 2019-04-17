@@ -23,3 +23,6 @@ if defined?(PryByebug)
 
   puts "[AK] PryByeBug: (c)ontinue, (s)tep, (n)ext, (f)inish"
 end
+
+# XXX while I'm tinkering with RubyMine
+Pry.config.pager = false
