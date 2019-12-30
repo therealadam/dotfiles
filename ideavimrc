@@ -1,5 +1,8 @@
 set surround
 set commentary
+set easymotion
+set ideajoin
+
 set relativenumber
 set number
 

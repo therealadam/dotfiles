@@ -10,3 +10,8 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=$PATH:$(go env GOPATH)/bin
 
 export PS1="🍔 "
+
+# export DISABLE_SPRING=1
+# export RUBYOPT=-rbumbler/go
+
+export HOMEBREW_NO_AUTO_UPDATE=1
