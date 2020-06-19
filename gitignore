@@ -25,7 +25,7 @@ config/projections.json
 .tool-versions-e
 
 # Environment
-.env
+.env.*
 .bundle
 .vagrant
 .pry-local.rb
