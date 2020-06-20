@@ -1,6 +1,7 @@
 # Homebrew-related
 # ----------------
 
+export GOPATH="$HOME/go"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 # export PKG_CONFIG_PATH: /usr/local/opt/icu4c/lib/pkgconfig
