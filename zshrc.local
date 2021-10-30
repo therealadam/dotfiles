@@ -3,7 +3,7 @@
 
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-# export PKG_CONFIG_PATH: /usr/local/opt/icu4c/lib/pkgconfig
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
 export PATH="$HOME/.bin:./bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -11,7 +11,5 @@ export PATH=$PATH:$(go env GOPATH)/bin
 
 export PS1="🍔 "
 
-# export DISABLE_SPRING=1
-# export RUBYOPT=-rbumbler/go
-
 export HOMEBREW_NO_AUTO_UPDATE=1
+

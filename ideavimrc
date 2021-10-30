@@ -2,12 +2,12 @@ set surround
 set commentary
 set easymotion
 set ideajoin
+set NERDTree
 
-set relativenumber
-set number
+; set relativenumber
+; set number
 
 map \r :action RunAnything<CR>
 map \b :action Vcs.Operations.Popup<CR>
+map \n :action NERDTree<CR>
 
-; open VCS prompt
-; run rails console
