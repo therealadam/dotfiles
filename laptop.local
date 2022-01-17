@@ -2,34 +2,9 @@
 
 fancy_echo "Installing apps, etc."
 
-brew bundle --file=- <<EOF
-tap "caskroom/fonts"
+brew bundle install
 
-brew "mas"
-brew "exa"
-brew "fd"
-brew "ripgrep"
-
-cask "1password"
-cask "alfred"
-cask "atom"
-cask "dash"
-cask "font-fira-code"
-cask "google-chrome"
-cask "istat-menus5"
-cask "paw"
-cask "postico"
-cask "slack"
-cask "table-tool"
-
-mas "Things3", id: 904280696
-mas "Bear", id: 1091189122
-mas "Trello", id: 1278508951
-mas "1blocker", id: 1107421413
-mas "Day One", id: 1055511498
-mas "Monosnap", id: 540348655
-mas "Breaktime", id: 427475982
-EOF
+# TODO copy MacOS app configs
 
 if [ -r "$HOME/.rcrc" ]; then
   fancy_echo "Updating dotfiles ..."
@@ -37,14 +12,13 @@ if [ -r "$HOME/.rcrc" ]; then
 fi
 
 # Thoughtbot's dotfiles include gpg-suite, which I don't need
-#brew cask uninstall gpg-suite
+# brew cask uninstall gpg-suite
 
 fancy_echo "Cleanup"
 brew cleanup
 brew cask cleanup
 
 # TODO color schemes
-# TODO mac tinkering
 # TODO keyboard?
 # keyboard/mouse rate/button mappings
 
