@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require "json"
+
+def heroku_cli_missing?
+  result = system("heroku auth:whoami >/dev/null", exception: true)
+
+  !result
+end
+
+def fetch_heroku_apps
+  IO.popen("heroku apps --json") do |io|
+    json = io.read
+    io.close
+    JSON.parse(json)
+  end
+end
+
+def clone_code(name, git_url)
+  cmd = "git clone #{git_url} #{name}"
+
+  system(cmd)
+end
+
+def fetch_backup(name)
+  capture = "heroku pg:backups:capture --app=#{name}"
+  download = "heroku pg:backups:download --app=#{name}"
+  move = "mv latest.dump #{name}/pg-data.dump"
+  cmd = [capture, download, move].join(" && ")
+
+  system(cmd)
+end
+
+if __FILE__ == $0
+  if heroku_cli_missing?
+    puts "Could not find `heroku` CLI "
+    puts "$ brew install heroku"
+    exit -1
+  end
+
+  apps = fetch_heroku_apps
+  apps.each do |app|
+    name, git_url = app.values_at("name", "git_url")
+    puts "app: #{name}"
+
+    clone_code(name, git_url)
+    fetch_backup(name)
+  end
+
+  exit 0
+end
