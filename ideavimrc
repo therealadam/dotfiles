@@ -1,6 +1,5 @@
 set surround
 set commentary
-set easymotion
 set ideajoin
 set NERDTree
 
@@ -11,3 +10,7 @@ map \r :action RunAnything<CR>
 map \b :action Vcs.Operations.Popup<CR>
 map \n :action NERDTree<CR>
 
+Plug 'easymotion/vim-easymotion'
+let mapleader=","
+set easymotion
+map <Leader> <Plug>(easymotion-prefix)
