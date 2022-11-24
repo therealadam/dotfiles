@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+
+require "csv"
+require "open-uri"
+require "bundler/inline"
+
+gemfile do
+  source "https://rubygems.org"
+
+  gem "pry"
+  gem "nokogiri"
+end
+
+def wikipedia_url(path)
+  host = "https://en.wikipedia.org"
+
+  host + path
+end
+
+def find_season_pages(start_url)
+  page = URI.open(start_url)
+  fail "Couldn't fetch #{start_url}" if page.nil?
+
+  doc = Nokogiri::HTML(page)
+  fail "Couldn't parse show page" if doc.nil?
+
+  episode_regex = /Bob's Burgers \(season \d+\)/
+  doc.css('div[role=note] a')
+                .select { |link| link[:title] =~ episode_regex }
+                .map { |link| link[:href] }
+                .map { |path| wikipedia_url(path) }
+end
+
+def find_episodes(season_url, with_header: false)
+  page = URI.open(season_url)
+  fail "Couldn't fetch #{season_url}" if page.nil?
+
+  doc = Nokogiri::HTML(page)
+  fail "Couldn't parse season page" if doc.nil?
+
+  headers = doc.css('table.wikiepisodetable th[scope="col"]').map(&:text)
+  headers << "Synopsis"
+  episodes = doc.css('table.wikiepisodetable tr.vevent').map do |row_node|
+    cells = row_node.children.
+      map(&:text).
+      map { |s| s.gsub(/\"/, "") } # 🤷
+    synopsis = if row_node.next_sibling
+                 row_node.next_sibling.text.strip.gsub(/\"/, "")
+               else
+                 "TBD"
+               end
+
+    cells << synopsis
+  end
+
+  if with_header
+    episodes.unshift(headers)
+  else
+    episodes
+  end
+end
+
+if __FILE__ == $0
+  start_url = wikipedia_url("/wiki/List_of_Bob%27s_Burgers_episodes")
+  output_csv = Pathname.new(Dir.home) + "Desktop/bobs.csv"
+
+  episode_pages = find_season_pages(start_url)
+  seasons = episode_pages.map.with_index do |url, i|
+    header = i == 0
+    find_episodes(url, with_header: header)
+  end
+
+  CSV.open(output_csv.to_path, "w") do |csv|
+    seasons.each do |episodes|
+      episodes.each do |ep|
+        csv << ep
+      end
+    end
+  end
+end
