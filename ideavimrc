@@ -1,16 +1,45 @@
+" Tips: https://github.com/JetBrains/ideavim#summary-of-supported-vim-features
+
+""" Map leader to spacebar
+let mapleader=" "
+
+""" Plugins  --------------------------------
 set surround
+set multiple-cursors
 set commentary
+set argtextobj
+set easymotion
+set textobj-entire
+set ReplaceWithRegister
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+
+""" Common settings -------------------------
+set showmode
+set so=3
+set incsearch
+set relativenumber
+set number
+
+""" Idea specific settings ------------------
 set ideajoin
+set ideastatusicon=gray
+set idearefactormode=keep
+
 set NERDTree
 
-; set relativenumber
-; set number
+""" Mappings --------------------------------
+" Use Track ActionIds to discover commands
 
-map \r :action RunAnything<CR>
-map \b :action Vcs.Operations.Popup<CR>
-map \n :action NERDTree<CR>
+" Git
+map <leader>a <Action>(Annotate)
+map <leader>gb <Action>(Git.Branches)
+map <leader>gc <Action>(CheckinProject)
+map <leader>gpr <action>(Github.Create.Pull.Request)
 
-Plug 'easymotion/vim-easymotion'
-let mapleader=","
-set easymotion
-map <Leader> <Plug>(easymotion-prefix)
+" etc.
+map <leader>ff <Action>(FindInPath)
+map <leader>r <Action>(RunAnything)
+map <leader>nt :NERDTree<cr>
+map <leader>o <Action>(FileStructurePopup)
