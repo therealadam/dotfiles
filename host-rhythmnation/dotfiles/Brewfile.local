@@ -1,0 +1,45 @@
+tap "thoughtbot/formulae"
+tap "homebrew/core"
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "caskroom/cask"
+tap "universal-ctags/universal-ctags"
+brew "coreutils"
+brew "git"
+brew "heroku"
+brew "hub"
+brew "imagemagick"
+brew "openssl"
+brew "libyaml"
+brew "mas"
+brew "postgresql", restart_service: true
+brew "reattach-to-user-namespace"
+brew "redis", restart_service: true
+brew "the_silver_searcher"
+brew "tmux"
+brew "vim"
+brew "watchman"
+brew "yarn"
+brew "zsh"
+brew "thoughtbot/formulae/parity"
+brew "thoughtbot/formulae/rcm"
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
+cask "1password"
+cask "alfred"
+cask "atom"
+cask "gpg-suite"
+cask "paw"
+cask "postico"
+cask "slack"
+mas "1Blocker", id: 1107421413
+mas "Bear", id: 1091189122
+mas "BreakTime", id: 427475982
+mas "Day One", id: 1055511498
+mas "GarageBand", id: 682658836
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
+mas "Monosnap", id: 540348655
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Things3", id: 904280696
+mas "Trello", id: 1278508951
