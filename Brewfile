@@ -41,7 +41,6 @@ brew "font-input"
 # macOS apps
 brew "1password"
 brew "acorn"
-brew "alfred"
 brew "backblaze"
 brew "dash"
 brew "fantastical"
@@ -49,6 +48,7 @@ brew "figma"
 brew "firefox"
 brew "paw"
 brew "quitter"
+brew "raycast"
 brew "rocket"
 
 # App Store
