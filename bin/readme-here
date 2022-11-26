@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+config = {
+  dir: Dir.getwd || ARGV[0] || '/Users/adam/Desktop',
+  filename: 'readme.md',
+  markdown_editor: 'Byword',
+}
+$boilerplate = <<~MD
+# A new, exciting thing happens here!
+
+--
+Adam Keys / @therealadam / adam@therealadam.com
+MD
+
+#------
+
+require 'pathname'
+
+def make_readme(dir:, filename:, markdown_editor:)
+  path = Pathname.new(dir) + filename
+  unless path.exist?
+    path.write($boilerplate)
+  end
+
+  `open -a #{markdown_editor} #{path}`
+end
+
+if __FILE__ == $0
+  make_readme(config)
+
+  exit 0
+end
+
