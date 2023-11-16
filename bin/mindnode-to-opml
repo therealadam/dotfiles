@@ -1,0 +1,61 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+require "pathname"
+
+Options = Struct.new(:help, :filenames)
+
+def main
+  options = Options.new(help: false, filename: nil)
+  op = OptionParser.new do |opts|
+    opts.banner = <<-BANNER
+  Usage: mindnode-to-opml filename"
+  
+  filename accepts MindNode files or "package" directories.
+    BANNER
+    opts.separator ""
+    opts.separator "Options: "
+
+
+    opts.on("-h", "--help", "Print this help message") do |h|
+      options.help = true
+    end
+  end
+
+  op.parse!
+  filenames = ARGV
+
+  filenames.each do |filename|
+    path = Pathname.new(filename)
+    if path.exist?
+      convert(path)
+    else
+      $stdout.puts "#{filename}: not found"
+      exit -1
+    end
+  end
+end
+
+def convert(path)
+  input = path.expand_path
+  output = (path.dirname + path.basename(".*")).to_s + ".opml"
+
+  osa_script = <<~JS
+    const MindNode = Application("MindNode")
+    var doc = MindNode.open("#{input}")
+    const filename = "#{output}"
+    doc.export({to: filename, as: "OPML"})
+  JS
+  statement_lines = osa_script
+                      .split("\n")
+                      .map { |l| "-e '#{l}'" }
+                      .join(" ")
+  cmd = "osascript -l JavaScript #{statement_lines}"
+
+  puts "#{input} -> #{output}"
+  Kernel.system(cmd, exception: true)
+end
+
+if __FILE__  === $0
+  main
+end
