@@ -11,12 +11,8 @@ if [ -r "$HOME/.rcrc" ]; then
   rcup
 fi
 
-# Thoughtbot's dotfiles include gpg-suite, which I don't need
-# brew cask uninstall gpg-suite
-
 fancy_echo "Cleanup"
 brew cleanup
-brew cask cleanup
 
 # TODO color schemes
 # TODO keyboard?

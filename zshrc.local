@@ -24,8 +24,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 # Workaround for macOS security/runtime issue
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-source ~/.zshrc.host
-
+[ -f ~/.zshrc.host ] && source ~/.zshrc.host
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias vi="vim"

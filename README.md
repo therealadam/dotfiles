@@ -5,8 +5,9 @@ With a fresh, or even a janky, laptop:
 ```
 cd; mkdir setup
 curl .../mac > mac
-git clone thoughtbot/dotfiles and therealadam/powersuit
-rcup
+git clone thoughtbot/dotfiles and therealadam/dotfiles
+env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
+# rcup
 ```
 
 1. Clone [dotfiles](https://github.com/thoughtbot/dotfiles) and this repo
