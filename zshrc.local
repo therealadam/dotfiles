@@ -8,8 +8,8 @@ export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH" # Python/pipenv
-export PATH="/usr/local/go/bin:$PATH"
-export PATH=$PATH:$(go env GOPATH)/bin
+# export PATH="/usr/local/go/bin:$PATH"
+# export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH="$HOME/.deno/bin:$PATH"
 
@@ -34,4 +34,4 @@ export PATH="$HOME/.bin:$PATH"
 # Completions
 
 ## sqlite-utils
-eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
+# eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"

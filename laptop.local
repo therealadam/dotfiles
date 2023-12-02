@@ -2,7 +2,8 @@
 
 fancy_echo "Installing apps, etc."
 
-brew bundle install
+# TODO relative file path, how it do?
+brew bundle install --file ~/Setup/dotfiles/Brewfile
 
 # TODO copy MacOS app configs
 
