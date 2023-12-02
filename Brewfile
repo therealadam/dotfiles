@@ -6,7 +6,6 @@ tap "homebrew/services"
 # Unix-y
 brew "sqlite"
 brew "mas"
-brew "zsh"
 
 # Writing tools
 cask "obsidian"
@@ -21,8 +20,9 @@ cask "hyperkey"
 cask "rectangle-pro"
 cask "cleanshot"
 
-# IDEs
-# cask "rubymine"
+# IDEs & such
+cask "rubymine"
+cask "dash"
 # cask "webstorm"
 # cask "goland"
 
@@ -36,7 +36,6 @@ cask "cleanshot"
 # Dev tools
 brew "cloc"
 brew "ripgrep"
-# cask "paw"
 
 # Fonts
 cask "font-jetbrains-mono"
@@ -49,7 +48,6 @@ cask "font-inter"
 # macOS apps
 cask "acorn"
 cask "backblaze"
-cask "dash"
 cask "firefox"
 cask "readwise-ibooks"
 cask "stats"
