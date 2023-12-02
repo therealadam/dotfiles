@@ -11,6 +11,8 @@ env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
 ```
 
 1. Clone [dotfiles](https://github.com/thoughtbot/dotfiles) and this repo
+1a. Into ~/Setup ...may require an initial tweak of dotfiles-thoughtbot/rcrc to use ~/Setup or a one-off rcup invocation...
+1b. e.g. `env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup`
 2. Bootstrap via [laptop](https://github.com/thoughtbot/laptop)
 3. Run `mac` again to pick up local customizations that are now symlinked
    `script/setup`
