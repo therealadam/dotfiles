@@ -49,6 +49,7 @@ cask "font-inter"
 cask "acorn"
 cask "backblaze"
 cask "firefox"
+cask "macwhisper"
 cask "readwise-ibooks"
 cask "stats"
 
