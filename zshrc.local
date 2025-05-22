@@ -25,7 +25,11 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 [ -f ~/.zshrc.host ] && source ~/.zshrc.host
+[ -f ~/.secrets ] && source ~/.secrets
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Mise
+eval "$(mise activate zsh)"
 
 alias vi="vim"
 
@@ -35,3 +39,6 @@ export PATH="$HOME/.bin:$PATH"
 
 ## sqlite-utils
 # eval "$(_SQLITE_UTILS_COMPLETE=zsh_source sqlite-utils)"
+
+# playdate SDK
+export PLAYDATE_SDK_PATH=/usr/local
