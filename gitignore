@@ -43,3 +43,8 @@ log/*.log
 rerun.txt
 tmp/**/*
 !tmp/cache/.keep
+
+# Agents
+.claude/
+
+.idea/
