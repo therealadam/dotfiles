@@ -1,2 +1,2 @@
-EXCLUDES="README*.md LICENSE"
+EXCLUDES="README*.md LICENSE Justfile"
 DOTFILES_DIRS="$HOME/.dotfiles $HOME/.dotfiles-thoughtbot"
