@@ -8,6 +8,14 @@ pull-upstream:
     rcup
     @echo "✅ thoughtbot dotfiles updated and RCM refreshed!"
 
+# Add a file or directory to dotfiles management via RCM
+add FILE:
+    @echo "📁 Adding {{FILE}} to RCM management..."
+    mkrc {{FILE}}
+    @echo "🔗 Running rcup to create symlink..."
+    rcup
+    @echo "✅ {{FILE}} added to dotfiles!"
+
 # Find dotfiles in ~ that aren't managed by RCM
 unmanaged:
     #!/usr/bin/env bash
