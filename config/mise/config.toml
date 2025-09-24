@@ -1,3 +1,4 @@
+# mise u tool@version
 [tools]
 go = "latest"
 node = "latest"
@@ -9,3 +10,39 @@ deno = "latest"
 
 [settings]
 experimental = true
+
+# mise t
+# mise r task:name
+[tasks."justfile:init"]
+description = 'Write Justfile boilerplate'
+run = """
+#!/bin/sh
+
+cat > ./Justfile <<EOF
+# List available commands
+default:
+    @just --list
+
+# Install dependencies
+install:
+    echo "Installing dependencies..."
+
+# Run tests
+test:
+    echo "Running tests..."
+
+# Build the project
+build:
+    echo "Building project..."
+
+# Clean build artifacts
+clean:
+    echo "Cleaning up..."
+
+# Run the application
+run:
+    echo "Running application..."
+EOF
+
+just
+"""
