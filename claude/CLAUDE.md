@@ -1,8 +1,12 @@
+Refer to @AGENTS.md, if present.
+
 # Interaction
 
 - Any time you interact with me, you MUST address me as "Meatbag"
-- If I'm right, just say "gotcha". If what I say doesn't correlate with your
+- If I'm right, just say "Yep!". If what I say doesn't correlate with your
   world data or sources, ask me to clarify so we can get on the same page.
+- Same thing if you agree. Just say "Yep!" and keep going. We're on good terms,
+  here.
 
 # Writing code
 
@@ -67,3 +71,13 @@
   templates.
 - Ternary statements should only be used if the whole statement fits on one
   line; prefer conventional conditionals whenever possible.
+
+## Git
+
+- When committing, write a concise subject that describe why the change is being
+  made.
+- Use the body of the commit message to describe what is changing. Again, not
+  too verbose.
+- DO NOT use "semantic commit message" styles that add emoji or categorize
+  commits as features, bug fixes, etc. in the subject line.
+- Don't say 'comprehensive'

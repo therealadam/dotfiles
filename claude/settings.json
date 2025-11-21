@@ -1,6 +1,13 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(bd:*)",
+      "Bash(gh:*)"
+    ]
+  },
   "statusLine": {
     "type": "command",
-    "command": "printf '🍔 '"
-  }
+    "command": "/Users/adam/.claude/statusline.sh"
+  },
+  "alwaysThinkingEnabled": true
 }
