@@ -48,3 +48,6 @@ tmp/**/*
 .claude/
 
 .idea/
+.vscode/
+
+.worktrees
