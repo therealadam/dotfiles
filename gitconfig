@@ -50,5 +50,6 @@
 [rerere]
   enabled = 1
 
-[include]
-  path = ~/.gitconfig.host
+[user]
+  name = Adam Keys
+  email = adam@therealadam.com

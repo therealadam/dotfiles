@@ -1,43 +1,114 @@
-# Dotfiles mk2: an exosuit
+# Dotfiles
 
-With a fresh, or even a janky, laptop:
+Personal macOS development environment configuration.
 
-## Quickstart
+## Features
 
+- **Simple setup**: Single command to symlink all dotfiles
+- **Homebrew integration**: Brewfile for package management
+- **Mise**: Runtime version management (Go, Node, Ruby, Python, Deno) and task automation
+- **Custom tools**: MCP server for Bear notes integration
+- **Shell customization**: Zsh with 🍔 prompt
+
+## Quick Start
+
+### Fresh Machine Setup
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/therealadam/dotfiles ~/.dotfiles
+   ```
+
+2. **Run setup**:
+   ```bash
+   cd ~/.dotfiles
+   mise run setup
+   ```
+
+That's it! Your dotfiles are now symlinked to your home directory.
+
+### What Gets Installed
+
+The `mise run setup` command creates symlinks for:
+- Shell configuration (`.zshrc`)
+- Git configuration (`.gitconfig`, `.gitignore`)
+- Vim configuration (`.vimrc.bundles`, `.ideavimrc`)
+- Tmux configuration (`.tmux.conf`)
+- Ruby/Rails tools (`.pryrc`, `.railsrc`, `.rspec`)
+- Mise configuration (`~/.config/mise/`)
+- Utility scripts (`~/.local/bin/`)
+- Claude Code configuration (`~/.claude/`)
+
+Existing files are automatically backed up to `~/.dotfiles-backup-TIMESTAMP/`.
+
+## Bootstrap Script
+
+For a complete fresh machine setup using [thoughtbot/laptop](https://github.com/thoughtbot/laptop):
+
+```bash
+# Install laptop script first
+# Then run the laptop customization
+./laptop
 ```
-cd; mkdir setup
-curl .../mac > mac
-git clone thoughtbot/dotfiles and therealadam/dotfiles
-env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
-# rcup
+
+The `laptop` script will:
+- Install Homebrew packages from `Brewfile`
+- Set up dotfiles via `mise run setup`
+- Clean up after installation
+
+## Common Tasks
+
+All tasks are managed by Mise. You can also use the Justfile as a convenient wrapper.
+
+### List available tasks
+```bash
+mise tasks
+# or
+just list
 ```
 
-1. Clone [dotfiles](https://github.com/thoughtbot/dotfiles) and this repo
-1a. Into ~/Setup ...may require an initial tweak of dotfiles-thoughtbot/rcrc to use ~/Setup or a one-off rcup invocation...
-1b. e.g. `env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup`
-2. Bootstrap via [laptop](https://github.com/thoughtbot/laptop)
-3. Run `mac` again to pick up local customizations that are now symlinked
-   `script/setup`
-
-## Imploding an existing setup
-
-```
-# Uninstall Homebrew; download the script and run with --help if you like
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
-
-# ..extensively manually prune /usr/local
-
-# Uninstall asdf
-rm -rf ~/.asdf
-
-# Uninstall mise...
+### Set up/update dotfiles
+```bash
+mise run setup
+# or
+just setup
 ```
 
-## RCM cheatsheet
+### Find unmanaged dotfiles
+```bash
+mise run unmanaged
+# or
+just unmanaged
+```
 
-- Re-link all dotfiles: `rcup`
-- Add a new dotfile: `mkrc <existing file>`
+### Update Homebrew packages
+```bash
+cd ~/.dotfiles
+brew bundle install
+```
 
-## Mise cheatsheet
+### Update development runtimes
+```bash
+mise install
+mise use go@latest node@latest ruby@3 python@latest
+```
 
-https://mise.jdx.dev/tasks/toml-tasks.html
+## Structure
+
+- `bin/` - Utility scripts
+- `claude/` - Claude Code configuration (agents, commands, settings)
+- `config/mise/config.toml` - Mise configuration (tools, tasks)
+- `Brewfile` - Homebrew package list
+- `Justfile` - Convenience wrapper for mise tasks
+- Individual dotfiles (`zshrc`, `gitconfig`, `tmux.conf`, etc.)
+
+## Notes
+
+- The setup expects `~/.dotfiles` as the repository location
+- Host-specific secrets can be placed in `~/.secrets` (sourced by zshrc)
+- Host-specific zsh config can be placed in `~/.zshrc.host` (sourced by zshrc)
+- FZF integration available if `~/.fzf.zsh` exists
+
+## Mise Tasks
+
+This dotfiles setup uses Mise for both runtime version management and task automation. Tasks are defined in `config/mise/config.toml`. See the [Mise documentation](https://mise.jdx.dev/tasks/toml-tasks.html) for more information.

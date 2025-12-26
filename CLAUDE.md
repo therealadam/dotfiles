@@ -4,23 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository that manages macOS development environment configuration. The setup is built around RCM (RcM) for dotfile management, Homebrew for package management, and Mise for runtime version management.
+This is a personal dotfiles repository that manages macOS development environment configuration. The setup is built around Mise for both runtime version management and task automation, with Homebrew for package management.
 
 ## Key Architecture Components
 
-### RCM-based Dotfile Management
-- Uses RCM with `rcrc` configuration pointing to both this repo and thoughtbot/dotfiles
-- Dotfiles are symlinked from `~/.dotfiles` and `~/.dotfiles-thoughtbot`
-- `EXCLUDES` in rcrc prevents README and LICENSE files from being linked
+### Simple Symlink-based Management
+- Dotfiles are symlinked from `~/.dotfiles` to home directory
+- Setup managed via Mise task: `mise run setup`
+- No external dependencies on other dotfile repositories
+- Automatic backup of existing files before symlinking
 
-### Multi-layered Configuration System
-- Base configuration from thoughtbot/dotfiles
-- Local overrides in this repository (e.g., `zshrc.local`, `gitconfig.local`)
-- Host-specific configurations in `host-*` directories
-- Secret files sourced conditionally (`.zshrc.host`, `.secrets`)
+### Single Repository Design
+- All configurations are self-contained in this repository
+- No base/override pattern - each dotfile is complete and standalone
+- Host-specific configurations can be sourced optionally (`.zshrc.host`, `.secrets`)
 
 ### Development Environment Stack
 - **Runtime Management**: Mise (`config/mise/config.toml`) manages Go, Node, Ruby, Python, Deno versions
+- **Task Automation**: Mise tasks for setup and maintenance operations
 - **Package Management**: Homebrew with `Brewfile` for system dependencies and applications
 - **Shell**: Zsh with custom prompt (`🍔 `) and PATH modifications
 - **Custom Tooling**: Python-based MCP server for Bear notes integration (`bin/ak-mcp.py`)
@@ -29,24 +30,30 @@ This is a personal dotfiles repository that manages macOS development environmen
 
 ### Initial Setup/Bootstrap
 ```bash
-# Bootstrap new machine (requires thoughtbot/laptop)
-cd ~/Setup
-git clone https://github.com/thoughtbot/dotfiles dotfiles-thoughtbot
-git clone [this-repo] dotfiles
-env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
-./laptop.local
+# Clone repository
+git clone https://github.com/therealadam/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+
+# Set up dotfiles (creates symlinks)
+mise run setup
+
+# Install Homebrew packages
+brew bundle install
 ```
 
 ### Daily Operations
 ```bash
-# Re-link all dotfiles after changes
-rcup
+# List available tasks
+mise tasks
 
-# Add new dotfile to RCM management
-mkrc <existing-file>
+# Re-link all dotfiles after changes
+mise run setup
+
+# Find unmanaged dotfiles
+mise run unmanaged
 
 # Install/update Homebrew packages
-brew bundle install --file ~/Setup/dotfiles/Brewfile
+brew bundle install --file ~/.dotfiles/Brewfile
 
 # Update development runtimes
 mise install
@@ -56,17 +63,18 @@ mise use go@latest node@latest ruby@3 python@latest
 ### MCP Server
 ```bash
 # Run Bear notes MCP server
-./bin/ak-mcp.py
+~/.dotfiles/bin/ak-mcp.py
 
 # The server requires uv and provides Bear database querying functionality
 ```
 
 ## File Structure Patterns
 
-- **Local overrides**: Files ending in `.local` extend base thoughtbot configurations
-- **Host-specific**: `host-*` directories contain machine-specific configurations
+- **Dotfiles**: Files in root directory without leading dot (e.g., `zshrc`, `gitconfig`) are symlinked to `~/.*`
+- **Host-specific**: Optional files `~/.zshrc.host` and `~/.secrets` are sourced if they exist
 - **Binary scripts**: `bin/` contains executable utilities with various languages
 - **Configuration**: `config/` holds application-specific configurations (mise, etc.)
+- **Claude Code**: `claude/` contains agents, commands, and settings for Claude Code
 
 ## Important Environment Variables
 
@@ -77,7 +85,17 @@ mise use go@latest node@latest ruby@3 python@latest
 
 ## Development Workflow Notes
 
-- Changes to dotfiles require `rcup` to re-symlink
+- Changes to dotfiles require `mise run setup` to re-symlink (though most already symlinked)
 - Brewfile changes need `brew bundle install` to apply
 - Mise configuration changes auto-apply via shell activation
-- The setup expects `~/Setup` as the working directory for cloned repositories
+- The setup expects `~/.dotfiles` as the working directory for the cloned repository
+- Justfile exists as a convenience wrapper around mise tasks
+
+## Mise Tasks
+
+Tasks are defined in `config/mise/config.toml`:
+
+- `setup` - Create symlinks for all dotfiles (with automatic backup)
+- `unmanaged` - Find dotfiles in home directory not managed by this repository
+
+Run `mise tasks` to see all available tasks.
