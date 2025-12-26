@@ -92,7 +92,6 @@ mise use go@latest node@latest ruby@3 python@latest
 - Brewfile changes need `brew bundle install` to apply
 - Mise configuration changes auto-apply via shell activation
 - The setup expects `~/.dotfiles` as the working directory for the cloned repository
-- Justfile exists as a convenience wrapper around mise tasks
 
 ## Mise Tasks
 

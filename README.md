@@ -58,34 +58,26 @@ The `laptop` script will:
 
 ## Common Tasks
 
-All tasks are managed by Mise. You can also use the Justfile as a convenient wrapper.
+All tasks are managed by Mise.
 
 ### List available tasks
 ```bash
 mise tasks
-# or
-just list
 ```
 
 ### Set up/update dotfiles
 ```bash
 mise run setup
-# or
-just setup
 ```
 
 ### Backup existing dotfiles
 ```bash
 mise run backup
-# or
-just backup
 ```
 
 ### Find unmanaged dotfiles
 ```bash
 mise run unmanaged
-# or
-just unmanaged
 ```
 
 ### Test setup in a different directory
@@ -118,7 +110,6 @@ mise use go@latest node@latest ruby@3 python@latest
 - `claude/` - Claude Code configuration (agents, commands, settings)
 - `config/mise/config.toml` - Mise configuration (tools, tasks)
 - `Brewfile` - Homebrew package list
-- `Justfile` - Convenience wrapper for mise tasks
 - Individual dotfiles (`zshrc`, `gitconfig`, `tmux.conf`, etc.)
 
 ## Notes
