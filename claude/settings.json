@@ -9,5 +9,8 @@
     "type": "command",
     "command": "/Users/adam/.claude/statusline.sh"
   },
-  "alwaysThinkingEnabled": true
+  "enabledPlugins": {
+    "compound-engineering@every-marketplace": true,
+    "swift-lsp@claude-plugins-official": true
+  }
 }
