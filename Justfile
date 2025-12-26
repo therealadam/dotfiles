@@ -5,6 +5,10 @@
 setup:
     mise run setup
 
+# Backup existing dotfiles to timestamped directory
+backup:
+    mise run backup
+
 # Find dotfiles in ~ that aren't managed by this repository
 unmanaged:
     mise run unmanaged

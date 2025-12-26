@@ -49,6 +49,9 @@ mise tasks
 # Re-link all dotfiles after changes
 mise run setup
 
+# Backup existing dotfiles
+mise run backup
+
 # Find unmanaged dotfiles
 mise run unmanaged
 
@@ -96,6 +99,16 @@ mise use go@latest node@latest ruby@3 python@latest
 Tasks are defined in `config/mise/config.toml`:
 
 - `setup` - Create symlinks for all dotfiles (with automatic backup)
+- `backup` - Backup existing dotfiles to timestamped directory
 - `unmanaged` - Find dotfiles in home directory not managed by this repository
+
+All tasks support the `TARGET_DIR` environment variable to specify a custom target directory:
+```bash
+# Test setup in isolated directory
+TARGET_DIR=/tmp/dotfiles-test mise run setup
+
+# Backup from custom location
+TARGET_DIR=/custom/path mise run backup
+```
 
 Run `mise tasks` to see all available tasks.

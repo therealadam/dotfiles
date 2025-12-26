@@ -14,20 +14,80 @@ experimental = true
 # mise tasks
 # List tasks: mise tasks
 # Run task: mise run <task-name>
+# With custom target: TARGET_DIR=/tmp/test mise run setup
+
+[tasks.backup]
+description = 'Backup existing dotfiles to timestamped directory'
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+TARGET_DIR="${TARGET_DIR:-$HOME}"
+BACKUP_DIR="$TARGET_DIR/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+
+echo "📦 Backing up dotfiles from $TARGET_DIR"
+
+# List of dotfiles to backup
+DOTFILES=(
+    ".zshrc"
+    ".gitconfig"
+    ".gitignore"
+    ".tmux.conf"
+    ".vimrc.bundles"
+    ".ideavimrc"
+    ".pryrc"
+    ".railsrc"
+    ".rspec"
+)
+
+BACKED_UP=0
+
+for dotfile in "${DOTFILES[@]}"; do
+    if [ -e "$TARGET_DIR/$dotfile" ] || [ -L "$TARGET_DIR/$dotfile" ]; then
+        mkdir -p "$BACKUP_DIR"
+        echo "  ↪ Backing up $dotfile"
+        cp -P "$TARGET_DIR/$dotfile" "$BACKUP_DIR/"
+        BACKED_UP=$((BACKED_UP + 1))
+    fi
+done
+
+# Backup directories
+if [ -d "$TARGET_DIR/.config/mise" ]; then
+    mkdir -p "$BACKUP_DIR/.config"
+    echo "  ↪ Backing up .config/mise"
+    cp -R "$TARGET_DIR/.config/mise" "$BACKUP_DIR/.config/"
+    BACKED_UP=$((BACKED_UP + 1))
+fi
+
+if [ -d "$TARGET_DIR/.claude" ]; then
+    mkdir -p "$BACKUP_DIR"
+    echo "  ↪ Backing up .claude"
+    cp -R "$TARGET_DIR/.claude" "$BACKUP_DIR/"
+    BACKED_UP=$((BACKED_UP + 1))
+fi
+
+if [ $BACKED_UP -gt 0 ]; then
+    echo ""
+    echo "✅ Backed up $BACKED_UP item(s) to: $BACKUP_DIR"
+else
+    echo ""
+    echo "ℹ️  No dotfiles found to backup"
+fi
+"""
 
 [tasks.setup]
-description = 'Set up dotfiles by creating symlinks'
+description = 'Set up dotfiles by creating symlinks (use TARGET_DIR=/path to specify destination)'
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
 
 DOTFILES="${DOTFILES_DIR:-$HOME/.dotfiles}"
-HOME_DIR="$HOME"
+TARGET_DIR="${TARGET_DIR:-$HOME}"
 
-echo "🔗 Setting up dotfiles from $DOTFILES to $HOME_DIR"
+echo "🔗 Setting up dotfiles from $DOTFILES to $TARGET_DIR"
 
 # Create backup directory if needed
-BACKUP_DIR="$HOME_DIR/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+BACKUP_DIR="$TARGET_DIR/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
 
 # Function to link a file
 link_file() {
@@ -56,31 +116,31 @@ link_file() {
 }
 
 # Link dotfiles in root
-link_file "$DOTFILES/zshrc" "$HOME_DIR/.zshrc"
-link_file "$DOTFILES/gitconfig" "$HOME_DIR/.gitconfig"
-link_file "$DOTFILES/gitignore" "$HOME_DIR/.gitignore"
-link_file "$DOTFILES/tmux.conf" "$HOME_DIR/.tmux.conf"
-link_file "$DOTFILES/vimrc.bundles" "$HOME_DIR/.vimrc.bundles"
-link_file "$DOTFILES/ideavimrc" "$HOME_DIR/.ideavimrc"
-link_file "$DOTFILES/pryrc" "$HOME_DIR/.pryrc"
-link_file "$DOTFILES/railsrc" "$HOME_DIR/.railsrc"
-link_file "$DOTFILES/rspec" "$HOME_DIR/.rspec"
+link_file "$DOTFILES/zshrc" "$TARGET_DIR/.zshrc"
+link_file "$DOTFILES/gitconfig" "$TARGET_DIR/.gitconfig"
+link_file "$DOTFILES/gitignore" "$TARGET_DIR/.gitignore"
+link_file "$DOTFILES/tmux.conf" "$TARGET_DIR/.tmux.conf"
+link_file "$DOTFILES/vimrc.bundles" "$TARGET_DIR/.vimrc.bundles"
+link_file "$DOTFILES/ideavimrc" "$TARGET_DIR/.ideavimrc"
+link_file "$DOTFILES/pryrc" "$TARGET_DIR/.pryrc"
+link_file "$DOTFILES/railsrc" "$TARGET_DIR/.railsrc"
+link_file "$DOTFILES/rspec" "$TARGET_DIR/.rspec"
 
 # Link config directory
-link_file "$DOTFILES/config/mise" "$HOME_DIR/.config/mise"
+link_file "$DOTFILES/config/mise" "$TARGET_DIR/.config/mise"
 
 # Link bin directory
 if [ -d "$DOTFILES/bin" ]; then
     for script in "$DOTFILES/bin/"*; do
         if [ -f "$script" ]; then
-            link_file "$script" "$HOME_DIR/.local/bin/$(basename "$script")"
+            link_file "$script" "$TARGET_DIR/.local/bin/$(basename "$script")"
         fi
     done
 fi
 
 # Link claude directory
 if [ -d "$DOTFILES/claude" ]; then
-    link_file "$DOTFILES/claude" "$HOME_DIR/.claude"
+    link_file "$DOTFILES/claude" "$TARGET_DIR/.claude"
 fi
 
 echo ""
@@ -91,14 +151,15 @@ fi
 """
 
 [tasks.unmanaged]
-description = 'Find dotfiles in ~ that are not managed by this repository'
+description = 'Find dotfiles that are not managed by this repository (use TARGET_DIR=/path to specify directory)'
 run = """
 #!/usr/bin/env bash
 set -euo pipefail
 
 DOTFILES="${DOTFILES_DIR:-$HOME/.dotfiles}"
+TARGET_DIR="${TARGET_DIR:-$HOME}"
 
-find ~ -maxdepth 1 -name '.*' -type f | while read file; do
+find "$TARGET_DIR" -maxdepth 1 -name '.*' -type f | while read file; do
   if [ -L "$file" ]; then
     target=$(readlink "$file")
     if [[ "$target" != "$DOTFILES"* ]]; then

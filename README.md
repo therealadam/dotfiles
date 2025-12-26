@@ -74,11 +74,30 @@ mise run setup
 just setup
 ```
 
+### Backup existing dotfiles
+```bash
+mise run backup
+# or
+just backup
+```
+
 ### Find unmanaged dotfiles
 ```bash
 mise run unmanaged
 # or
 just unmanaged
+```
+
+### Test setup in a different directory
+```bash
+# Create test directory
+mkdir -p /tmp/dotfiles-test
+
+# Run setup to that directory
+TARGET_DIR=/tmp/dotfiles-test mise run setup
+
+# Verify the symlinks
+ls -la /tmp/dotfiles-test
 ```
 
 ### Update Homebrew packages
@@ -111,4 +130,20 @@ mise use go@latest node@latest ruby@3 python@latest
 
 ## Mise Tasks
 
-This dotfiles setup uses Mise for both runtime version management and task automation. Tasks are defined in `config/mise/config.toml`. See the [Mise documentation](https://mise.jdx.dev/tasks/toml-tasks.html) for more information.
+This dotfiles setup uses Mise for both runtime version management and task automation. Tasks are defined in `config/mise/config.toml`.
+
+Available tasks:
+- `setup` - Create symlinks for all dotfiles (with automatic backup)
+- `backup` - Backup existing dotfiles without creating symlinks
+- `unmanaged` - Find dotfiles in home directory not managed by this repository
+
+All tasks support the `TARGET_DIR` environment variable to specify a custom directory:
+```bash
+# Backup from a custom location
+TARGET_DIR=/tmp/test mise run backup
+
+# Setup to a custom location (useful for testing)
+TARGET_DIR=/tmp/test mise run setup
+```
+
+See the [Mise documentation](https://mise.jdx.dev/tasks/toml-tasks.html) for more information.
