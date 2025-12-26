@@ -1,0 +1,16 @@
+#!/bin/sh
+
+fancy_echo "Installing apps, etc."
+
+brew bundle install --file ~/.dotfiles/Brewfile
+
+# Set up dotfiles
+fancy_echo "Setting up dotfiles..."
+cd ~/.dotfiles && mise run setup
+
+fancy_echo "Cleanup"
+brew cleanup
+
+# TODO color schemes
+# TODO keyboard?
+# keyboard/mouse rate/button mappings
