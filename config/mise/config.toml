@@ -2,7 +2,7 @@
 [tools]
 go = "latest"
 node = "latest"
-ruby = "3"
+ruby = "latest"
 python = "latest"
 deno = "latest"
 "gem:rails" = "latest"
