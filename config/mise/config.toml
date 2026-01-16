@@ -1,8 +1,7 @@
-# mise u tool@version
 [tools]
 go = "latest"
 node = "latest"
-ruby = "3"
+ruby = "latest"
 python = "latest"
 deno = "latest"
 "gem:rails" = "latest"
@@ -12,38 +11,157 @@ bun = "latest"
 [settings]
 experimental = true
 
-# mise t
-# mise r task:name
-[tasks."justfile:init"]
-description = 'Write Justfile boilerplate'
+[tasks.backup]
+description = 'Backup existing dotfiles to timestamped directory'
 run = """
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
 
-cat > ./Justfile <<EOF
-# List available commands
-default:
-    @just --list
+TARGET_DIR="${TARGET_DIR:-$HOME}"
+BACKUP_DIR="$TARGET_DIR/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
 
-# Install dependencies
-install:
-    echo "Installing dependencies..."
+echo "📦 Backing up dotfiles from $TARGET_DIR"
 
-# Run tests
-test:
-    echo "Running tests..."
+# List of dotfiles to backup
+DOTFILES=(
+    ".zshrc"
+    ".gitconfig"
+    ".gitignore"
+    ".tmux.conf"
+    ".vimrc.bundles"
+    ".ideavimrc"
+    ".pryrc"
+    ".railsrc"
+    ".rspec"
+)
 
-# Build the project
-build:
-    echo "Building project..."
+BACKED_UP=0
 
-# Clean build artifacts
-clean:
-    echo "Cleaning up..."
+for dotfile in "${DOTFILES[@]}"; do
+    if [ -e "$TARGET_DIR/$dotfile" ] || [ -L "$TARGET_DIR/$dotfile" ]; then
+        mkdir -p "$BACKUP_DIR"
+        echo "  ↪ Backing up $dotfile"
+        cp -P "$TARGET_DIR/$dotfile" "$BACKUP_DIR/"
+        BACKED_UP=$((BACKED_UP + 1))
+    fi
+done
 
-# Run the application
-run:
-    echo "Running application..."
-EOF
+# Backup directories
+if [ -d "$TARGET_DIR/.config/mise" ]; then
+    mkdir -p "$BACKUP_DIR/.config"
+    echo "  ↪ Backing up .config/mise"
+    cp -R "$TARGET_DIR/.config/mise" "$BACKUP_DIR/.config/"
+    BACKED_UP=$((BACKED_UP + 1))
+fi
 
-just
+if [ -d "$TARGET_DIR/.claude" ]; then
+    mkdir -p "$BACKUP_DIR"
+    echo "  ↪ Backing up .claude"
+    cp -R "$TARGET_DIR/.claude" "$BACKUP_DIR/"
+    BACKED_UP=$((BACKED_UP + 1))
+fi
+
+if [ $BACKED_UP -gt 0 ]; then
+    echo ""
+    echo "✅ Backed up $BACKED_UP item(s) to: $BACKUP_DIR"
+else
+    echo ""
+    echo "ℹ️  No dotfiles found to backup"
+fi
+"""
+
+[tasks.setup]
+description = 'Set up dotfiles by creating symlinks (use TARGET_DIR=/path to specify destination)'
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES="${DOTFILES_DIR:-$HOME/.dotfiles}"
+TARGET_DIR="${TARGET_DIR:-$HOME}"
+
+echo "🔗 Setting up dotfiles from $DOTFILES to $TARGET_DIR"
+
+# Create backup directory if needed
+BACKUP_DIR="$TARGET_DIR/.dotfiles-backup-$(date +%Y%m%d-%H%M%S)"
+
+# Function to link a file
+link_file() {
+    local src="$1"
+    local dest="$2"
+
+    # Create parent directory if needed
+    mkdir -p "$(dirname "$dest")"
+
+    # Backup existing file/symlink if it exists and isn't already pointing to our dotfiles
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        if [ -L "$dest" ]; then
+            current_target=$(readlink "$dest")
+            if [[ "$current_target" == "$DOTFILES"* ]]; then
+                echo "  ✓ $dest already linked"
+                return
+            fi
+        fi
+        mkdir -p "$BACKUP_DIR"
+        echo "  ↪ Backing up existing $dest"
+        mv "$dest" "$BACKUP_DIR/"
+    fi
+
+    ln -s "$src" "$dest"
+    echo "  ✓ Linked $dest"
+}
+
+# Link dotfiles in root
+link_file "$DOTFILES/zshrc" "$TARGET_DIR/.zshrc"
+link_file "$DOTFILES/gitconfig" "$TARGET_DIR/.gitconfig"
+link_file "$DOTFILES/gitignore" "$TARGET_DIR/.gitignore"
+link_file "$DOTFILES/tmux.conf" "$TARGET_DIR/.tmux.conf"
+link_file "$DOTFILES/vimrc.bundles" "$TARGET_DIR/.vimrc.bundles"
+link_file "$DOTFILES/ideavimrc" "$TARGET_DIR/.ideavimrc"
+link_file "$DOTFILES/pryrc" "$TARGET_DIR/.pryrc"
+link_file "$DOTFILES/railsrc" "$TARGET_DIR/.railsrc"
+link_file "$DOTFILES/rspec" "$TARGET_DIR/.rspec"
+
+# Link config directory
+link_file "$DOTFILES/config/mise" "$TARGET_DIR/.config/mise"
+
+# Link bin directory
+if [ -d "$DOTFILES/bin" ]; then
+    for script in "$DOTFILES/bin/"*; do
+        if [ -f "$script" ]; then
+            link_file "$script" "$TARGET_DIR/.local/bin/$(basename "$script")"
+        fi
+    done
+fi
+
+# Link claude directory
+if [ -d "$DOTFILES/claude" ]; then
+    link_file "$DOTFILES/claude" "$TARGET_DIR/.claude"
+fi
+
+echo ""
+echo "✅ Dotfiles setup complete!"
+if [ -d "$BACKUP_DIR" ]; then
+    echo "📦 Existing files backed up to: $BACKUP_DIR"
+fi
+"""
+
+[tasks.unmanaged]
+description = 'Find dotfiles that are not managed by this repository (use TARGET_DIR=/path to specify directory)'
+run = """
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES="${DOTFILES_DIR:-$HOME/.dotfiles}"
+TARGET_DIR="${TARGET_DIR:-$HOME}"
+
+find "$TARGET_DIR" -maxdepth 1 -name '.*' -type f | while read file; do
+  if [ -L "$file" ]; then
+    target=$(readlink "$file")
+    if [[ "$target" != "$DOTFILES"* ]]; then
+      echo "$(basename "$file") (symlink to: $target)"
+    fi
+  else
+    echo "$(basename "$file")"
+  fi
+done | sort
 """
