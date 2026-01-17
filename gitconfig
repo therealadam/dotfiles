@@ -1,3 +1,7 @@
+[user]
+  name = Adam Keys
+  email = adam@therealadam.com
+
 [core]
   excludesfile = /Users/adam/.gitignore
   autocrlf = input
@@ -6,19 +10,23 @@
   branch = auto
   diff = auto
   status = auto
+
 [color "branch"]
   current = yellow reverse
   local = blue
   remote = green
+
 [color "diff"]
   meta = blue bold
   frag = magenta bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = green
   changed = red
   untracked = blue
+
 [alias]
   s = status -s
   ci = commit
@@ -49,6 +57,3 @@
 
 [rerere]
   enabled = 1
-
-[include]
-  path = ~/.gitconfig.host

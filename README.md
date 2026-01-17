@@ -1,43 +1,66 @@
-# Dotfiles mk2: an exosuit
+# Dotfiles
 
-With a fresh, or even a janky, laptop:
+Personal macOS development environment configuration with the world's best prompt: 🍔
 
-## Quickstart
+## Fresh Machine Setup
 
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/therealadam/dotfiles.git ~/.dotfiles
+   cd ~/.dotfiles
+   ```
+
+2. Run the installation script:
+   ```bash
+   ./install.sh
+   ```
+
+3. Restart your terminal
+
+## Making Changes
+
+1. Edit files directly in `~/.dotfiles/`
+2. Changes to `zshrc` require reload: `source ~/.zshrc`
+3. Changes to other configs are usually immediate or take effect on app restart
+
+## Selective Installation
+
+Install only specific components:
+```bash
+make zsh      # Just shell config
+make git      # Just git config
+make tmux     # Just tmux config
+make vim      # Just vim config
+make tools    # Just mise/ghostty
+make bin      # Just bin scripts
+make all      # Everything
 ```
-cd; mkdir setup
-curl .../mac > mac
-git clone thoughtbot/dotfiles and therealadam/dotfiles
-env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
-# rcup
-```
 
-1. Clone [dotfiles](https://github.com/thoughtbot/dotfiles) and this repo
-1a. Into ~/Setup ...may require an initial tweak of dotfiles-thoughtbot/rcrc to use ~/Setup or a one-off rcup invocation...
-1b. e.g. `env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup`
-2. Bootstrap via [laptop](https://github.com/thoughtbot/laptop)
-3. Run `mac` again to pick up local customizations that are now symlinked
-   `script/setup`
+## Structure
 
-## Imploding an existing setup
+- `zshrc` - Shell configuration (🍔 prompt, aliases, PATH, environment)
+- `gitconfig` - Git configuration and aliases
+- `tmux.conf` - Tmux configuration (prefix: C-a)
+- `vimrc.bundles` - Vim plugins
+- `Brewfile` - Installed applications and tools
+- `config/` - Application-specific configs
+  - `config/mise/config.toml` - Runtime version management
+  - `config/ghostty/config` - Terminal emulator config
+- `bin/` - Custom scripts
+- `claude/` - Claude Code configuration
 
-```
-# Uninstall Homebrew; download the script and run with --help if you like
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+## Key Features
 
-# ..extensively manually prune /usr/local
+- **🍔 Prompt** - The most important part
+- **No RCM dependency** - Simple Makefile-based symlink management
+- **Single repository** - No external dependencies
+- **Git aliases** - Shortcuts for common git commands (g, gs, gd, gl, gco, gp, gr)
+- **Mise** - Automatic runtime version management for Go, Node, Ruby, Python
+- **Conservative** - Minimal aliases, easy to understand
 
-# Uninstall asdf
-rm -rf ~/.asdf
+## Future Additions
 
-# Uninstall mise...
-```
-
-## RCM cheatsheet
-
-- Re-link all dotfiles: `rcup`
-- Add a new dotfile: `mkrc <existing file>`
-
-## Mise cheatsheet
-
-https://mise.jdx.dev/tasks/toml-tasks.html
+Based on usage patterns, you might want to add:
+- `alias reload='source ~/.zshrc'`
+- `alias ..='cd ..'`
+- `alias virc='vim ~/.zshrc'`
