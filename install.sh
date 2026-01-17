@@ -15,14 +15,19 @@ if [ -f Brewfile ]; then
   brew bundle install
 fi
 
-# Symlink dotfiles
-echo "Symlinking dotfiles..."
-make all
-
-# Install mise runtimes
+# Install mise runtimes first (needed for mise tasks)
 if command -v mise &> /dev/null; then
   echo "Installing mise runtimes..."
   mise install
+fi
+
+# Symlink dotfiles using mise tasks
+echo "Symlinking dotfiles..."
+if command -v mise &> /dev/null; then
+  mise run dotfiles:link:all
+else
+  echo "Warning: mise not found, skipping dotfile linking"
+  echo "Install mise first, then run: mise run dotfiles:link:all"
 fi
 
 echo "✓ Setup complete! Restart your shell or run: source ~/.zshrc"

@@ -23,17 +23,18 @@ Personal macOS development environment configuration with the world's best promp
 2. Changes to `zshrc` require reload: `source ~/.zshrc`
 3. Changes to other configs are usually immediate or take effect on app restart
 
-## Selective Installation
+## Managing Dotfiles
 
-Install only specific components:
+Link all dotfiles or specific components using mise tasks:
 ```bash
-make zsh      # Just shell config
-make git      # Just git config
-make tmux     # Just tmux config
-make vim      # Just vim config
-make tools    # Just mise/ghostty
-make bin      # Just bin scripts
-make all      # Everything
+mise run dotfiles:link:all    # Link everything
+mise run dotfiles:link:base   # Just zsh, git, tmux, vim
+mise run dotfiles:link:tools  # Just mise and ghostty configs
+mise run dotfiles:link:bin    # Just bin scripts
+mise run dotfiles:clean       # Remove all symlinks
+
+# List all available tasks
+mise tasks
 ```
 
 ## Structure
@@ -52,15 +53,9 @@ make all      # Everything
 ## Key Features
 
 - **🍔 Prompt** - The most important part
-- **No RCM dependency** - Simple Makefile-based symlink management
+- **No RCM dependency** - Mise tasks for symlink management
 - **Single repository** - No external dependencies
-- **Git aliases** - Shortcuts for common git commands (g, gs, gd, gl, gco, gp, gr)
-- **Mise** - Automatic runtime version management for Go, Node, Ruby, Python
+- **Minimal git alias** - Just `g='git'` to keep it simple
+- **Navigation shortcuts** - `..`, `...`, `....` for quick directory traversal
+- **Mise tasks** - Runtime version management + dotfile management
 - **Conservative** - Minimal aliases, easy to understand
-
-## Future Additions
-
-Based on usage patterns, you might want to add:
-- `alias reload='source ~/.zshrc'`
-- `alias ..='cd ..'`
-- `alias virc='vim ~/.zshrc'`

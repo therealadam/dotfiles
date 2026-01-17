@@ -20,12 +20,11 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Git shortcuts
 alias g='git'
-alias gs='git status'
-alias gd='git diff'
-alias gl='git log'
-alias gco='git checkout'
-alias gp='git pull'
-alias gr='git restore'
+
+# Navigation shortcuts
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Tool activation and completions
 eval "$(mise activate zsh)"
