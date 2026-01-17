@@ -18,7 +18,16 @@ git: $(HOME)/.gitconfig $(HOME)/.gitignore
 tmux: $(HOME)/.tmux.conf
 vim: $(HOME)/.vimrc.bundles
 mise: $(HOME)/.config/mise/config.toml
-ghostty: $(HOME)/.config/ghostty/config
+
+# Optional configs (only if they exist)
+ghostty:
+	@if [ -f config/ghostty/config ]; then \
+		echo "Linking config/ghostty/config to $(HOME)/.config/ghostty/config"; \
+		mkdir -p $(HOME)/.config/ghostty; \
+		ln -sf $(DOTFILES)/config/ghostty/config $(HOME)/.config/ghostty/config; \
+	else \
+		echo "Skipping ghostty (config not found)"; \
+	fi
 
 # Bin scripts
 bin:
