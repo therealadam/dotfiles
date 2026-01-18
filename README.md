@@ -36,26 +36,3 @@ mise run dotfiles:clean       # Remove all symlinks
 # List all available tasks
 mise tasks
 ```
-
-## Structure
-
-- `zshrc` - Shell configuration (🍔 prompt, aliases, PATH, environment)
-- `gitconfig` - Git configuration and aliases
-- `tmux.conf` - Tmux configuration (prefix: C-a)
-- `vimrc.bundles` - Vim plugins
-- `Brewfile` - Installed applications and tools
-- `config/` - Application-specific configs
-  - `config/mise/config.toml` - Runtime version management
-  - `config/ghostty/config` - Terminal emulator config
-- `bin/` - Custom scripts
-- `claude/` - Claude Code configuration
-
-## Key Features
-
-- **🍔 Prompt** - The most important part
-- **No RCM dependency** - Mise tasks for symlink management
-- **Single repository** - No external dependencies
-- **Minimal git alias** - Just `g='git'` to keep it simple
-- **Navigation shortcuts** - `..`, `...`, `....` for quick directory traversal
-- **Mise tasks** - Runtime version management + dotfile management
-- **Conservative** - Minimal aliases, easy to understand
