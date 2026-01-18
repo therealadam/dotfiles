@@ -24,7 +24,7 @@ fi
 # Symlink dotfiles using mise tasks
 echo "Symlinking dotfiles..."
 if command -v mise &> /dev/null; then
-  mise run dotfiles:link:all
+    MISE_CONFIG_FILE="$(dirname "$0")/config/mise/config.toml" mise run dotfiles:link:all
 else
   echo "Warning: mise not found, skipping dotfile linking"
   echo "Install mise first, then run: mise run dotfiles:link:all"

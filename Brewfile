@@ -1,8 +1,3 @@
-tap "heroku/brew"
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/services"
-
 # Unix-y
 # brew "sqlite"
 brew "mas"
@@ -88,7 +83,7 @@ mas "Copilot", id: 1447330651
 mas "DaisyDisk", id: 411643860
 mas "Darkroom", id: 953286746
 mas "Day One", id: 1055511498
-mas "Deckset", id: 847496013
+# mas "Deckset", id: 847496013
 mas "Developer", id: 640199958
 # mas "GarageBand", id: 682658836
 # mas "Hush", id: 1544743900
