@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "🍔 Setting up dotfiles..."
+echo "✨ Setting up dotfiles..."
 
 # Install Homebrew if needed
 if ! command -v brew &> /dev/null; then

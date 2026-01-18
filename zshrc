@@ -11,8 +11,8 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Environment variables
 export HOMEBREW_NO_AUTO_UPDATE=1
-export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES  # Workaround for Ruby+macOS
-export PLAYDATE_SDK_PATH=/usr/local
+# export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES  # Workaround for Ruby+macOS
+# export PLAYDATE_SDK_PATH=/usr/local
 
 # Minimal aliases
 alias vi="vim"
@@ -23,13 +23,12 @@ alias g='git'
 
 # Navigation shortcuts
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+# alias ...='cd ../..'
 
 # Tool activation and completions
 eval "$(mise activate zsh)"
+autoload -Uz compinit && compinit
 source <(jj util completion zsh)
 
 # Conditional sourcing
 [ -f ~/.secrets ] && source ~/.secrets
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

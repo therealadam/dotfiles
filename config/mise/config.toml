@@ -2,7 +2,7 @@
 [tools]
 go = "latest"
 node = "latest"
-ruby = "3"
+ruby = "latest"
 python = "latest"
 deno = "latest"
 "gem:rails" = "latest"
@@ -73,38 +73,4 @@ run = """
 rm -f "$HOME/.zshrc" "$HOME/.gitconfig" "$HOME/.tmux.conf" "$HOME/.vimrc.bundles"
 rm -f "$HOME/.config/mise/config.toml" "$HOME/.config/ghostty/config"
 echo "✓ Dotfile symlinks removed"
-"""
-
-[tasks."justfile:init"]
-description = 'Write Justfile boilerplate'
-run = """
-#!/bin/sh
-
-cat > ./Justfile <<EOF
-# List available commands
-default:
-    @just --list
-
-# Install dependencies
-install:
-    echo "Installing dependencies..."
-
-# Run tests
-test:
-    echo "Running tests..."
-
-# Build the project
-build:
-    echo "Building project..."
-
-# Clean build artifacts
-clean:
-    echo "Cleaning up..."
-
-# Run the application
-run:
-    echo "Running application..."
-EOF
-
-just
 """
