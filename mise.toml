@@ -1,0 +1,60 @@
+# Project-specific mise config for dotfiles repo
+
+[env]
+DOTFILES = "{{ cwd }}"
+
+[tasks."dotfiles:link:all"]
+description = 'Symlink all dotfiles'
+run = """
+#!/bin/sh
+mise run dotfiles:link:base
+mise run dotfiles:link:tools
+mise run dotfiles:link:bin
+echo "✓ All dotfiles installed"
+"""
+
+[tasks."dotfiles:link:base"]
+description = 'Symlink base dotfiles (zsh, git, tmux, vim)'
+run = """
+#!/bin/sh
+ln -sf "$DOTFILES/zshrc" "$HOME/.zshrc"
+ln -sf "$DOTFILES/gitconfig" "$HOME/.gitconfig"
+ln -sf "$DOTFILES/gitignore" "$HOME/.gitignore"
+ln -sf "$DOTFILES/tmux.conf" "$HOME/.tmux.conf"
+echo "✓ Base dotfiles linked"
+"""
+
+[tasks."dotfiles:link:tools"]
+description = 'Symlink tool configs (mise, ghostty)'
+run = """
+#!/bin/sh
+mkdir -p "$HOME/.config/mise"
+ln -sf "$DOTFILES/config/mise/config.toml" "$HOME/.config/mise/config.toml"
+if [ -f "$DOTFILES/config/ghostty/config" ]; then
+  mkdir -p "$HOME/.config/ghostty"
+  ln -sf "$DOTFILES/config/ghostty/config" "$HOME/.config/ghostty/config"
+  echo "✓ Tool configs linked (including ghostty)"
+else
+  echo "✓ Tool configs linked (ghostty config not found, skipping)"
+fi
+"""
+
+[tasks."dotfiles:link:bin"]
+description = 'Symlink bin scripts'
+run = """
+#!/bin/sh
+mkdir -p "$HOME/.local/bin"
+for script in "$DOTFILES/bin/"*; do
+  ln -sf "$script" "$HOME/.local/bin/$(basename "$script")"
+done
+echo "✓ Bin scripts linked"
+"""
+
+[tasks."dotfiles:clean"]
+description = 'Remove dotfile symlinks'
+run = """
+#!/bin/sh
+rm -f "$HOME/.zshrc" "$HOME/.gitconfig" "$HOME/.tmux.conf" "$HOME/.vimrc.bundles"
+rm -f "$HOME/.config/mise/config.toml" "$HOME/.config/ghostty/config"
+echo "✓ Dotfile symlinks removed"
+"""
