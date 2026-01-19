@@ -12,7 +12,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 alias vi="vim"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias reload="source ~/.zshrc"
-alias g='git'
+function g { if [ $# -eq 0 ]; then git status; else git "$@"; fi }
 alias ..='cd ..'
 
 # Tool activation and completions
