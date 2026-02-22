@@ -25,7 +25,7 @@ echo "✓ Base dotfiles linked"
 """
 
 [tasks."dotfiles:link:tools"]
-description = 'Symlink tool configs (mise, ghostty)'
+description = 'Symlink tool configs (mise, ghostty, nvim)'
 run = """
 #!/bin/sh
 mkdir -p "$HOME/.config/mise"
@@ -37,6 +37,8 @@ if [ -f "$DOTFILES/config/ghostty/config" ]; then
 else
   echo "✓ Tool configs linked (ghostty config not found, skipping)"
 fi
+ln -sf "$DOTFILES/config/nvim" "$HOME/.config/nvim"
+echo "✓ nvim config linked"
 """
 
 [tasks."dotfiles:link:bin"]

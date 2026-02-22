@@ -3,17 +3,21 @@ export PS1="🍔 "
 
 # PATH modifications
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # Environment variables
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Minimal aliases
-alias vi="vim"
+alias vi="nvim"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 alias reload="source ~/.zshrc"
 function g { if [ $# -eq 0 ]; then git status; else git "$@"; fi }
 alias ..='cd ..'
+alias ../..='cd ../..'
+alias ../../..='cd ../../..'
+alias ../../../..='cd ../../../..'
 
 # Tool activation and completions
 eval "$(mise activate zsh)"

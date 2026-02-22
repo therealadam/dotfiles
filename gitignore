@@ -46,8 +46,10 @@ tmp/**/*
 
 # Agents
 .claude/
+.agents
 
 .idea/
 .vscode/
 
 .worktrees
+
