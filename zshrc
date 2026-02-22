@@ -8,6 +8,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Environment variables
 export HOMEBREW_NO_AUTO_UPDATE=1
+export EDITOR=nvim
 
 # Minimal aliases
 alias vi="nvim"
