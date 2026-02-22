@@ -65,6 +65,22 @@ Refer to @AGENTS.md, if present.
 - Use Rails generators to create boilerplate files wherever appropriate
 - Ask me whenever you're considering adding a new gem or NPM package. We would like to keep dependencies to a minimum.
 
+## Swift / Xcode
+
+- When integrating Swift packages or modifying Package.swift, always do a full build (`swift build` or `xcodebuild`) after changes to catch symbol resolution and dependency conflicts early. Never assume a dependency will 'just work' — verify imports, module boundaries, and transitive dependency compatibility.
+
+### Library Integration Checklist
+
+- When adding UI library dependencies (Runestone, CodeEditSourceEditor, etc.), verify platform compatibility (macOS vs iOS vs Mac Catalyst) BEFORE integration. Check for system API incompatibilities (e.g., system colors that don't exist on the target platform) and test launch immediately after adding the dependency.
+
+## Shell / Dotfiles
+
+- For dotfiles and shell config changes: always check for cached aliases/functions that may conflict with new definitions. After modifying zsh config, test with `zsh -i -c 'command'` to verify no parse errors. Use `mise` for task running (not Make or Just).
+
+## Repository Structure
+
+- This project uses a monorepo with git subtree for vendored packages. When exploring repo structure, be aware of nested repos and vendored dependencies. Refer to the migration docs if they exist.
+
 ## JavaScript
 
 - If you can, avoid using the ternary operator and `&&/||` for control flow in JSX and HTML
