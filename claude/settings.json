@@ -2,17 +2,23 @@
   "permissions": {
     "allow": [
       "Bash(bd:*)",
-      "Bash(gh:*)"
+      "Bash(gh:*)",
+      "Bash(xcodebuild:*)",
+      "Bash(mkdir:*)",
+      "Bash(uv:*)",
+      "Bash(find:*)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "/Users/adam/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "compound-engineering@every-marketplace": true,
     "swift-lsp@claude-plugins-official": true,
     "swiftui-expert@swiftui-expert-skill": true,
-    "swift-concurrency@swift-concurrency-agent-skill": true
+    "swift-concurrency@swift-concurrency-agent-skill": true,
+    "frontend-design@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   }
 }

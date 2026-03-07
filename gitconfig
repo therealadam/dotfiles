@@ -6,27 +6,6 @@
   excludesfile = /Users/adam/.gitignore
   autocrlf = input
 
-[color]
-  branch = auto
-  diff = auto
-  status = auto
-
-[color "branch"]
-  current = yellow reverse
-  local = blue
-  remote = green
-
-[color "diff"]
-  meta = blue bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-
-[color "status"]
-  added = green
-  changed = red
-  untracked = blue
-
 [alias]
   s = status -s
   ci = commit
