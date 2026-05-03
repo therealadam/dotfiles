@@ -1,0 +1,169 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# requires-python = ">=3.13"
+# dependencies = [
+#     "click",
+# ]
+# ///
+"""
+Export Things 3 projects to Markdown files.
+"""
+
+import json
+import re
+import subprocess
+from pathlib import Path
+
+import click
+
+
+EXPORT_FOLDER = Path.cwd()
+
+
+def get_things_data_as_json():
+    applescript = """
+    use framework "Foundation"
+    use scripting additions
+
+    tell application "Things3"
+        set projectsList to {}
+        repeat with aProject in (every project)
+            if area of aProject is not missing value then
+                set areaName to name of area of aProject
+            else
+                set areaName to missing value
+            end if
+
+            set tagsList to tag names of aProject
+
+            set todosList to {}
+            repeat with aTodo in (to dos of aProject)
+                set isCompleted to (status of aTodo is completed)
+                set todoData to {|name|:name of aTodo, |completed|:isCompleted, |notes|:notes of aTodo}
+                set end of todosList to todoData
+            end repeat
+
+            set projectData to {|name|:name of aProject, |notes|:notes of aProject, |id|:id of aProject, |area|:areaName, |tags|:tagsList, |todos|:todosList}
+            set end of projectsList to projectData
+        end repeat
+    end tell
+
+    set jsonData to current application's NSJSONSerialization's dataWithJSONObject:projectsList options:0 |error|:(missing value)
+    set jsonString to (current application's NSString's alloc()'s initWithData:jsonData encoding:(current application's NSUTF8StringEncoding)) as text
+    return jsonString
+    """
+
+    result = subprocess.run(
+        ["osascript", "-l", "AppleScript", "-e", applescript],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+
+    if result.returncode != 0:
+        raise RuntimeError(f"AppleScript failed: {result.stderr}")
+
+    return json.loads(result.stdout.strip())
+
+
+def slugify(name):
+    slug = name.lower()
+    slug = re.sub(r"[^a-z0-9]+", "-", slug)
+    return slug.strip("-")
+
+
+def sanitize_filename(name):
+    sanitized = re.sub(r'[/:\\|<>*?"]', "-", name)
+    return sanitized.strip(". ")
+
+
+def format_project_as_markdown(project):
+    lines = []
+
+    lines.append(f"# {project['name']}\n")
+
+    if project["notes"]:
+        lines.append(f"{project['notes']}\n")
+
+    lines.append("---")
+
+    if project["area"]:
+        lines.append(f"**Area:** {project['area']}")
+
+    if project["tags"]:
+        lines.append(f"**Tags:** {', '.join(project['tags'])}")
+
+    lines.append("---\n")
+
+    if project["todos"]:
+        lines.append("## Tasks\n")
+
+        for todo in project["todos"]:
+            checkbox = "[x]" if todo["completed"] else "[ ]"
+            lines.append(f"- {checkbox} {todo['name']}")
+
+            if todo["notes"]:
+                for note_line in todo["notes"].split("\n"):
+                    lines.append(f"    {note_line}")
+
+            lines.append("")
+
+    return "\n".join(lines)
+
+
+def write_project(project, folder):
+    markdown = format_project_as_markdown(project)
+    filepath = folder / (sanitize_filename(project["name"]) + ".md")
+    filepath.write_text(markdown, encoding="utf-8")
+    return filepath
+
+
+@click.group()
+def cli():
+    """Interact with Things 3 projects from the command line."""
+
+
+@cli.command("list")
+def list_projects():
+    """List all projects with their short identifiers."""
+    projects = get_things_data_as_json()
+    for project in projects:
+        slug = slugify(project["name"])
+        area = f"  [{project['area']}]" if project["area"] else ""
+        click.echo(f"{slug:<40}  {project['name']}{area}")
+
+
+@cli.command("export")
+@click.argument("identifiers", nargs=-1)
+@click.option("-o", "--output-dir", type=click.Path(file_okay=False, path_type=Path), default=EXPORT_FOLDER, show_default=True)
+def export_projects(identifiers, output_dir):
+    """Export projects to Markdown files.
+
+    Exports all projects by default. Pass one or more IDENTIFIERS (from
+    'things_export list') to export specific projects.
+    """
+    if not output_dir.exists():
+        raise click.ClickException(
+            f"Export directory does not exist: {output_dir}\nCreate it first."
+        )
+
+    projects = get_things_data_as_json()
+
+    if identifiers:
+        by_slug = {slugify(p["name"]): p for p in projects}
+        selected = []
+        for ident in identifiers:
+            if ident not in by_slug:
+                raise click.ClickException(f"No project found with identifier: {ident!r}")
+            selected.append(by_slug[ident])
+        for project in selected:
+            path = write_project(project, output_dir)
+            click.echo(f"Exported to {path}")
+    else:
+        for project in projects:
+            write_project(project, output_dir)
+        click.echo(f"Exported {len(projects)} projects to {output_dir}")
+
+
+if __name__ == "__main__":
+    cli()
