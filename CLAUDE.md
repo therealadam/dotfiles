@@ -4,20 +4,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Repository Overview
 
-This is a personal dotfiles repository that manages macOS development environment configuration. The setup is built around RCM (RcM) for dotfile management, Homebrew for package management, and Mise for runtime version management.
+This is a personal dotfiles repository that manages macOS development environment configuration. The setup is built around Mise tasks for dotfile linking, Homebrew for package management, and Mise for runtime version management.
 
 ## Key Architecture Components
 
-### RCM-based Dotfile Management
-- Uses RCM with `rcrc` configuration pointing to both this repo and thoughtbot/dotfiles
-- Dotfiles are symlinked from `~/.dotfiles` and `~/.dotfiles-thoughtbot`
-- `EXCLUDES` in rcrc prevents README and LICENSE files from being linked
+### Mise-based Dotfile Management
+- Dotfiles are symlinked via mise tasks defined in `mise.toml`
+- `dotfiles:link:all` runs all link subtasks
+- `dotfiles:link:base` links shell, git, and tmux configs to `$HOME`
+- `dotfiles:link:tools` links configs under `$HOME/.config/`
+- `dotfiles:link:bin` links all scripts in `bin/` to `$HOME/.local/bin/`
 
-### Multi-layered Configuration System
-- Base configuration from thoughtbot/dotfiles
-- Local overrides in this repository (e.g., `zshrc.local`, `gitconfig.local`)
-- Host-specific configurations in `host-*` directories
-- Secret files sourced conditionally (`.zshrc.host`, `.secrets`)
+### Configuration System
+- Single-layer configuration owned entirely by this repo
+- Secret files sourced conditionally (`.secrets`)
 
 ### Development Environment Stack
 - **Runtime Management**: Mise (`config/mise/config.toml`) manages Go, Node, Ruby, Python, Deno versions
@@ -29,24 +29,22 @@ This is a personal dotfiles repository that manages macOS development environmen
 
 ### Initial Setup/Bootstrap
 ```bash
-# Bootstrap new machine (requires thoughtbot/laptop)
-cd ~/Setup
-git clone https://github.com/thoughtbot/dotfiles dotfiles-thoughtbot
-git clone [this-repo] dotfiles
-env RCRC=$HOME/Setup/dotfiles-thoughtbot/rcrc rcup
-./laptop.local
+# Bootstrap new machine
+git clone [this-repo] ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
 ```
 
 ### Daily Operations
 ```bash
 # Re-link all dotfiles after changes
-rcup
+mise run dotfiles:link:all
 
-# Add new dotfile to RCM management
-mkrc <existing-file>
+# Link only bin scripts (e.g. after adding a new script)
+mise run dotfiles:link:bin
 
 # Install/update Homebrew packages
-brew bundle install --file ~/Setup/dotfiles/Brewfile
+brew bundle install
 
 # Update development runtimes
 mise install
@@ -63,10 +61,8 @@ mise use go@latest node@latest ruby@3 python@latest
 
 ## File Structure Patterns
 
-- **Local overrides**: Files ending in `.local` extend base thoughtbot configurations
-- **Host-specific**: `host-*` directories contain machine-specific configurations
-- **Binary scripts**: `bin/` contains executable utilities with various languages
-- **Configuration**: `config/` holds application-specific configurations (mise, etc.)
+- **Binary scripts**: `bin/` contains executable utilities; all are symlinked to `~/.local/bin/`
+- **Configuration**: `config/` holds application-specific configurations (mise, ghostty, nvim, etc.)
 
 ## Important Environment Variables
 
@@ -77,7 +73,7 @@ mise use go@latest node@latest ruby@3 python@latest
 
 ## Development Workflow Notes
 
-- Changes to dotfiles require `rcup` to re-symlink
+- Changes to dotfiles require `mise run dotfiles:link:all` to re-symlink
+- New scripts added to `bin/` are picked up automatically by `dotfiles:link:bin`
 - Brewfile changes need `brew bundle install` to apply
 - Mise configuration changes auto-apply via shell activation
-- The setup expects `~/Setup` as the working directory for cloned repositories

@@ -1,3 +1,4 @@
 host-*/
 *.host
 Brewfile.lock.json
+__pycache__/
