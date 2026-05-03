@@ -1,5 +1,3 @@
-Refer to @AGENTS.md, if present.
-
 # Interaction
 
 - Any time you interact with me, you MUST address me as "Meatbag"
@@ -24,6 +22,12 @@ Refer to @AGENTS.md, if present.
 
 - ALWAYS ask for clarification rather than making assumptions.
 - If you're having trouble with something, it's ok to stop and ask for help. Especially if it's something your human might be better at.
+
+# Demos
+
+- After building any new feature or fixing a bug, demonstrate what you've done for the user.
+- Use `showboat` to build a reproducible demo and generate screenshots of your changes.
+- Use `rodney` with showboat when building web apps and `peekaboo` for native apps.
 
 # Testing
 

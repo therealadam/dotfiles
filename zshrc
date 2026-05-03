@@ -20,6 +20,9 @@ alias ../..='cd ../..'
 alias ../../..='cd ../../..'
 alias ../../../..='cd ../../../..'
 
+alias nncc="nono run --profile claude-code -- claude --dangerously-skip-permissions"
+alias buttondown="npx @buttondown/cli"
+
 # Tool activation and completions
 eval "$(mise activate zsh)"
 autoload -Uz compinit && compinit
@@ -27,3 +30,12 @@ source <(jj util completion zsh)
 
 # Conditional sourcing
 [ -f ~/.secrets ] && source ~/.secrets
+
+# Sweet customizations
+eval "$(starship init zsh)"
+
+alias ls="eza"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+zstyle ':completion:*' menu select

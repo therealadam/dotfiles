@@ -6,10 +6,51 @@
       "Bash(xcodebuild:*)",
       "Bash(mkdir:*)",
       "Bash(uv:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(ls *)",
+      "Bash(ls)",
+      "Bash(grep *)",
+      "Bash(cat *)",
+      "Bash(lsof *)",
+      "Bash(log *)",
+      "Bash(/usr/bin/log *)",
+      "Bash(git log *)",
+      "Bash(git status *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git diff)",
+      "Bash(git branch *)",
+      "Bash(git branch)",
+      "Bash(git rev-parse *)",
+      "Bash(git show *)",
+      "Bash(jot *)",
+      "Bash(xcodegen *)",
+      "Bash(swift *)",
+      "Bash(bun *)",
+      "Bash(tmux *)",
+      "Bash(crit *)",
+      "Bash(bun init *)",
+      "Bash(git add *)",
+      "Bash(git stash *)",
+      "Bash(python3 -m json.tool)",
+      "Bash(sqlite3 *)",
+      "Bash(bunx biome:*)",
+    ],
+    "defaultMode": "auto"
+  },
+  "hooks": {
+    "PostToolUseFailure": [
+      {
+        "matcher": "Read|Write|Edit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/nono-hook.sh"
+          }
+        ]
+      }
     ]
   },
-  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "/Users/adam/.claude/statusline.sh"
@@ -18,7 +59,39 @@
     "swift-lsp@claude-plugins-official": true,
     "swiftui-expert@swiftui-expert-skill": true,
     "swift-concurrency@swift-concurrency-agent-skill": true,
-    "frontend-design@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
-  }
+    "frontend-design@claude-plugins-official": false,
+    "superpowers@claude-plugins-official": true,
+    "impeccable@impeccable": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "crit@crit": true
+  },
+  "extraKnownMarketplaces": {
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "crit": {
+      "source": {
+        "source": "github",
+        "repo": "tomasz-tomczyk/crit"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "advisorModel": "opus",
+  "editorMode": "vim",
+  "remoteControlAtStartup": false,
+  "agentPushNotifEnabled": false,
+  "voiceEnabled": true
 }
