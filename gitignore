@@ -52,4 +52,4 @@ tmp/**/*
 .vscode/
 
 .worktrees
-
+.playwright-mcp

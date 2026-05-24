@@ -60,7 +60,7 @@
     "swiftui-expert@swiftui-expert-skill": true,
     "swift-concurrency@swift-concurrency-agent-skill": true,
     "frontend-design@claude-plugins-official": false,
-    "superpowers@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": false,
     "impeccable@impeccable": true,
     "code-review@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
@@ -93,5 +93,6 @@
   "editorMode": "vim",
   "remoteControlAtStartup": false,
   "agentPushNotifEnabled": false,
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "skipAutoPermissionPrompt": true
 }

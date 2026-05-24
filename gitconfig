@@ -36,3 +36,5 @@
 
 [rerere]
   enabled = 1
+[init]
+	defaultBranch = main
